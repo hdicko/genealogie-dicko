@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="persons-index">
+  <h1>Toutes les personnes</h1>
+  <p>{{ len hugo.Data.famille.personnes }} personnes dans la base</p>
+
+  <input type="text" id="filter-input" placeholder="Filtrer par nom…" />
+
+  <table class="persons-table" id="persons-table">
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Nom</th>
+        <th>Genre</th>
+        <th>Naissance</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range $gid, $p := hugo.Data.famille.personnes }}
+      {{ if $p.nom }}
+      <tr data-name="{{ lower $p.nom }}">
+        <td class="td-photo">
+          {{ if $p.photo }}
+          <img src="{{ $p.photo }}" alt="{{ $p.nom }}" class="thumb" />
+          {{ else }}
+          <span class="no-photo">{{ if eq $p.genre "male" }}♂{{ else if eq $p.genre "female" }}♀{{ else }}?{{ end }}</span>
+          {{ end }}
+        </td>
+        <td><a href="/personnes/{{ lower $gid }}/">{{ $p.nom }}</a></td>
+        <td>{{ if eq $p.genre "male" }}H{{ else if eq $p.genre "female" }}F{{ else }}—{{ end }}</td>
+        <td>{{ $p.naissance }}</td>
+        <td class="td-id">{{ $gid }}</td>
+      </tr>
+      {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+</div>
+
+<script>
+document.getElementById('filter-input').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  document.querySelectorAll('#persons-table tbody tr').forEach(row => {
+    row.style.display = (!q || row.dataset.name.includes(q)) ? '' : 'none';
+  });
+});
+</script>
+{{ end }}

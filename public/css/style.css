@@ -1,0 +1,359 @@
+/* ============================================================
+   Famille Dicko — Généalogie — CSS
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --primary: #3b5998;
+  --primary-dark: #2d4373;
+  --accent: #e87bae;
+  --bg: #f7f8fc;
+  --bg-card: #fff;
+  --text: #222;
+  --text-muted: #666;
+  --border: #e0e4ef;
+  --radius: 8px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---- Header ---- */
+.site-header {
+  background: var(--primary);
+  color: white;
+  padding: 12px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.site-title {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.site-header nav {
+  display: flex;
+  gap: 16px;
+}
+.site-header nav a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.15s;
+}
+.site-header nav a:hover { color: white; }
+
+/* ---- Main ---- */
+main.container { padding-top: 32px; padding-bottom: 48px; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.15s, transform 0.1s;
+  cursor: pointer;
+  border: none;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--border); color: var(--text); }
+.btn-secondary:hover { background: #d0d5e8; }
+.btn-edit { background: #e8a020; color: #fff; }
+.btn-edit:hover { background: #c8841a; }
+
+/* ---- Home Hero ---- */
+.home-hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.home-hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 8px;
+  color: var(--primary);
+}
+.home-hero .subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0 0 24px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Stats ---- */
+.home-stats {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  min-width: 100px;
+}
+.stat-number { font-size: 2rem; font-weight: 700; color: var(--primary); }
+.stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ---- Search ---- */
+.home-search {
+  max-width: 480px;
+  margin: 32px auto 0;
+}
+.home-search h2 { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 8px; }
+.home-search input,
+#filter-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.home-search input:focus,
+#filter-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59,89,152,0.12);
+}
+#search-results {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+#search-results:empty { display: none; }
+#search-results li { border-bottom: 1px solid var(--border); }
+#search-results li:last-child { border: none; }
+#search-results li a {
+  display: block;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--text);
+}
+#search-results li a:hover { background: #f0f4ff; }
+.no-result { padding: 8px 14px; color: var(--text-muted); font-style: italic; }
+
+/* ---- Person card ---- */
+.person-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  max-width: 720px;
+}
+.person-header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.person-photo img {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.person-photo--placeholder {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+}
+.person-info h1 {
+  margin: 0 0 12px;
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+.person-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 16px;
+  margin: 0;
+}
+.person-details dt {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.person-details dd {
+  margin: 0;
+  color: var(--text);
+}
+.person-section {
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+.person-section h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+.person-section h3 {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 10px 0 6px;
+}
+.person-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.person-list li a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.person-list li a:hover { text-decoration: underline; }
+.person-list--children li {
+  background: var(--bg);
+  border-radius: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+}
+.relation-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+.relation-badge.pere { background: #d0e4ff; color: #1a4a8c; }
+.relation-badge.mere { background: #ffd6e7; color: #8c1a4a; }
+.relation-badge.conjoint { background: #fff0cc; color: #7a5a00; }
+.family-block {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+}
+.conjoint { margin: 0 0 8px; font-weight: 600; }
+.person-actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---- Persons table ---- */
+.persons-index h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 4px; }
+.persons-index p { color: var(--text-muted); margin-bottom: 16px; }
+#filter-input { max-width: 360px; margin-bottom: 16px; }
+.persons-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.persons-table thead {
+  background: var(--primary);
+  color: white;
+}
+.persons-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.persons-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.persons-table tr:last-child td { border-bottom: none; }
+.persons-table tr:hover td { background: #f4f6ff; }
+.persons-table a { color: var(--primary); text-decoration: none; }
+.persons-table a:hover { text-decoration: underline; }
+.td-photo { width: 48px; text-align: center; }
+.td-id { color: var(--text-muted); font-size: 0.8rem; }
+img.thumb {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+.no-photo {
+  display: inline-block;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  line-height: 34px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.6);
+  padding: 16px 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.site-footer p { margin: 0; }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .home-hero h1 { font-size: 1.8rem; }
+  .person-header { flex-direction: column; align-items: center; text-align: center; }
+  .person-photo img, .person-photo--placeholder { width: 80px; height: 80px; }
+  .persons-table th:nth-child(1),
+  .persons-table td:nth-child(1) { display: none; }
+}

@@ -1,0 +1,58 @@
+{{ define "main" }}
+<section class="home-hero">
+  <h1>🌳 Arbre Genealogique Dicko Ardo Hayre</h1>
+  <p class="subtitle">Diona · Boundoucoli · Dalla et Boni · {{ len hugo.Data.famille.personnes }} personnes</p>
+  <div class="hero-actions">
+    <a href="/arbre/" class="btn btn-primary">Voir l'arbre interactif</a>
+    <a href="/personnes/" class="btn btn-secondary">Liste des personnes</a>
+  </div>
+</section>
+
+<section class="home-stats">
+  <div class="stat-card">
+    <div class="stat-number">{{ len hugo.Data.famille.personnes }}</div>
+    <div class="stat-label">Personnes</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">~5</div>
+    <div class="stat-label">Générations</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">103</div>
+    <div class="stat-label">Photos</div>
+  </div>
+</section>
+
+<section class="home-search">
+  <h2>Rechercher une personne</h2>
+  <input type="text" id="search-input" placeholder="Nom, prénom…" autocomplete="off" />
+  <ul id="search-results"></ul>
+</section>
+
+<script>
+const persons = {{ hugo.Data.famille.personnes | jsonify | safeJS }};
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+input.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  results.innerHTML = '';
+  if (q.length < 2) return;
+  const matches = Object.entries(persons)
+    .filter(([id, p]) => p.nom && p.nom.toLowerCase().includes(q))
+    .slice(0, 10);
+  matches.forEach(([id, p]) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/personnes/' + id.toLowerCase() + '/';
+    a.textContent = p.nom + (p.naissance ? ' (' + p.naissance + ')' : '');
+    li.appendChild(a);
+    results.appendChild(li);
+  });
+  if (matches.length === 0) {
+    results.innerHTML = '<li class="no-result">Aucun résultat</li>';
+  }
+});
+</script>
+{{ end }}

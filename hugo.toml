@@ -1,0 +1,8 @@
+baseURL = '/'
+languageCode = 'fr-FR'
+title = 'Arbre Genealogique Dicko Ardo Hayre'
+enableRobotsTXT = true
+
+[params]
+  description = "Arbre genealogique Dicko Ardo Hayre : Diona - Boundoucoli - Dalla et Boni"
+  rootPerson = "I1"

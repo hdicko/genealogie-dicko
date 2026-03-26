@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arbre généalogique — {{ .Site.Title }}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #1a1a2e; font-family: sans-serif; overflow: hidden; }
+    svg { width: 100vw; height: 100vh; display: block; }
+
+    .node circle  { cursor: pointer; stroke-width: 2; }
+    .node.male    circle { fill: #4a90d9; stroke: #2c6fad; }
+    .node.female  circle { fill: #e87bae; stroke: #c4507a; }
+    .node.unknown circle { fill: #888;    stroke: #666; }
+    .node.focused circle { stroke: #f5c518 !important; stroke-width: 4 !important; }
+    .node-label { pointer-events: none; font-size: 11px; fill: #dde; }
+    .link { fill: none; stroke: #5566aa; stroke-width: 1.5; opacity: 0.6; }
+
+    /* ---- controls ---- */
+    #controls {
+      position: fixed; top: 12px; left: 12px; z-index: 10;
+      background: rgba(255,255,255,.96); border-radius: 8px;
+      padding: 9px 12px; box-shadow: 0 2px 14px rgba(0,0,0,.35);
+      display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+      max-width: 520px;
+    }
+    .search-wrap { position: relative; }
+    #search-input {
+      padding: 5px 9px; width: 185px; border: 1px solid #ccc;
+      border-radius: 5px; font-size: 13px; outline: none;
+    }
+    #search-input:focus { border-color: #3b5998; }
+    #suggestions {
+      display: none; position: absolute; top: 31px; left: 0;
+      background: #fff; border: 1px solid #ccc; border-radius: 5px;
+      list-style: none; margin: 0; padding: 3px 0;
+      min-width: 220px; max-height: 200px; overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,.18); z-index: 20;
+    }
+    #suggestions li { padding: 6px 12px; cursor: pointer; font-size: 13px; }
+    #suggestions li:hover { background: #eef2ff; }
+    .ctrl-btn {
+      padding: 5px 9px; font-size: 12px; cursor: pointer;
+      background: #3b5998; color: #fff; border: none; border-radius: 5px;
+    }
+    .ctrl-btn:hover { background: #2d4373; }
+    #depth-wrap { display:flex; align-items:center; gap:4px; font-size:12px; color:#444; }
+    #depth-input { width: 38px; padding: 4px 5px; border: 1px solid #ccc; border-radius: 4px; font-size:13px; }
+
+    /* ---- info panel ---- */
+    #info {
+      display: none; position: fixed; bottom: 0; right: 0;
+      background: rgba(255,255,255,.97); border-radius: 8px 0 0 0;
+      padding: 14px 18px; min-width: 260px; max-width: 330px;
+      box-shadow: -2px -2px 12px rgba(0,0,0,.2); z-index: 10;
+    }
+    #info h3 { margin: 0 0 6px; font-size: 1rem; color: #222; }
+    #info p  { margin: 3px 0; font-size: 0.82rem; color: #555; }
+    #info a  { color: #3b5998; font-weight: 600; font-size: 0.9rem; }
+    .info-close { float: right; background: none; border: none; font-size: 16px; cursor: pointer; color: #666; }
+    .info-actions { display:flex; gap:8px; margin-top:10px; }
+    .info-actions a, .info-actions button {
+      flex:1; text-align:center; padding:6px; font-size:12px; font-weight:600;
+      border-radius:5px; text-decoration:none; cursor:pointer; border:none;
+    }
+    #btn-edit-node { background:#e8a020; color:#fff; }
+    #btn-edit-node:hover { background:#c8841a; }
+    #btn-goto-page { background:#3b5998; color:#fff; }
+
+    /* ---- edit modal ---- */
+    #modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.55); z-index: 100;
+      align-items: center; justify-content: center;
+    }
+    #modal-overlay.open { display: flex; }
+    #modal {
+      background: #fff; border-radius: 10px; padding: 24px 28px;
+      min-width: 320px; max-width: 420px; width: 90%;
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+    }
+    #modal h2 { margin: 0 0 18px; font-size: 1.1rem; color: #222; }
+    .field-group { margin-bottom: 14px; }
+    .field-group label { display:block; font-size:12px; font-weight:600;
+      color:#555; margin-bottom:4px; text-transform:uppercase; letter-spacing:.04em; }
+    .field-group input, .field-group select {
+      width:100%; padding:7px 10px; border:1px solid #ccc; border-radius:5px;
+      font-size:14px; outline:none;
+    }
+    .field-group input:focus { border-color:#3b5998; box-shadow:0 0 0 2px rgba(59,89,152,.15); }
+
+    /* Photo upload zone */
+    .photo-zone { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .photo-preview {
+      position:relative; width:64px; height:64px; border-radius:50%; object-fit:cover;
+      border:2px solid #ddd; background:#f0f0f0; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:26px; color:#aaa;
+    }
+    .photo-preview img { width:64px; height:64px; border-radius:50%; object-fit:cover; }
+    .photo-delete-btn {
+      position:absolute; top:-4px; right:-4px;
+      width:20px; height:20px; border-radius:50%; border:none;
+      background:#e53935; color:#fff; font-size:12px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; padding:0;
+      line-height:1; box-shadow:0 1px 4px rgba(0,0,0,.3);
+    }
+    .photo-delete-btn:hover { background:#b71c1c; }
+    .photo-upload-btn {
+      flex:1; padding:7px 10px; font-size:12px; font-weight:600; cursor:pointer;
+      background:#f5f5f5; border:1.5px dashed #bbb; border-radius:6px;
+      text-align:center; color:#555; transition:background .15s; display:block;
+    }
+    .photo-upload-btn:hover { background:#e8eeff; border-color:#3b5998; color:#3b5998; }
+    #photo-filename { font-size:11px; color:#888; margin-top:3px; }
+    .modal-actions { display:flex; gap:10px; margin-top:20px; }
+    .modal-actions button { flex:1; padding:9px; font-size:14px; font-weight:600;
+      border:none; border-radius:6px; cursor:pointer; }
+    #btn-save  { background:#2e7d32; color:#fff; }
+    #btn-save:hover { background:#1b5e20; }
+    #btn-cancel { background:#eee; color:#333; }
+    #btn-cancel:hover { background:#ddd; }
+    #save-status { font-size:12px; color:#666; text-align:center; min-height:18px; margin-top:8px; }
+
+    /* ---- node styles ---- */
+    .node circle              { stroke: rgba(255,255,255,.4); stroke-width: 2; }
+    .node.male   circle       { fill: #4a90d9; }
+    .node.female circle       { fill: #e87bae; }
+    .node.unknown circle      { fill: #888; }
+    .node.focused circle      { stroke: #fff; stroke-width: 3; }
+    /* Épouse / mère en polygamie : cercle blanc avec bordure rose tiretée */
+    .node.conjoint-node circle {
+      fill: #fff3f8; stroke: #c9527a; stroke-width: 2.5; stroke-dasharray: 5,3;
+    }
+    .node.conjoint-node .node-label { fill: #c9527a; font-style: italic; }
+    #legend {
+      position: fixed; bottom: 12px; left: 12px;
+      background: rgba(255,255,255,.86); border-radius: 6px;
+      padding: 7px 12px; font-size: 12px; color: #333; z-index: 10;
+    }
+    .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:3px; vertical-align:middle; }
+    #hint { position:fixed; bottom:12px; right:12px; color:rgba(255,255,255,.4); font-size:11px; z-index:10; }
+    #node-count { position:fixed; top:58px; left:12px; color:rgba(255,255,255,.4); font-size:11px; z-index:10; }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <div class="search-wrap">
+    <input id="search-input" type="text" placeholder="Chercher une personne…" autocomplete="off"/>
+    <ul id="suggestions"></ul>
+  </div>
+  <button class="ctrl-btn" id="btn-root">🏠 Racine</button>
+  <button class="ctrl-btn" id="btn-back" disabled>← Retour</button>
+  <button class="ctrl-btn" id="btn-fit">⤢ Tout afficher</button>
+  <button class="ctrl-btn" id="btn-mode">👴 Ancêtres</button>
+  <button class="ctrl-btn" id="btn-zi">＋</button>
+  <button class="ctrl-btn" id="btn-zo">－</button>
+  <button class="ctrl-btn" id="btn-pdf" title="Imprimer / Exporter en PDF">🖨️ PDF</button>
+  <div id="depth-wrap">Niveaux :
+    <input id="depth-input" type="number" value="2" min="1" max="10"/>
+  </div>
+</div>
+
+<div id="legend">
+  <span><i class="dot" style="background:#4a90d9"></i>Homme</span>
+  <span style="margin-left:6px"><i class="dot" style="background:#e87bae"></i>Femme</span>
+  <span style="margin-left:6px"><i class="dot" style="background:#888"></i>Inconnu</span>
+  <span style="margin-left:6px"><i class="dot" style="border:2px dashed #c9527a;background:#fff3f8;box-sizing:border-box;"></i>Épouse/mère</span>
+</div>
+<div id="hint">Clic : infos · Double-clic : recentrer · ✏️ pour modifier</div>
+<div id="node-count"></div>
+
+<!-- info panel -->
+<div id="info">
+  <button class="info-close" onclick="document.getElementById('info').style.display='none'">✕</button>
+  <h3 id="i-nom"></h3>
+  <p  id="i-genre"></p>
+  <p  id="i-birth"></p>
+  <p  id="i-death"></p>
+  <p  id="i-ville"></p>
+  <p  id="i-parents"></p>
+  <p  id="i-spouses"></p>
+  <button id="btn-goto-parent" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#5c7a9e;color:#fff;border:none;border-radius:5px;cursor:pointer;">⬆ Voir le père / la mère</button>
+  <div class="info-actions">
+    <button id="btn-edit-node">✏️ Modifier</button>
+    <a id="btn-goto-page" href="#">📄 Fiche</a>
+  </div>
+</div>
+
+<!-- edit modal -->
+<div id="modal-overlay">
+  <div id="modal">
+    <h2>✏️ Modifier la personne</h2>
+    <input type="hidden" id="edit-id"/>
+
+    <!-- Photo -->
+    <div class="photo-zone">
+      <div class="photo-preview" id="photo-preview-wrap">
+        <span id="photo-placeholder">👤</span>
+        <img id="photo-preview-img" src="" alt="" style="display:none;"/>
+        <button class="photo-delete-btn" id="photo-delete-btn" style="display:none;" title="Supprimer la photo">✕</button>
+      </div>
+      <div style="flex:1;">
+        <label for="photo-file-input" class="photo-upload-btn" id="photo-upload-label">
+          📷 <span id="photo-upload-text">Ajouter une photo…</span>
+        </label>
+        <input type="file" id="photo-file-input" accept="image/*" style="display:none;"/>
+        <div id="photo-filename"></div>
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Nom</label>
+      <input type="text" id="edit-nom" placeholder="Nom complet"/>
+    </div>
+    <div class="field-group">
+      <label>Genre</label>
+      <select id="edit-genre">
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+        <option value="unknown">Inconnu</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Date de naissance</label>
+      <input type="text" id="edit-naissance" placeholder="ex: 1940, 15 jan 1952…"/>
+    </div>
+    <div class="field-group">
+      <label>Date de décès</label>
+      <input type="text" id="edit-deces" placeholder="ex: 2010…"/>
+    </div>
+    <div class="field-group">
+      <label>Ville / Village</label>
+      <input type="text" id="edit-ville" placeholder="ex: Bamako, Mopti…"/>
+    </div>
+    <div class="field-group">
+      <label>Commentaires</label>
+      <textarea id="edit-commentaires" rows="3" style="width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:5px;font-size:13px;resize:vertical;"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button id="btn-cancel">Annuler</button>
+      <button id="btn-save">💾 Enregistrer</button>
+    </div>
+    <div id="save-status"></div>
+  </div>
+</div>
+
+<svg id="tree-svg">
+  <defs id="svg-defs"></defs>
+  <g id="g-root"></g>
+</svg>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const DATA = {{ hugo.Data.famille.personnes | jsonify | safeJS }};
+const API  = 'http://localhost:1315';
+
+const R=16, DX=44, DY=210;
+let rootId='I1', focusId=null;
+let currentInfoData = null;
+let mode = 'desc'; // 'desc' = descendants, 'anc' = ancestors
+let history = []; // navigation history stack
+
+function navigate(id) {
+  if (rootId !== id) history.push(rootId);
+  document.getElementById('btn-back').disabled = history.length === 0;
+  rootId = id; focusId = id;
+  render(rootId, +document.getElementById('depth-input').value);
+}
+
+function goBack() {
+  if (!history.length) return;
+  rootId = history.pop();
+  focusId = null;
+  document.getElementById('btn-back').disabled = history.length === 0;
+  render(rootId, +document.getElementById('depth-input').value);
+}
+
+const urlP = new URLSearchParams(location.search);
+if (urlP.get('focus')) { focusId=urlP.get('focus'); rootId=focusId; }
+
+/* ── hierarchy builder ─────────────────────────────────────── */
+function buildHier(id, depth) {
+  const vis = new Set();
+  function walk(gid, d) {
+    if (!gid || vis.has(gid)) return null;
+    vis.add(gid);
+    const p = DATA[gid];
+    if (!p) return null;
+    const kids = [];
+    if (d > 0) {
+      for (const fam of (p.familles||[])) {
+        // Collect children of this family
+        const famKids = [];
+        for (const e of (fam.enfants||[]))
+          if (e.id) { const c=walk(e.id,d-1); if(c) famKids.push(c); }
+        if (!famKids.length) continue;
+
+        // Insert the wife as an intermediate node if she exists in DATA
+        const cjId = fam.conjoint_id;
+        if (cjId && DATA[cjId] && !vis.has(cjId)) {
+          vis.add(cjId);
+          const wp = DATA[cjId];
+          kids.push({
+            id: cjId, nom: wp.nom||fam.conjoint||cjId,
+            genre: wp.genre||'female', type: 'conjoint',
+            photo: wp.photo||null, naissance: wp.naissance||'',
+            deces: wp.deces||'', parents: wp.parents||[],
+            children: famKids,
+          });
+        } else {
+          // No wife data — add children directly under father
+          kids.push(...famKids);
+        }
+      }
+    }
+    return { id:gid, nom:p.nom||gid, genre:p.genre||'unknown', type:'person',
+             photo:p.photo||null, naissance:p.naissance||'',
+             deces:p.deces||'', parents:p.parents||[],
+             children: kids.length ? kids : null };
+  }
+  return walk(id, depth);
+}
+
+function buildAncestors(id, depth) {
+  const vis = new Set();
+  function walk(gid, d) {
+    if (!gid || vis.has(gid)) return null;
+    vis.add(gid);
+    const p = DATA[gid];
+    if (!p) return null;
+    const pars = [];
+    if (d > 0)
+      for (const par of (p.parents||[]))
+        if (par.id) { const c=walk(par.id, d-1); if(c) pars.push(c); }
+    return { id:gid, nom:p.nom||gid, genre:p.genre||'unknown',
+             photo:p.photo||null, naissance:p.naissance||'',
+             deces:p.deces||'', parents:p.parents||[],
+             children: pars.length ? pars : null };
+  }
+  return walk(id, depth);
+}
+
+/* ── D3 setup ──────────────────────────────────────────────── */
+const svg    = d3.select('#tree-svg');
+const gRoot  = d3.select('#g-root');
+const defs   = d3.select('#svg-defs');
+const layout = d3.tree().nodeSize([DX,DY]);
+
+const zoomer = d3.zoom().scaleExtent([0.03,6])
+  .on('zoom', e => gRoot.attr('transform', e.transform));
+svg.call(zoomer).on('dblclick.zoom', null);
+
+/* ── render ────────────────────────────────────────────────── */
+function render(startId, depth) {
+  gRoot.selectAll('*').remove();
+  defs.selectAll('clipPath').remove();
+
+  const data = mode === 'anc' ? buildAncestors(startId, depth) : buildHier(startId, depth);
+  if (!data) return;
+  const hier = d3.hierarchy(data);
+  layout(hier);
+
+  const nodes = hier.descendants();
+  document.getElementById('node-count').textContent = nodes.length + ' nœuds affichés';
+
+  gRoot.selectAll('.link')
+    .data(hier.links()).join('path').attr('class','link')
+    .attr('d', d3.linkHorizontal().x(d=>d.y).y(d=>d.x));
+
+  const node = gRoot.selectAll('.node')
+    .data(nodes).join('g')
+    .attr('class', d => [
+      'node', d.data.genre,
+      d.data.type === 'conjoint' ? 'conjoint-node' : '',
+      d.data.id === focusId ? 'focused' : ''
+    ].filter(Boolean).join(' '))
+    .attr('transform', d => `translate(${d.y},${d.x})`)
+    .on('click', (ev,d) => { ev.stopPropagation(); showInfo(d.data); })
+    .on('dblclick', (ev,d) => {
+      ev.stopPropagation();
+      focusId=null;
+      navigate(d.data.id);
+    });
+
+  node.append('circle').attr('r', R);
+
+  node.each(function(d) {
+    const n = d3.select(this);
+    if (d.data.photo && d.data.type !== 'conjoint') {
+      const cid = 'cp'+d.data.id.replace(/\W/g,'_');
+      defs.append('clipPath').attr('id',cid).append('circle').attr('r',R-1);
+      n.append('image')
+        .attr('href',d.data.photo).attr('x',-(R-1)).attr('y',-(R-1))
+        .attr('width',(R-1)*2).attr('height',(R-1)*2)
+        .attr('clip-path',`url(#${cid})`);
+    } else {
+      const symbol = d.data.type === 'conjoint' ? '💍'
+                   : d.data.genre === 'male'   ? '♂'
+                   : d.data.genre === 'female' ? '♀' : '?';
+      const color  = d.data.type === 'conjoint' ? '#c9527a' : 'white';
+      n.append('text').attr('text-anchor','middle').attr('dy','0.35em')
+       .attr('font-size', d.data.type === 'conjoint' ? '11' : '13')
+       .attr('fill', color).attr('pointer-events','none')
+       .text(symbol);
+    }
+  });
+
+  node.append('text').attr('class','node-label')
+    .attr('x',R+5).attr('dy','0.31em').text(d=>shortName(d.data.nom));
+
+  const W=window.innerWidth, H=window.innerHeight;
+  const r=hier.descendants()[0];
+  svg.call(zoomer.transform, d3.zoomIdentity.translate(60, H/2-r.x).scale(1));
+}
+
+function fitAll() {
+  const d = mode === 'anc'
+    ? buildAncestors(rootId, +document.getElementById('depth-input').value)
+    : buildHier(rootId, +document.getElementById('depth-input').value);
+  if(!d) return;
+  const h=d3.hierarchy(d); layout(h);
+  const ns=h.descendants();
+  const xs=ns.map(n=>n.y), ys=ns.map(n=>n.x);
+  const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  const W=window.innerWidth,H=window.innerHeight,pad=70;
+  const sc=Math.min((W-pad*2)/(x1-x0+DY+130),(H-pad*2)/(y1-y0+DX));
+  svg.transition().duration(500)
+    .call(zoomer.transform,d3.zoomIdentity
+      .translate(pad-x0*sc,(H-(y0+y1)*sc)/2).scale(sc));
+}
+
+function shortName(n) {
+  if(!n) return '';
+  const p=n.split(' ');
+  return p.length<=3?n:p.slice(0,3).join(' ');
+}
+
+/* ── info panel ────────────────────────────────────────────── */
+function spouseText(d) {
+  const full = DATA[d.id] || {};
+  const fams = full.familles || [];
+  const conjoints = fams.map(f => f.conjoint).filter(Boolean);
+  if (!conjoints.length) return '';
+  if (d.genre === 'female') return '💍 ' + conjoints[0];
+  const label = conjoints.length > 1 ? `💍 Épouses (${conjoints.length})` : '💍 Épouse';
+  return label + ' : ' + conjoints.join(', ');
+}
+
+function showInfo(d) {
+  currentInfoData = d;
+  document.getElementById('i-nom').textContent   = d.nom||'—';
+  document.getElementById('i-genre').textContent =
+    d.genre==='male'?'♂ Homme':d.genre==='female'?'♀ Femme':'';
+  document.getElementById('i-birth').textContent = d.naissance?'🎂 '+d.naissance:'';
+  document.getElementById('i-death').textContent = d.deces?'✝ '+d.deces:'';
+  const full = DATA[d.id] || {};
+  document.getElementById('i-ville').textContent = full.ville ? '📍 '+full.ville : '';
+
+  // Parents — cliquables pour naviguer vers le haut
+  const pEl = document.getElementById('i-parents');
+  pEl.innerHTML = '';
+  const pars = (d.parents||[]).filter(p=>p.nom);
+  if (pars.length) {
+    pEl.appendChild(document.createTextNode('👪 '));
+    pars.forEach((p, i) => {
+      if (i) pEl.appendChild(document.createTextNode(', '));
+      if (p.id && DATA[p.id]) {
+        const a = document.createElement('button');
+        a.textContent = p.nom;
+        a.title = 'Naviguer vers ' + p.nom;
+        a.style.cssText = 'background:none;border:none;color:#4a9;text-decoration:underline;cursor:pointer;font-size:inherit;padding:0;';
+        a.onclick = () => navigate(p.id);
+        pEl.appendChild(a);
+      } else {
+        pEl.appendChild(document.createTextNode(p.nom));
+      }
+    });
+  }
+
+  document.getElementById('i-spouses').textContent = spouseText(d);
+
+  // Bouton "Voir le parent"
+  const btnPar = document.getElementById('btn-goto-parent');
+  const firstParWithId = (d.parents||[]).find(p=>p.id && DATA[p.id]);
+  if (firstParWithId) {
+    btnPar.style.display = 'block';
+    btnPar.onclick = () => navigate(firstParWithId.id);
+    btnPar.textContent = '⬆ Remonter vers ' + firstParWithId.nom;
+  } else {
+    btnPar.style.display = 'none';
+  }
+
+  document.getElementById('btn-goto-page').href = `/personnes/${d.id.toLowerCase()}/`;
+  document.getElementById('info').style.display = 'block';
+}
+
+/* ── edit modal ────────────────────────────────────────────── */
+document.getElementById('btn-edit-node').onclick = () => {
+  if (!currentInfoData) return;
+  openModal(currentInfoData);
+};
+
+function openModal(d) {
+  document.getElementById('edit-id').value              = d.id;
+  document.getElementById('edit-nom').value             = d.nom||'';
+  document.getElementById('edit-genre').value           = d.genre||'unknown';
+  document.getElementById('edit-naissance').value       = d.naissance||'';
+  document.getElementById('edit-deces').value           = d.deces||'';
+  const full = DATA[d.id] || {};
+  document.getElementById('edit-ville').value           = full.ville||'';
+  document.getElementById('edit-commentaires').value    = full.commentaires||'';
+  document.getElementById('save-status').textContent    = '';
+
+  // Photo preview
+  const photo = d.photo || full.photo || null;
+  const img   = document.getElementById('photo-preview-img');
+  const ph    = document.getElementById('photo-placeholder');
+  const delBtn = document.getElementById('photo-delete-btn');
+  const uploadTxt = document.getElementById('photo-upload-text');
+  if (photo) {
+    img.src = photo; img.style.display = 'block'; ph.style.display = 'none';
+    delBtn.style.display = 'flex'; uploadTxt.textContent = 'Changer la photo…';
+  } else {
+    img.src = ''; img.style.display = 'none'; ph.style.display = 'block';
+    delBtn.style.display = 'none'; uploadTxt.textContent = 'Ajouter une photo…';
+  }
+  document.getElementById('photo-file-input').value = '';
+  document.getElementById('photo-filename').textContent = '';
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('edit-nom').focus();
+}
+
+document.getElementById('btn-cancel').onclick = closeModal;
+document.getElementById('modal-overlay').onclick = (e) => {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+};
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+
+// Photo file preview
+document.getElementById('photo-file-input').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  document.getElementById('photo-filename').textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById('photo-preview-img');
+    const ph  = document.getElementById('photo-placeholder');
+    const delBtn = document.getElementById('photo-delete-btn');
+    const uploadTxt = document.getElementById('photo-upload-text');
+    img.src = e.target.result; img.style.display = 'block'; ph.style.display = 'none';
+    delBtn.style.display = 'flex'; uploadTxt.textContent = 'Changer la photo…';
+  };
+  reader.readAsDataURL(file);
+});
+
+// Supprimer la photo
+document.getElementById('photo-delete-btn').addEventListener('click', async (e) => {
+  e.preventDefault(); e.stopPropagation();
+  const gid = document.getElementById('edit-id').value;
+  if (!gid) return;
+  if (!confirm('Supprimer la photo de cette personne ?')) return;
+  try {
+    const res = await fetch(`${API}/api/photo/${gid}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    // Clear preview
+    const img = document.getElementById('photo-preview-img');
+    const ph  = document.getElementById('photo-placeholder');
+    img.src = ''; img.style.display = 'none'; ph.style.display = 'block';
+    document.getElementById('photo-delete-btn').style.display = 'none';
+    document.getElementById('photo-upload-text').textContent = 'Ajouter une photo…';
+    document.getElementById('photo-file-input').value = '';
+    document.getElementById('photo-filename').textContent = '';
+    if (DATA[gid]) DATA[gid].photo = null;
+    if (currentInfoData && currentInfoData.id === gid) currentInfoData.photo = null;
+  } catch(err) {
+    alert('Erreur suppression photo : ' + err.message);
+  }
+});
+
+document.getElementById('btn-save').onclick = async () => {
+  const gid          = document.getElementById('edit-id').value;
+  const nom          = document.getElementById('edit-nom').value.trim();
+  const genre        = document.getElementById('edit-genre').value;
+  const naissance    = document.getElementById('edit-naissance').value.trim();
+  const deces        = document.getElementById('edit-deces').value.trim();
+  const ville        = document.getElementById('edit-ville').value.trim();
+  const commentaires = document.getElementById('edit-commentaires').value.trim();
+  const photoFile    = document.getElementById('photo-file-input').files[0];
+
+  const status = document.getElementById('save-status');
+  const btn    = document.getElementById('btn-save');
+
+  if (!nom) { status.textContent = '⚠️ Le nom ne peut pas être vide.'; return; }
+
+  btn.disabled = true;
+  status.textContent = '⏳ Enregistrement…';
+
+  try {
+    // 1. Upload photo if a new file was selected
+    let newPhotoUrl = null;
+    if (photoFile) {
+      status.textContent = '📷 Upload de la photo…';
+      const fd = new FormData();
+      fd.append('photo', photoFile);
+      const pr = await fetch(`${API}/api/photo/${gid}`, { method: 'POST', body: fd });
+      if (!pr.ok) throw new Error(`Photo upload HTTP ${pr.status}`);
+      const pj = await pr.json();
+      newPhotoUrl = pj.photo;
+    }
+
+    // 2. PATCH person data
+    const res = await fetch(`${API}/api/person/${gid}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nom, genre, naissance, deces, ville, commentaires }),
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const updated = await res.json();
+
+    // Update local DATA cache
+    if (DATA[gid]) {
+      const oldNom = DATA[gid].nom;
+      DATA[gid].nom          = updated.nom;
+      DATA[gid].genre        = updated.genre;
+      DATA[gid].naissance    = updated.naissance;
+      DATA[gid].deces        = updated.deces;
+      DATA[gid].ville        = updated.ville;
+      DATA[gid].commentaires = updated.commentaires;
+      if (newPhotoUrl) DATA[gid].photo = newPhotoUrl;
+
+      if (oldNom !== updated.nom) {
+        for (const [pid, p] of Object.entries(DATA)) {
+          if (pid === gid) continue;
+          for (const par of (p.parents||[])) {
+            if (par.id === gid) par.nom = updated.nom;
+          }
+          for (const fam of (p.familles||[])) {
+            if (fam.conjoint_id === gid) fam.conjoint = updated.nom;
+            for (const e of (fam.enfants||[])) {
+              if (e.id === gid) e.nom = updated.nom;
+            }
+          }
+        }
+      }
+    }
+
+    if (currentInfoData && currentInfoData.id === gid) {
+      currentInfoData = { ...currentInfoData, ...updated };
+      if (newPhotoUrl) currentInfoData.photo = newPhotoUrl;
+      showInfo(currentInfoData);
+    }
+
+    status.textContent = '✅ Enregistré !';
+    status.style.color = '#2e7d32';
+
+    setTimeout(() => {
+      closeModal();
+      render(rootId, +document.getElementById('depth-input').value);
+      status.style.color = '';
+    }, 800);
+
+  } catch (err) {
+    status.textContent = '❌ Erreur : ' + (err.message.includes('fetch')
+      ? 'API indisponible. Lance python3 scripts/api_server.py'
+      : err.message);
+    status.style.color = '#c62828';
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+/* Keyboard: Escape ferme modal */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeModal();
+    document.getElementById('info').style.display = 'none';
+  }
+});
+
+/* ── print / PDF ───────────────────────────────────────────── */
+function printTree() {
+  const depth = +document.getElementById('depth-input').value;
+  const d = mode === 'anc' ? buildAncestors(rootId, depth) : buildHier(rootId, depth);
+  if (!d) return;
+
+  // Compute bounding box of all nodes in current layout
+  const h = d3.hierarchy(d); layout(h);
+  const ns = h.descendants();
+  const xs = ns.map(n => n.y), ys = ns.map(n => n.x);
+  const x0 = Math.min(...xs) - DY * 0.4;
+  const x1 = Math.max(...xs) + DY * 0.5 + 130; // extra for labels
+  const y0 = Math.min(...ys) - DX * 1.2;
+  const y1 = Math.max(...ys) + DX * 1.2;
+  const vbW = x1 - x0, vbH = y1 - y0;
+
+  // Clone the rendered SVG (already drawn by D3)
+  const svgEl = document.getElementById('tree-svg');
+  const clone = svgEl.cloneNode(true);
+
+  // Reset transform on g-root so it aligns with our viewBox
+  const gClone = clone.querySelector('#g-root');
+  gClone.setAttribute('transform', `translate(${-x0}, ${-y0})`);
+  clone.setAttribute('viewBox', `0 0 ${vbW} ${vbH}`);
+  clone.setAttribute('width', '100%');
+  clone.removeAttribute('style');
+  // Remove zoom event listeners by replacing with clean copy (already done via cloneNode)
+
+  const personNom  = (DATA[rootId] && DATA[rootId].nom) ? DATA[rootId].nom : rootId;
+  const modeLabel  = mode === 'anc' ? 'Ancêtres' : 'Descendants';
+  const title      = `${personNom} — ${modeLabel}`;
+  const dateStr    = new Date().toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' });
+
+  const nodeCss = `
+    .node circle { stroke-width: 2; }
+    .node.male   circle { fill: #4a90d9; stroke: #2c6fad; }
+    .node.female circle { fill: #e87bae; stroke: #c4507a; }
+    .node.unknown circle { fill: #888; stroke: #666; }
+    .node.focused circle { stroke: #f5c518; stroke-width: 4; }
+    .node.conjoint-node circle {
+      fill: #fff3f8; stroke: #c9527a; stroke-width: 2.5; stroke-dasharray: 5,3;
+    }
+    .node.conjoint-node .node-label { fill: #c9527a; font-style: italic; }
+    .node-label { pointer-events: none; font-size: 11px; fill: #222; }
+    .link { fill: none; stroke: #5566aa; stroke-width: 1.5; opacity: 0.7; }
+  `;
+
+  const html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Arbre — ${title}</title>
+  <style>
+    @page { size: A3 landscape; margin: 10mm 12mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; font-family: Arial, sans-serif; }
+    .print-header { padding: 0 0 5mm; border-bottom: 1px solid #ddd; margin-bottom: 4mm; }
+    .print-header h1 { margin: 0; font-size: 14pt; color: #1a1a2e; }
+    .print-header .sub { font-size: 9pt; color: #666; margin-top: 1mm; }
+    .tree-wrap { width: 100%; }
+    svg { width: 100%; height: auto; display: block; }
+    ${nodeCss}
+    .legend { margin-top: 5mm; display: flex; gap: 12px; font-size: 8pt; color: #444; align-items: center; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+           margin-right: 3px; vertical-align: middle; }
+    .footer { margin-top: 4mm; font-size: 7pt; color: #aaa;
+              text-align: right; border-top: 1px solid #eee; padding-top: 2mm; }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-header">
+    <h1>🌳 Arbre généalogique — ${title}</h1>
+    <div class="sub">Arbre Genealogique Dicko Ardo Hayre &nbsp;·&nbsp; ${dateStr} &nbsp;·&nbsp; ${ns.length} personnes affichées (${depth} niveaux)</div>
+  </div>
+  <div class="tree-wrap">${clone.outerHTML}</div>
+  <div class="legend">
+    <span><i class="dot" style="background:#4a90d9"></i>Homme</span>
+    <span><i class="dot" style="background:#e87bae"></i>Femme</span>
+    <span><i class="dot" style="background:#888"></i>Inconnu</span>
+    <span><i class="dot" style="border:2px dashed #c9527a;background:#fff3f8;"></i>Épouse / mère</span>
+  </div>
+  <div class="footer">Généré le ${dateStr} · Arbre Genealogique Dicko Ardo Hayre · Diona - Boundoucoli - Dalla et Boni</div>
+  <script>window.onload = function() { window.focus(); window.print(); };<\/script>
+</body>
+</html>`;
+
+  const win = window.open('', '_blank');
+  if (!win) { alert('Autorisez les pop-ups pour imprimer le PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+}
+
+/* ── controls ──────────────────────────────────────────────── */
+document.getElementById('btn-root').onclick = () => {
+  history = [];
+  document.getElementById('btn-back').disabled = true;
+  rootId='I1'; focusId=null;
+  render(rootId, +document.getElementById('depth-input').value);
+};
+document.getElementById('btn-back').onclick = goBack;
+document.getElementById('btn-fit').onclick  = fitAll;
+document.getElementById('btn-zi').onclick   = () => svg.transition().call(zoomer.scaleBy,1.4);
+document.getElementById('btn-zo').onclick   = () => svg.transition().call(zoomer.scaleBy,0.7);
+document.getElementById('btn-pdf').onclick  = printTree;
+document.getElementById('btn-mode').onclick = function() {
+  mode = mode === 'desc' ? 'anc' : 'desc';
+  this.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
+  this.style.background = mode === 'anc' ? '#5c7a9e' : '';
+  render(rootId, +document.getElementById('depth-input').value);
+};
+document.getElementById('depth-input').onchange = function() {
+  render(rootId, +this.value);
+};
+
+/* ── search ────────────────────────────────────────────────── */
+const si=document.getElementById('search-input');
+const sl=document.getElementById('suggestions');
+si.addEventListener('input', function() {
+  const q=this.value.trim().toLowerCase();
+  sl.innerHTML=''; sl.style.display='none';
+  if(q.length<2) return;
+  const hits=Object.entries(DATA)
+    .filter(([,p])=>p.nom&&p.nom.toLowerCase().includes(q)).slice(0,8);
+  if(!hits.length) return;
+  hits.forEach(([id,p])=>{
+    const li=document.createElement('li');
+    li.textContent=p.nom;
+    li.onclick=()=>{
+      si.value=p.nom; sl.style.display='none';
+      navigate(id);
+    };
+    sl.appendChild(li);
+  });
+  sl.style.display='block';
+});
+document.addEventListener('click', e => {
+  if(!e.target.closest('.search-wrap')) sl.style.display='none';
+});
+
+/* ── init ──────────────────────────────────────────────────── */
+render(rootId, +document.getElementById('depth-input').value);
+</script>
+</body>
+</html>

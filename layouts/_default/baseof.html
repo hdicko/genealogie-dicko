@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-title">🌳 {{ .Site.Title }}</a>
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="/arbre/">Arbre</a>
+        <a href="/personnes/">Personnes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Arbre Genealogique Dicko Ardo Hayre — Diona · Boundoucoli · Dalla et Boni · {{ len hugo.Data.famille.personnes }} personnes</p>
+    </div>
+  </footer>
+</body>
+</html>
