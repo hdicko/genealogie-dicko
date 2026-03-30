@@ -20,11 +20,20 @@ PPL_DIR     = HUGO_DIR / "content" / "personnes"
 PHOTOS_DIR  = HUGO_DIR / "static" / "images" / "personnes"
 PHOTOS_DIR.mkdir(parents=True, exist_ok=True)
 
+# Only allow requests from the local Hugo dev server
+ALLOWED_ORIGINS = {
+    "http://localhost:1314",
+    "http://127.0.0.1:1314",
+}
+
 CORS_HEADERS = {
-    "Access-Control-Allow-Origin":  "*",
     "Access-Control-Allow-Methods": "GET, PATCH, POST, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
 }
+
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024   # 10 MB max photo size
+ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+GID_RE = re.compile(r'^[A-Za-z0-9_-]{1,40}$')  # safe GID pattern
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
@@ -129,20 +138,39 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         print(f"  {self.address_string()} {fmt % args}")
 
+    def _cors_origin(self):
+        """Return the allowed origin for this request, or None if disallowed."""
+        origin = self.headers.get("Origin", "")
+        if origin in ALLOWED_ORIGINS:
+            return origin
+        # Allow requests with no Origin header (direct curl / Hugo server-side)
+        return None if origin else ""
+
+    def _send_cors(self, include_origin=True):
+        for k, v in CORS_HEADERS.items():
+            self.send_header(k, v)
+        if include_origin:
+            origin = self._cors_origin()
+            if origin is not None:
+                self.send_header("Access-Control-Allow-Origin", origin or "*")
+
     def send_json(self, code, obj):
         body = json.dumps(obj, ensure_ascii=False).encode("utf-8")
         self.send_response(code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
-        for k, v in CORS_HEADERS.items():
-            self.send_header(k, v)
+        self._send_cors()
         self.end_headers()
         self.wfile.write(body)
 
     def do_OPTIONS(self):
+        origin = self._cors_origin()
+        if origin is None:
+            self.send_response(403)
+            self.end_headers()
+            return
         self.send_response(204)
-        for k, v in CORS_HEADERS.items():
-            self.send_header(k, v)
+        self._send_cors()
         self.end_headers()
 
     def do_GET(self):
@@ -150,8 +178,12 @@ class Handler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
         # GET /api/person/{id}
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "person":
+            raw_gid = parts[2]
+            if not GID_RE.match(raw_gid):
+                self.send_json(400, {"error": "Invalid person ID"})
+                return
             data = load_data()
-            gid  = resolve_id(parts[2], data["personnes"])
+            gid  = resolve_id(raw_gid, data["personnes"])
             p = data["personnes"].get(gid)
             if p is None:
                 self.send_json(404, {"error": f"Person {gid} not found"})
@@ -165,7 +197,15 @@ class Handler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
         # PATCH /api/person/{id}
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "person":
+            raw_gid = parts[2]
+            if not GID_RE.match(raw_gid):
+                self.send_json(400, {"error": "Invalid person ID"})
+                return
+
             length = int(self.headers.get("Content-Length", 0))
+            if length > 64 * 1024:  # 64 KB max for JSON body
+                self.send_json(413, {"error": "Request body too large"})
+                return
             body   = json.loads(self.rfile.read(length))
 
             data    = load_data()
@@ -204,9 +244,14 @@ class Handler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
         # POST /api/photo/{id}
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "photo":
+            raw_gid = parts[2]
+            if not GID_RE.match(raw_gid):
+                self.send_json(400, {"error": "Invalid person ID"})
+                return
+
             data    = load_data()
             persons = data["personnes"]
-            gid     = resolve_id(parts[2], persons)
+            gid     = resolve_id(raw_gid, persons)
             if gid not in persons:
                 self.send_json(404, {"error": f"Person {gid} not found"})
                 return
@@ -224,6 +269,9 @@ class Handler(BaseHTTPRequestHandler):
             boundary = boundary_match.group(1).encode()
 
             length   = int(self.headers.get("Content-Length", 0))
+            if length > MAX_UPLOAD_BYTES:
+                self.send_json(413, {"error": f"File too large (max {MAX_UPLOAD_BYTES // 1024 // 1024} MB)"})
+                return
             raw_body = self.rfile.read(length)
 
             # Split parts on boundary
@@ -247,7 +295,7 @@ class Handler(BaseHTTPRequestHandler):
                 if fn_match:
                     orig_name = fn_match.group(1).decode(errors="replace")
                     ext = Path(orig_name).suffix.lower()
-                    if ext in (".jpg", ".jpeg", ".png", ".gif", ".webp"):
+                    if ext in ALLOWED_EXTENSIONS:
                         file_ext = ext
                 file_data = body
                 break
@@ -259,8 +307,9 @@ class Handler(BaseHTTPRequestHandler):
             # Delete old photo file if it exists (may have different extension)
             old_photo = persons[gid].get("photo")
             if old_photo:
-                old_path = HUGO_DIR / "static" / old_photo.lstrip("/")
-                if old_path.exists() and old_path.is_file():
+                old_path = (HUGO_DIR / "static" / old_photo.lstrip("/")).resolve()
+                photos_resolved = PHOTOS_DIR.resolve()
+                if old_path.exists() and old_path.is_file() and str(old_path).startswith(str(photos_resolved)):
                     old_path.unlink()
                     print(f"  🗑️  Ancienne photo supprimée: {old_path.name}")
 
@@ -286,17 +335,23 @@ class Handler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
         # DELETE /api/photo/{id}
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "photo":
+            raw_gid = parts[2]
+            if not GID_RE.match(raw_gid):
+                self.send_json(400, {"error": "Invalid person ID"})
+                return
+
             data    = load_data()
             persons = data["personnes"]
-            gid     = resolve_id(parts[2], persons)
+            gid     = resolve_id(raw_gid, persons)
             if gid not in persons:
                 self.send_json(404, {"error": f"Person {gid} not found"})
                 return
 
             old_photo = persons[gid].get("photo")
             if old_photo:
-                old_path = HUGO_DIR / "static" / old_photo.lstrip("/")
-                if old_path.exists() and old_path.is_file():
+                old_path = (HUGO_DIR / "static" / old_photo.lstrip("/")).resolve()
+                photos_resolved = PHOTOS_DIR.resolve()
+                if old_path.exists() and old_path.is_file() and str(old_path).startswith(str(photos_resolved)):
                     old_path.unlink()
                     print(f"  🗑️  Photo supprimée: {old_path.name}")
 
