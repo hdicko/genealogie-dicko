@@ -9,6 +9,10 @@ commentaires = ""
 photo = ""
 draft = false
 
+[[fratrie]]
+  nom = "Horsi (Adama)"
+  id = "I74"
+
 [[parents]]
   nom = "Salif Pathe"
   id = "I64"

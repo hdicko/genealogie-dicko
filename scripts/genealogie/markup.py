@@ -42,6 +42,12 @@ def regen_markdown(gid, p):
         "draft = false",
     ]
 
+    # Fratrie entries — each becomes a [[fratrie]] TOML array-of-tables block
+    for f in p.get("fratrie", []):
+        lines += ["", "[[fratrie]]",
+                  f"  nom = {toml_str(f.get('nom'))}",
+                  f"  id = {toml_str(f.get('id'))}"]
+
     # Parent entries — each becomes a [[parents]] TOML array-of-tables block
     for par in p.get("parents", []):
         lines += ["", "[[parents]]",

@@ -9,6 +9,18 @@ commentaires = ""
 photo = ""
 draft = false
 
+[[fratrie]]
+  nom = "Tairou Hami"
+  id = "0497"
+
+[[fratrie]]
+  nom = "Oumou Hami"
+  id = "0498"
+
+[[fratrie]]
+  nom = "Mama Hami (Mamiraga)"
+  id = "0499"
+
 [[parents]]
   nom = "Hami"
   id = "I7"
