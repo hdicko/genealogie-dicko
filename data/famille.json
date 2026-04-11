@@ -13924,7 +13924,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Gallo",
+          "id": "I537"
+        },
+        {
+          "nom": "Mana",
+          "id": "I538"
+        },
+        {
+          "nom": "Hamadi",
+          "id": "I539"
+        },
+        {
+          "nom": "Amadou",
+          "id": "I540"
+        },
+        {
+          "nom": "Naouara",
+          "id": "I541"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -13952,7 +13973,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Breima (Ibrahim)",
+          "id": "I535",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
@@ -13962,6 +13989,26 @@
             {
               "nom": "Jam Allah",
               "id": "I304"
+            },
+            {
+              "nom": "Gallo",
+              "id": "I537"
+            },
+            {
+              "nom": "Mana",
+              "id": "I538"
+            },
+            {
+              "nom": "Hamadi",
+              "id": "I539"
+            },
+            {
+              "nom": "Amadou",
+              "id": "I540"
+            },
+            {
+              "nom": "Naouara",
+              "id": "I541"
             }
           ]
         }
@@ -21531,7 +21578,268 @@
         }
       ],
       "familles": []
+    },
+    "I535": {
+      "gramps_id": "I535",
+      "nom": "Breima (Ibrahim)",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Habade",
+          "id": "I536",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Belal Breima",
+              "id": "I305"
+            }
+          ]
+        }
+      ],
+      "html_file": ""
+    },
+    "I536": {
+      "gramps_id": "I536",
+      "nom": "Habade",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Breima (Ibrahim)",
+              "id": "I535"
+            }
+          ]
+        }
+      ],
+      "html_file": ""
+    },
+    "I537": {
+      "gramps_id": "I537",
+      "nom": "Gallo",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Belal Breima",
+          "id": "I305",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Jam Allah",
+          "id": "I304"
+        },
+        {
+          "nom": "Mana",
+          "id": "I538"
+        },
+        {
+          "nom": "Hamadi",
+          "id": "I539"
+        },
+        {
+          "nom": "Amadou",
+          "id": "I540"
+        },
+        {
+          "nom": "Naouara",
+          "id": "I541"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "I538": {
+      "gramps_id": "I538",
+      "nom": "Mana",
+      "genre": "unknown",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Belal Breima",
+          "id": "I305",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Jam Allah",
+          "id": "I304"
+        },
+        {
+          "nom": "Gallo",
+          "id": "I537"
+        },
+        {
+          "nom": "Hamadi",
+          "id": "I539"
+        },
+        {
+          "nom": "Amadou",
+          "id": "I540"
+        },
+        {
+          "nom": "Naouara",
+          "id": "I541"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "I539": {
+      "gramps_id": "I539",
+      "nom": "Hamadi",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Belal Breima",
+          "id": "I305",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Jam Allah",
+          "id": "I304"
+        },
+        {
+          "nom": "Gallo",
+          "id": "I537"
+        },
+        {
+          "nom": "Mana",
+          "id": "I538"
+        },
+        {
+          "nom": "Amadou",
+          "id": "I540"
+        },
+        {
+          "nom": "Naouara",
+          "id": "I541"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "I540": {
+      "gramps_id": "I540",
+      "nom": "Amadou",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Belal Breima",
+          "id": "I305",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Jam Allah",
+          "id": "I304"
+        },
+        {
+          "nom": "Gallo",
+          "id": "I537"
+        },
+        {
+          "nom": "Mana",
+          "id": "I538"
+        },
+        {
+          "nom": "Hamadi",
+          "id": "I539"
+        },
+        {
+          "nom": "Naouara",
+          "id": "I541"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "I541": {
+      "gramps_id": "I541",
+      "nom": "Naouara",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Belal Breima",
+          "id": "I305",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Jam Allah",
+          "id": "I304"
+        },
+        {
+          "nom": "Gallo",
+          "id": "I537"
+        },
+        {
+          "nom": "Mana",
+          "id": "I538"
+        },
+        {
+          "nom": "Hamadi",
+          "id": "I539"
+        },
+        {
+          "nom": "Amadou",
+          "id": "I540"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
     }
   },
-  "total": 505
+  "total": 516
 }
