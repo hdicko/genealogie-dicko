@@ -62,6 +62,25 @@
   </section>
   {{ end }}
 
+  {{ if .Params.fratrie }}
+  <section class="person-section">
+    <button class="btn-toggle-siblings" onclick="toggleSiblings(this)" aria-expanded="false">
+      👨‍👩‍👧‍👦 Frères &amp; Sœurs ({{ len .Params.fratrie }}) <span class="toggle-arrow">▼</span>
+    </button>
+    <ul class="person-list siblings-list" style="display:none;margin-top:10px;">
+      {{ range .Params.fratrie }}
+      <li>
+        {{ if .id }}
+        <a href="/personnes/{{ lower .id }}/">{{ .nom }}</a>
+        {{ else }}
+        {{ .nom }}
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
   {{ if .Params.familles }}
   <section class="person-section">
     <h2>Famille{{ if gt (len .Params.familles) 1 }}s{{ end }}</h2>
@@ -165,6 +184,14 @@
 </div>
 
 <script>
+function toggleSiblings(btn) {
+  const list = btn.nextElementSibling;
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  list.style.display = expanded ? 'none' : 'block';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.querySelector('.toggle-arrow').textContent = expanded ? '▼' : '▲';
+}
+
 const PERSON_ID = {{ .Params.gramps_id | jsonify | safeJS }};
 const API = 'http://localhost:1315';
 
