@@ -698,8 +698,8 @@
           "conjoint_id": "I351",
           "enfants": [
             {
-              "nom": "Amadou Hami[person0497]",
-              "id": null
+              "nom": "Amadou Hami",
+              "id": "person0497"
             },
             {
               "nom": "Tairou Hami",
@@ -2930,8 +2930,8 @@
               "id": "I74"
             },
             {
-              "nom": "Toca Mobo (Hamadoun)[person0495]",
-              "id": null
+              "nom": "Toca Mobo (Hamadoun)",
+              "id": "person0495"
             }
           ]
         }
@@ -3276,8 +3276,8 @@
               "id": "I74"
             },
             {
-              "nom": "Toca Mobo (Hamadoun)[person0495]",
-              "id": null
+              "nom": "Toca Mobo (Hamadoun)",
+              "id": "person0495"
             }
           ]
         }
@@ -13821,7 +13821,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hama Mama",
+          "nom": "Hama Mana",
           "id": "I302",
           "relation": "pere"
         }
@@ -13843,16 +13843,16 @@
     },
     "I302": {
       "gramps_id": "I302",
-      "nom": "Hama Mama",
+      "nom": "Hama Mana",
       "genre": "male",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
-          "nom": "Mama",
+          "nom": "Mana",
           "id": "I303",
           "relation": "pere"
         }
@@ -13874,12 +13874,12 @@
     },
     "I303": {
       "gramps_id": "I303",
-      "nom": "Mama",
+      "nom": "Mana",
       "genre": "male",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -13900,7 +13900,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Hama Mama",
+              "nom": "Hama Mana",
               "id": "I302"
             }
           ]
@@ -13952,11 +13952,11 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Mama",
+              "nom": "Mana",
               "id": "I303"
             },
             {
-              "nom": "Barke Djam Ala",
+              "nom": "Barke Djam Alla",
               "id": "I306"
             },
             {
@@ -14021,12 +14021,12 @@
     },
     "I306": {
       "gramps_id": "I306",
-      "nom": "Barke Djam Ala",
+      "nom": "Barke Djam Alla",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -14072,7 +14072,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Barke Djam Ala",
+          "conjoint": "Barke Djam Alla",
           "conjoint_id": "I306",
           "enfants": [
             {
@@ -14095,7 +14095,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Barke Djam Ala",
+          "nom": "Barke Djam Alla",
           "id": "I306",
           "relation": "pere"
         },
@@ -15605,8 +15605,8 @@
           "conjoint_id": "I7",
           "enfants": [
             {
-              "nom": "Amadou Hami[person0497]",
-              "id": null
+              "nom": "Amadou Hami",
+              "id": "person0497"
             },
             {
               "nom": "Tairou Hami",
@@ -20650,8 +20650,8 @@
               "id": "I0491"
             },
             {
-              "nom": "Amadou?[person0492]",
-              "id": null
+              "nom": "Amadou?",
+              "id": "person0492"
             }
           ]
         }
@@ -20679,8 +20679,8 @@
               "id": "I0491"
             },
             {
-              "nom": "Amadou?[person0492]",
-              "id": null
+              "nom": "Amadou?",
+              "id": "person0492"
             }
           ]
         }
@@ -22018,7 +22018,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Barke Djam Ala",
+          "nom": "Barke Djam Alla",
           "id": "I306",
           "relation": "pere"
         }
