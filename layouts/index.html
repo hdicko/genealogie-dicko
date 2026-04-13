@@ -1,106 +1,49 @@
 {{ define "main" }}
-
-<!-- ═══════════════════════════════════════════════════════════
-     HERO — Infographie épopée Ardo Dicko
-════════════════════════════════════════════════════════════ -->
-<section class="landing-hero">
-  <div class="landing-hero__inner container">
-    <div class="landing-hero__text">
-      <p class="landing-hero__eyebrow">Lignage Peul du Hayré — Mali</p>
-      <h1 class="landing-hero__title">L'Épopée des<br>Ardo Dicko</h1>
-      <p class="landing-hero__subtitle">
-        Noblesse et résistance au Hayré — les descendants de <strong>Djam Alla</strong>,
-        racine commune des branches <span class="branch">Diona</span>,
-        <span class="branch">Korarou</span>, <span class="branch">Dalla&nbsp;·&nbsp;Boni</span>
-        et <span class="branch">Boundoucoli</span>.
-      </p>
-      <div class="landing-hero__actions">
-        <a href="/arbre/" class="btn btn-primary btn-lg">🌳 Voir l'arbre interactif</a>
-        <a href="/personnes/" class="btn btn-secondary btn-lg">👥 Liste des personnes</a>
-      </div>
-      <!-- Stats rapides -->
-      <div class="landing-stats">
-        <div class="landing-stat">
-          <span class="landing-stat__num">{{ len hugo.Data.famille.personnes }}</span>
-          <span class="landing-stat__lbl">Personnes</span>
-        </div>
-        <div class="landing-stat">
-          <span class="landing-stat__num">~10</span>
-          <span class="landing-stat__lbl">Générations</span>
-        </div>
-        <div class="landing-stat">
-          <span class="landing-stat__num">~1700</span>
-          <span class="landing-stat__lbl">Racine commune</span>
-        </div>
-        <div class="landing-stat">
-          <span class="landing-stat__num">4</span>
-          <span class="landing-stat__lbl">Branches</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="landing-hero__visual">
-      <img
-        src="/images/arbre-hayre-epopee.png"
-        alt="L'Épopée des Ardo Dicko — Noblesse et Résistance au Hayré — infographie"
-        class="landing-infographic"
-        loading="eager"
-      />
-      <p class="landing-infographic__caption">
-        Source : NotebookLM — <em>The Ardo Dicko Genealogies of the Hayre Peul Leaders</em>
-      </p>
-    </div>
+<section class="home-hero">
+  <h1>🌳 Arbre Genealogique Dicko Ardo Hayre</h1>
+  <p class="subtitle">Diona · Boundoucoli · Dalla et Boni · {{ len hugo.Data.famille.personnes }} personnes</p>
+  <div class="hero-actions">
+    <a href="/arbre/" class="btn btn-primary">Voir l'arbre interactif</a>
+    <a href="/personnes/" class="btn btn-secondary">Liste des personnes</a>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     CHRONOLOGIE — 3 chefs marquants
-════════════════════════════════════════════════════════════ -->
-<section class="landing-timeline container">
-  <h2 class="landing-section-title">Chefs marquants</h2>
-  <div class="timeline-cards">
-    <div class="timeline-card">
-      <div class="timeline-card__date">~1700</div>
-      <div class="timeline-card__name">Djam Alla</div>
-      <div class="timeline-card__region">Dalla · Boni · Diona</div>
-      <p class="timeline-card__desc">Premier commandeur connu, ancêtre fondateur reliant les villages de Dalla, Boni, Korarou et Diona.</p>
-    </div>
-    <div class="timeline-card timeline-card--accent">
-      <div class="timeline-card__date">~1740–1800</div>
-      <div class="timeline-card__name">Gakoi de Gombana</div>
-      <div class="timeline-card__region">Gombana (Gourbana)</div>
-      <p class="timeline-card__desc">Règne symbolique de 60 ans marquant l'apogée du pouvoir Dicko avant la Dîna.</p>
-    </div>
-    <div class="timeline-card">
-      <div class="timeline-card__date">1810–1837</div>
-      <div class="timeline-card__name">Daray Mana</div>
-      <div class="timeline-card__region">Korarou</div>
-      <p class="timeline-card__desc">Dernier ardo libre de Korarou. Défaite à Sébéré en 1818 — figure de résistance passive post-Dîna.</p>
-    </div>
-    <div class="timeline-card">
-      <div class="timeline-card__date">XIXᵉ siècle</div>
-      <div class="timeline-card__name">Boûbou Ardo Galo</div>
-      <div class="timeline-card__region">Hayré</div>
-      <p class="timeline-card__desc">Héros épique du Pulaaku, symbole de la révolte contre l'ordre religieux imposé par la Dîna.</p>
-    </div>
+<section class="home-epopee">
+  <figure class="epopee-figure">
+    <img src="/images/Arbe-Dicko-Hayre.png"
+         alt="L'Épopée des Ardo Dicko : Noblesse et Résistance au Hayré"
+         class="epopee-img" />
+    <figcaption>L'Épopée des Ardo Dicko — <em>Djam Alla</em>, racine commune (~1700)</figcaption>
+  </figure>
+</section>
+
+<section class="home-stats">
+  <div class="stat-card">
+    <div class="stat-number">{{ len hugo.Data.famille.personnes }}</div>
+    <div class="stat-label">Personnes</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">~5</div>
+    <div class="stat-label">Générations</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">103</div>
+    <div class="stat-label">Photos</div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     RECHERCHE
-════════════════════════════════════════════════════════════ -->
-<section class="landing-search container">
-  <h2 class="landing-section-title">Rechercher une personne</h2>
-  <div class="home-search">
-    <input type="text" id="search-input" placeholder="Nom, prénom…" autocomplete="off" aria-label="Rechercher une personne" />
-    <ul id="search-results"></ul>
-  </div>
+<section class="home-search">
+  <h2>Rechercher une personne</h2>
+  <input type="text" id="search-input" placeholder="Nom, prénom…" autocomplete="off" />
+  <ul id="search-results"></ul>
 </section>
 
 <script>
 const persons = {{ hugo.Data.famille.personnes | jsonify | safeJS }};
+
 const input = document.getElementById('search-input');
 const results = document.getElementById('search-results');
+
 input.addEventListener('input', function() {
   const q = this.value.trim().toLowerCase();
   results.innerHTML = '';
