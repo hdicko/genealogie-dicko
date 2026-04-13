@@ -13883,7 +13883,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Jam Allah",
+          "nom": "Djam Allah",
           "id": "I304",
           "relation": "pere"
         }
@@ -13910,12 +13910,12 @@
     },
     "I304": {
       "gramps_id": "I304",
-      "nom": "Jam Allah",
+      "nom": "Djam Allah",
       "genre": "male",
-      "naissance": null,
-      "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "naissance": "vers 1680",
+      "deces": "vers 1720",
+      "ville": "Dalla / Boni / Diona",
+      "commentaires": "Durée de règne : non documentée | Période : ~1700–1720 | Lignage : Dicko — Dalla/Boni/Diona | Fils de Hamar Bellal ; premier commandeur connu de la racine Dicko. Fondation du lignage sous Ngolo Diarra (Ségou). Pivot généalogique commun aux branches Diona, Dalla-Boni et Boundoucoli.",
       "photo": null,
       "parents": [
         {
@@ -13974,8 +13974,8 @@
       "genre": "male",
       "naissance": null,
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "Hayré (Mali)",
+      "commentaires": "Ancêtre commun des branches Dicko Ardo Hayré. Père de Djam Allah, Gallo, Mana, Hamadi, Amadou et Naouara. Fils d'Ibrahim (Breima).",
       "photo": null,
       "parents": [
         {
@@ -13991,7 +13991,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Jam Allah",
+              "nom": "Djam Allah",
               "id": "I304"
             },
             {
@@ -14030,7 +14030,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Jam Allah",
+          "nom": "Djam Allah",
           "id": "I304",
           "relation": "pere"
         }
@@ -21593,8 +21593,8 @@
       "genre": "male",
       "naissance": null,
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "Hayré (Mali)",
+      "commentaires": "Fils de Habaddè. Ancêtre direct de toutes les branches Dicko Ardo Hayré (Diona, Dalla-Boni, Boundoucoli).",
       "photo": null,
       "parents": [
         {
@@ -21624,8 +21624,8 @@
       "genre": "male",
       "naissance": null,
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "Hayré (Mali)",
+      "commentaires": "Ancêtre originel et fondateur du lignage Dicko Ardo Hayré. Père d'Ibrahim (Breima).",
       "photo": null,
       "parents": [],
       "fratrie": [],
@@ -21647,10 +21647,10 @@
       "gramps_id": "I537",
       "nom": "Gallo",
       "genre": "male",
-      "naissance": null,
-      "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "naissance": "vers 1670",
+      "deces": "vers 1752",
+      "ville": "Diona / Korarou — Hayré",
+      "commentaires": "Durée de règne : 72 ans (60 ans avant l'avènement de Sékou Amadou + 12 ans sous son règne) | Lignage : Dicko — Diona/Korarou | Fils de Hamar Bellal ; frère de Djam Allah. Premier à s'établir durablement à Korarou (Diona). A régné 60 ans avant l'empire Macina de Sékou Amadou, puis 12 ans encore sous sa suzeraineté.",
       "photo": null,
       "parents": [
         {
@@ -21705,8 +21705,8 @@
       "genre": "male",
       "naissance": null,
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "Hayré (Mali)",
+      "commentaires": "Fils de Hamar Bellal (I305). Père de Daraymana Hamar Bella (chef éphémère de Diona, 5 mois ~1740) et de Gakoi (chef de Gombana, 60 ans ~1740-1800).",
       "photo": null,
       "parents": [
         {
@@ -21737,7 +21737,22 @@
           "id": "I541"
         }
       ],
-      "familles": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Daraymana Hamar Bella",
+              "id": "I681"
+            },
+            {
+              "nom": "Gakoi",
+              "id": "I682"
+            }
+          ]
+        }
+      ],
       "html_file": ""
     },
     "I539": {
@@ -21867,10 +21882,10 @@
       "gramps_id": "I542",
       "nom": "Hamar Kouly",
       "genre": "male",
-      "naissance": null,
-      "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "naissance": "vers 1720",
+      "deces": "vers 1766",
+      "ville": "Korarou — Hayré",
+      "commentaires": "Durée de règne : 22 ans | Période : ~1744 | Lignage : Dicko — Korarou | Fils de Gallo. Règne à l'apogée de l'empire de Ségou. Renforcement du pouvoir des ardo Dicko dans le Korarou.",
       "photo": null,
       "parents": [
         {
@@ -21888,6 +21903,14 @@
             {
               "nom": "Mana",
               "id": "I543"
+            },
+            {
+              "nom": "Hamady Bella",
+              "id": "I684"
+            },
+            {
+              "nom": "Allaseyni Hamar Kouly",
+              "id": "I685"
             }
           ]
         }
@@ -21900,8 +21923,8 @@
       "genre": "male",
       "naissance": null,
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "Korarou — Hayré",
+      "commentaires": "Fils de Hamar Kouly (Hamidy Kouly Ibn Gallo). Branche Korarou / Diona.",
       "photo": null,
       "parents": [
         {
@@ -21919,6 +21942,14 @@
             {
               "nom": "Daray",
               "id": "I544"
+            },
+            {
+              "nom": "Naouwara Hammar Bella",
+              "id": "I686"
+            },
+            {
+              "nom": "Alladiogo Mana",
+              "id": "I687"
             }
           ]
         }
@@ -21929,10 +21960,10 @@
       "gramps_id": "I544",
       "nom": "Daray",
       "genre": "male",
-      "naissance": null,
-      "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "naissance": "vers 1783",
+      "deces": "vers 1837",
+      "ville": "Korarou — Hayré",
+      "commentaires": "Durée de règne : 27 ans | Période : ~1810–1837 | Lignage : Dicko — Korarou | Dernier ardo libre de Korarou. Défaite en 1818 à la bataille de Sébéré/Noukouma. Soumis à la Dîna de Sékou Amadou (empire Toucouleur du Macina).",
       "photo": null,
       "parents": [
         {
@@ -22291,7 +22322,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Jam Allah",
+          "nom": "Djam Allah",
           "id": "I304",
           "relation": "pere"
         }
@@ -26043,7 +26074,194 @@
         }
       ],
       "html_file": null
+    },
+    "I681": {
+      "gramps_id": "I681",
+      "nom": "Daraymana Hamar Bella",
+      "genre": "male",
+      "naissance": "vers 1715",
+      "deces": "vers 1740",
+      "ville": "Diona — Hayré",
+      "commentaires": "Durée de règne : 5 mois | Période : ~1740 | Lignage : Dicko — Diona | Troisième commandeur Dicko après Djam Allah et Gallo. Transition tragique (mort possible au combat) ; règne très court. Bagarre dans la famille pour raison d'héritage de chefferie. Son règne marque l'éclatement de la famille Dicko en plusieurs branches.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Mana",
+          "id": "I538",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ],
+      "html_file": null
+    },
+    "I682": {
+      "gramps_id": "I682",
+      "nom": "Gakoi",
+      "genre": "male",
+      "naissance": "vers 1715",
+      "deces": "vers 1800",
+      "ville": "Gombana (Gourbana) — Hayré",
+      "commentaires": "Durée de règne : 60 ans | Période : ~1740–1800 | Lignage : Dicko — Gombana | Père de Daray Hamman Barkè. Chef majeur du Hayré sous Ségou ; règne d'une longévité mythique couvrant l'apogée pré-Dîna. S'est établi à Gombana (Gourbana) après la dispersion familiale suite au règne éphémère de Daraymana Hamar Bella (~1740).",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Mana",
+          "id": "I538",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Daray Hamman Barkè",
+              "id": "I683"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I683": {
+      "gramps_id": "I683",
+      "nom": "Daray Hamman Barkè",
+      "genre": "male",
+      "naissance": "vers 1760",
+      "deces": null,
+      "ville": "Gombana (Gourbana) — Hayré",
+      "commentaires": "Lignage : Dicko — Gombana | Fils et successeur de Gakoi à Gombana. Suite à de nouvelles querelles de succession, son règne est marqué par de violents conflits internes.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Gakoi",
+          "id": "I682",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ],
+      "html_file": null
+    },
+    "I684": {
+      "gramps_id": "I684",
+      "nom": "Hamady Bella",
+      "genre": "male",
+      "naissance": "vers 1726",
+      "deces": "vers 1786",
+      "ville": "Korarou — Hayré",
+      "commentaires": "Durée de règne : 30 ans | Période : ~1756–1786 | Lignage : Dicko — Korarou | Long règne stable ; contemporain de Gakoi de Gombana. Période de consolidation du pouvoir ardo dans le Korarou.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamar Kouly",
+          "id": "I542",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ],
+      "html_file": null
+    },
+    "I685": {
+      "gramps_id": "I685",
+      "nom": "Allaseyni Hamar Kouly",
+      "genre": "male",
+      "naissance": "vers 1760",
+      "deces": null,
+      "ville": "Korarou — Hayré",
+      "commentaires": "Durée de règne : 2 ans | Lignage : Dicko — Korarou | Chef de Korarou dans la séquence de succession post-Hamady Bella.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamar Kouly",
+          "id": "I542",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ],
+      "html_file": null
+    },
+    "I686": {
+      "gramps_id": "I686",
+      "nom": "Naouwara Hammar Bella",
+      "genre": "male",
+      "naissance": "vers 1763",
+      "deces": null,
+      "ville": "Korarou — Hayré",
+      "commentaires": "Durée de règne : 7 ans | Lignage : Dicko — Korarou | Chef de Korarou dans la séquence de succession.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Mana",
+          "id": "I543",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ],
+      "html_file": null
+    },
+    "I687": {
+      "gramps_id": "I687",
+      "nom": "Alladiogo Mana",
+      "genre": "male",
+      "naissance": "vers 1770",
+      "deces": null,
+      "ville": "Korarou — Hayré",
+      "commentaires": "Durée de règne : 8 ans | Lignage : Dicko — Korarou | Précède Daray Mana (I544) dans la séquence des chefs de Korarou.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Mana",
+          "id": "I543",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ],
+      "html_file": null
     }
   },
-  "total": 655
+  "total": 662
 }

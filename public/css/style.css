@@ -85,6 +85,35 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 .btn-secondary:hover { background: #d0d5e8; }
 .btn-edit { background: #e8a020; color: #fff; }
 .btn-edit:hover { background: #c8841a; }
+.btn-toggle-siblings {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-toggle-siblings:hover {
+  background: #e8ecf8;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-toggle-siblings[aria-expanded="true"] {
+  background: #e8ecf8;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.siblings-list li {
+  background: var(--bg);
+  border-radius: 4px;
+  padding: 4px 10px;
+}
 
 /* ---- Home Hero ---- */
 .home-hero {
