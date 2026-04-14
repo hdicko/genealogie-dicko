@@ -60,7 +60,10 @@ input.addEventListener('input', function() {
     results.appendChild(li);
   });
   if (matches.length === 0) {
-    results.innerHTML = '<li class="no-result">Aucun résultat</li>';
+    const li = document.createElement('li');
+    li.className = 'no-result';
+    li.textContent = 'Aucun résultat';
+    results.appendChild(li);
   }
 });
 </script>

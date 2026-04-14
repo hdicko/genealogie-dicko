@@ -459,7 +459,7 @@ function showInfo(d) {
 
   // Parents — cliquables pour naviguer vers le haut
   const pEl = document.getElementById('i-parents');
-  pEl.innerHTML = '';
+  pEl.replaceChildren();
   const pars = (d.parents||[]).filter(p=>p.nom);
   if (pars.length) {
     pEl.appendChild(document.createTextNode('👪 '));
@@ -771,10 +771,14 @@ function printTree() {
 </body>
 </html>`;
 
-  const win = window.open('', '_blank');
-  if (!win) { alert('Autorisez les pop-ups pour imprimer le PDF.'); return; }
-  win.document.write(html);
-  win.document.close();
+  // Use Blob URL instead of document.write() to avoid reopening the document
+  // and to maintain a clean security context in the new window.
+  const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const win  = window.open(url, '_blank');
+  if (!win) { alert('Autorisez les pop-ups pour imprimer le PDF.'); }
+  // Revoke the object URL after a short delay to free memory.
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
 /* ── controls ──────────────────────────────────────────────── */
@@ -804,7 +808,7 @@ const si=document.getElementById('search-input');
 const sl=document.getElementById('suggestions');
 si.addEventListener('input', function() {
   const q=this.value.trim().toLowerCase();
-  sl.innerHTML=''; sl.style.display='none';
+  sl.replaceChildren(); sl.style.display='none';
   if(q.length<2) return;
   const hits=Object.entries(DATA)
     .filter(([,p])=>p.nom&&p.nom.toLowerCase().includes(q)).slice(0,8);

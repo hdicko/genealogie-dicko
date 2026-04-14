@@ -1,5 +1,8 @@
 import json
+import logging
 import re
+import time
+from collections import defaultdict
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse
@@ -11,6 +14,55 @@ from .config import (
 )
 from .data import load_data, DataTransaction
 from .markup import regen_markdown, update_references
+
+
+# ---------------------------------------------------------------------------
+# Audit logging
+# ---------------------------------------------------------------------------
+logging.basicConfig(
+    filename="/tmp/genealogie_api.log",
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+_log = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Rate limiter — max 60 write requests per IP per minute
+# ---------------------------------------------------------------------------
+class _RateLimiter:
+    def __init__(self, max_requests: int = 60, window: int = 60):
+        self._max = max_requests
+        self._window = window
+        self._hits: dict[str, list[float]] = defaultdict(list)
+
+    def is_allowed(self, ip: str) -> bool:
+        now = time.monotonic()
+        self._hits[ip] = [t for t in self._hits[ip] if now - t < self._window]
+        if len(self._hits[ip]) >= self._max:
+            return False
+        self._hits[ip].append(now)
+        return True
+
+
+_rate_limiter = _RateLimiter()
+
+
+# ---------------------------------------------------------------------------
+# Image magic-byte validation (imghdr removed in Python 3.13)
+# ---------------------------------------------------------------------------
+def _is_valid_image(data: bytes) -> bool:
+    """Return True only if *data* starts with a known image file signature."""
+    if data[:3] == b"\xff\xd8\xff":                                        # JPEG
+        return True
+    if data[:8] == b"\x89PNG\r\n\x1a\n":                                   # PNG
+        return True
+    if data[:6] in (b"GIF87a", b"GIF89a"):                                 # GIF
+        return True
+    if len(data) >= 12 and data[:4] == b"RIFF" and data[8:12] == b"WEBP":  # WebP
+        return True
+    return False
 
 
 # ---------------------------------------------------------------------------
@@ -30,6 +82,24 @@ def _send_cors_headers(handler):
     origin = _cors_origin(handler.headers)
     if origin:
         handler.send_header("Access-Control-Allow-Origin", origin)
+
+
+def _safe_unlink_photo(photo_url: str | None) -> None:
+    """Delete a photo file only if it is strictly inside PHOTOS_DIR.
+
+    Uses Path.relative_to() — immune to path-traversal payloads that bypass
+    startswith() comparisons (e.g. sibling directories with similar names).
+    """
+    if not photo_url:
+        return
+    rel = photo_url.removeprefix("/")
+    candidate = (HUGO_DIR / "static" / rel).resolve()
+    try:
+        candidate.relative_to(PHOTOS_DIR.resolve())  # ValueError if outside
+    except ValueError:
+        _log.warning("Path traversal attempt blocked: %s", photo_url)
+        return
+    candidate.unlink(missing_ok=True)
 
 
 def resolve_id(raw_id, persons):
@@ -111,18 +181,18 @@ class GenealogieHandler(BaseHTTPRequestHandler):
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "person":
             raw_gid = parts[2]
             if not GID_RE.match(raw_gid):
-                self.send_json(400, {"error": "Invalid person ID"})
+                self.send_json(400, {"error": "Identifiant invalide"})
                 return
 
             data = load_data()
             gid  = resolve_id(raw_gid, data["personnes"])
             p = data["personnes"].get(gid)
             if p is None:
-                self.send_json(404, {"error": f"Person {gid} not found"})
+                self.send_json(404, {"error": "Personne introuvable"})
             else:
                 self.send_json(200, {"id": gid, **p})
         else:
-            self.send_json(404, {"error": "Not found"})
+            self.send_json(404, {"error": "Route inconnue"})
 
     # ------------------------------------------------------------------
     # PATCH /api/person/{id}
@@ -134,22 +204,33 @@ class GenealogieHandler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
 
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "person":
+            if not _rate_limiter.is_allowed(self.client_address[0]):
+                self.send_json(429, {"error": "Trop de requêtes. Réessayez dans une minute."})
+                return
+
             raw_gid = parts[2]
             if not GID_RE.match(raw_gid):
-                self.send_json(400, {"error": "Invalid person ID"})
+                self.send_json(400, {"error": "Identifiant invalide"})
                 return
 
             length = int(self.headers.get("Content-Length", 0))
             if length > 64 * 1024:  # 64 KB is generous for a simple JSON edit form
-                self.send_json(413, {"error": "Request body too large"})
+                self.send_json(413, {"error": "Corps de requête trop volumineux"})
                 return
-            body = json.loads(self.rfile.read(length))
+            try:
+                body = json.loads(self.rfile.read(length))
+            except (json.JSONDecodeError, ValueError):
+                self.send_json(400, {"error": "JSON invalide"})
+                return
+            if not isinstance(body, dict):
+                self.send_json(400, {"error": "Corps de requête invalide"})
+                return
 
             with DataTransaction() as data:
                 persons = data["personnes"]
                 gid     = resolve_id(raw_gid, persons)
                 if gid not in persons:
-                    self.send_json(404, {"error": f"Person {gid} not found"})
+                    self.send_json(404, {"error": "Personne introuvable"})
                     return
 
                 p = persons[gid]
@@ -159,8 +240,16 @@ class GenealogieHandler(BaseHTTPRequestHandler):
                 # Structural data (parents, familles) is managed by parse_gramps.py.
                 ALLOWED = ("nom", "genre", "naissance", "deces", "ville", "commentaires")
                 for field in ALLOWED:
-                    if field in body:
-                        p[field] = body[field].strip() if isinstance(body[field], str) else body[field]
+                    if field not in body:
+                        continue
+                    value = body[field]
+                    if value is not None and not isinstance(value, str):
+                        self.send_json(400, {"error": f"Champ '{field}' doit être une chaîne ou null"})
+                        return
+                    if isinstance(value, str) and len(value) > 1000:
+                        self.send_json(400, {"error": f"Champ '{field}' trop long (max 1000 caractères)"})
+                        return
+                    p[field] = value.strip() if isinstance(value, str) else value
 
                 new_nom = p.get("nom")
                 if old_nom != new_nom:
@@ -170,11 +259,12 @@ class GenealogieHandler(BaseHTTPRequestHandler):
 
                 regen_markdown(gid, p)
                 result = {"id": gid, "ok": True, **p}
+                _log.info("PATCH person/%s: %r → %r from %s", gid, old_nom, new_nom, self.client_address[0])
                 print(f"  ✓ Updated {gid}: {old_nom!r} → {new_nom!r}")
 
             self.send_json(200, result)
         else:
-            self.send_json(404, {"error": "Not found"})
+            self.send_json(404, {"error": "Route inconnue"})
 
     # ------------------------------------------------------------------
     # POST /api/photo/{id}
@@ -187,25 +277,29 @@ class GenealogieHandler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
 
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "photo":
+            if not _rate_limiter.is_allowed(self.client_address[0]):
+                self.send_json(429, {"error": "Trop de requêtes. Réessayez dans une minute."})
+                return
+
             raw_gid = parts[2]
             if not GID_RE.match(raw_gid):
-                self.send_json(400, {"error": "Invalid person ID"})
+                self.send_json(400, {"error": "Identifiant invalide"})
                 return
 
             content_type = self.headers.get("Content-Type", "")
             if "multipart/form-data" not in content_type:
-                self.send_json(400, {"error": "Expected multipart/form-data"})
+                self.send_json(400, {"error": "Format attendu : multipart/form-data"})
                 return
 
             boundary_match = re.search(r'boundary=([^\s;]+)', content_type)
             if not boundary_match:
-                self.send_json(400, {"error": "Missing multipart boundary"})
+                self.send_json(400, {"error": "Boundary multipart manquant"})
                 return
             boundary = boundary_match.group(1).encode()
 
             length = int(self.headers.get("Content-Length", 0))
             if length > MAX_UPLOAD_BYTES:
-                self.send_json(413, {"error": f"File too large (max {MAX_UPLOAD_BYTES // 1024 // 1024} MB)"})
+                self.send_json(413, {"error": f"Fichier trop volumineux (max {MAX_UPLOAD_BYTES // 1024 // 1024} Mo)"})
                 return
             raw_body = self.rfile.read(length)
 
@@ -234,41 +328,46 @@ class GenealogieHandler(BaseHTTPRequestHandler):
                 break
 
             if not file_data:
-                self.send_json(400, {"error": "No photo data found in request"})
+                self.send_json(400, {"error": "Aucune donnée photo trouvée dans la requête"})
+                return
+
+            # Validate image file signature (magic bytes) — don't trust the extension alone.
+            if not _is_valid_image(file_data):
+                self.send_json(400, {"error": "Format d'image invalide. Seuls JPEG, PNG, GIF et WebP sont acceptés."})
                 return
 
             with DataTransaction() as data:
                 persons = data["personnes"]
                 gid     = resolve_id(raw_gid, persons)
                 if gid not in persons:
-                    self.send_json(404, {"error": f"Person {gid} not found"})
+                    self.send_json(404, {"error": "Personne introuvable"})
                     return
 
                 # Remove the previous portrait before writing the new one.
-                old_photo = persons[gid].get("photo")
-                if old_photo:
-                    old_path = (HUGO_DIR / "static" / old_photo.lstrip("/")).resolve()
-                    photos_resolved = PHOTOS_DIR.resolve()
-                    # Path-traversal guard: only delete files inside PHOTOS_DIR
-                    if old_path.exists() and old_path.is_file() and str(old_path).startswith(str(photos_resolved)):
-                        old_path.unlink()
-                        print(f"  🗑️  Ancienne photo supprimée: {old_path.name}")
+                _safe_unlink_photo(persons[gid].get("photo"))
 
-                # Save as {GID}{ext} — simple, predictable filename.
+                # Save as {GID}{ext} atomically via temp file + rename.
                 dest_filename = f"{gid}{file_ext}"
                 dest_path     = PHOTOS_DIR / dest_filename
-                with open(dest_path, "wb") as f:
-                    f.write(file_data)
+                tmp_path      = dest_path.with_suffix(".tmp")
+                try:
+                    with open(tmp_path, "wb") as f:
+                        f.write(file_data)
+                    tmp_path.replace(dest_path)  # atomic rename
+                except Exception:
+                    tmp_path.unlink(missing_ok=True)
+                    raise
 
                 photo_url = f"/images/personnes/{dest_filename}"
                 persons[gid]["photo"] = photo_url
                 regen_markdown(gid, persons[gid])
                 result = {"id": gid, "ok": True, "photo": photo_url}
+                _log.info("POST photo/%s: %s (%d bytes) from %s", gid, dest_filename, len(file_data), self.client_address[0])
                 print(f"  📷 Photo uploadée pour {gid}: {dest_filename} ({len(file_data)} bytes)")
 
             self.send_json(200, result)
         else:
-            self.send_json(404, {"error": "Not found"})
+            self.send_json(404, {"error": "Route inconnue"})
 
     # ------------------------------------------------------------------
     # DELETE /api/photo/{id}
@@ -280,30 +379,27 @@ class GenealogieHandler(BaseHTTPRequestHandler):
         parts  = parsed.path.strip("/").split("/")
 
         if len(parts) == 3 and parts[0] == "api" and parts[1] == "photo":
+            if not _rate_limiter.is_allowed(self.client_address[0]):
+                self.send_json(429, {"error": "Trop de requêtes. Réessayez dans une minute."})
+                return
+
             raw_gid = parts[2]
             if not GID_RE.match(raw_gid):
-                self.send_json(400, {"error": "Invalid person ID"})
+                self.send_json(400, {"error": "Identifiant invalide"})
                 return
 
             with DataTransaction() as data:
                 persons = data["personnes"]
                 gid     = resolve_id(raw_gid, persons)
                 if gid not in persons:
-                    self.send_json(404, {"error": f"Person {gid} not found"})
+                    self.send_json(404, {"error": "Personne introuvable"})
                     return
 
-                old_photo = persons[gid].get("photo")
-                if old_photo:
-                    old_path = (HUGO_DIR / "static" / old_photo.lstrip("/")).resolve()
-                    photos_resolved = PHOTOS_DIR.resolve()
-                    # Path-traversal guard: only delete files inside PHOTOS_DIR
-                    if old_path.exists() and old_path.is_file() and str(old_path).startswith(str(photos_resolved)):
-                        old_path.unlink()
-                        print(f"  🗑️  Photo supprimée: {old_path.name}")
-
+                _safe_unlink_photo(persons[gid].get("photo"))
                 persons[gid]["photo"] = None
                 regen_markdown(gid, persons[gid])
+                _log.info("DELETE photo/%s from %s", gid, self.client_address[0])
 
             self.send_json(200, {"id": gid, "ok": True, "photo": None})
         else:
-            self.send_json(404, {"error": "Not found"})
+            self.send_json(404, {"error": "Route inconnue"})

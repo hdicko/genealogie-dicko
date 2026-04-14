@@ -236,7 +236,7 @@ document.getElementById('sp-photo-input').addEventListener('change', function() 
     if (ph) ph.style.display = 'none';
     img.src = ev.target.result; img.style.display = 'block';
     document.getElementById('sp-photo-del').style.display = 'flex';
-    document.getElementById('sp-upload-label').innerHTML = '📷 Changer la photo…';
+    document.getElementById('sp-upload-label').textContent = '📷 Changer la photo…';
   };
   reader.readAsDataURL(file);
 });
@@ -252,7 +252,7 @@ async function deletePhoto(e) {
     if (img) { img.src = ''; img.style.display = 'none'; }
     if (ph) ph.style.display = 'block';
     document.getElementById('sp-photo-del').style.display = 'none';
-    document.getElementById('sp-upload-label').innerHTML = '📷 Ajouter une photo…';
+    document.getElementById('sp-upload-label').textContent = '📷 Ajouter une photo…';
     document.getElementById('sp-photo-input').value = '';
     document.getElementById('sp-photo-name').textContent = '';
     // Also update the page header photo
