@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import re
 import time
 from collections import defaultdict
@@ -17,10 +18,16 @@ from .markup import regen_markdown, update_references
 
 
 # ---------------------------------------------------------------------------
-# Audit logging
+# Audit logging — write to project logs/ dir (not world-writable /tmp)
 # ---------------------------------------------------------------------------
+_LOG_DIR = HUGO_DIR / "logs"
+_LOG_DIR.mkdir(exist_ok=True)
+_LOG_FILE = _LOG_DIR / "api.log"
+# Guard against symlink attack: refuse to log if the path is a symlink.
+if _LOG_FILE.is_symlink():
+    _LOG_FILE.unlink()
 logging.basicConfig(
-    filename="/tmp/genealogie_api.log",
+    filename=str(_LOG_FILE),
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",

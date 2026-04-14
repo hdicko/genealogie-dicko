@@ -24,3 +24,6 @@ Thumbs.db
 # Logs
 *.log
 /tmp/
+
+# API audit logs
+logs/

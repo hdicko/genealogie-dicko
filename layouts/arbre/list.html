@@ -710,7 +710,15 @@ function printTree() {
   clone.removeAttribute('style');
   // Remove zoom event listeners by replacing with clean copy (already done via cloneNode)
 
-  const personNom  = (DATA[rootId] && DATA[rootId].nom) ? DATA[rootId].nom : rootId;
+  // Escape HTML entities in user-controlled strings to prevent XSS in the
+  // generated print document (nom comes from user-editable API data).
+  function _esc(str) {
+    const d = document.createElement('div');
+    d.textContent = String(str);
+    return d.innerHTML;
+  }
+
+  const personNom  = _esc((DATA[rootId] && DATA[rootId].nom) ? DATA[rootId].nom : rootId);
   const modeLabel  = mode === 'anc' ? 'Ancêtres' : 'Descendants';
   const title      = `${personNom} — ${modeLabel}`;
   const dateStr    = new Date().toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' });
