@@ -1,16 +1,350 @@
-<!doctype html><html lang=fr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Lobo — Arbre Genealogique Dicko Ardo Hayre</title><link rel=stylesheet href=/css/style.css></head><body><header class=site-header><div class=container><a href=/ class=site-title>🌳 Arbre Genealogique Dicko Ardo Hayre</a><nav><a href=/>Accueil</a>
-<a href=/arbre/>Arbre</a>
-<a href=/personnes/>Personnes</a></nav></div></header><main class=container><article class=person-card><div class=person-header><div class="person-photo person-photo--placeholder">👵</div><div class=person-info><h1 id=person-title>Lobo</h1><button class="btn btn-edit" id=btn-open-edit onclick=openEditModal()>✏️ Modifier</button><dl class=person-details><dt>ID Gramps</dt><dd>I202</dd><dt>Genre</dt><dd>Femme</dd></dl></div></div><section class=person-section><h2>Parents</h2><ul class=person-list><li><span class="relation-badge pere">Père</span>
-<a href=/personnes/i187/>Moussa</a></li><li><span class="relation-badge mere">Mère</span>
-<a href=/personnes/i199/>Dico Hama ("la Giraffe")</a></li></ul></section><section class=person-section><button class=btn-toggle-siblings onclick=toggleSiblings(this) aria-expanded=false>
-👨‍👩‍👧‍👦 Frères & Sœurs (7) <span class=toggle-arrow>▼</span></button><ul class="person-list siblings-list" style=display:none;margin-top:10px><li><a href=/personnes/i200/>Nassourou</a></li><li><a href=/personnes/i201/>Sedou</a></li><li><a href=/personnes/i203/>Boussi</a></li><li><a href=/personnes/i204/>Mariam</a></li><li><a href=/personnes/i205/>Vieux (Hamadoun)</a></li><li><a href=/personnes/i206/>Mamadou</a></li><li><a href=/personnes/i207/>Aye</a></li></ul></section><div class=person-actions><a href="/arbre/?focus=I202" class="btn btn-primary">Voir dans l'arbre</a>
-<a href=/personnes/ class="btn btn-secondary">← Toutes les personnes</a></div></article><div id=modal-overlay style=display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center><div style="background:#fff;border-radius:10px;padding:24px 28px;min-width:320px;max-width:440px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.3)"><h2 style="margin:0 0 16px;font-size:1.1rem">✏️ Modifier la personne</h2><div style=display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:12px;background:#f8f8f8;border-radius:8px><div id=sp-photo-wrap style="position:relative;width:64px;height:64px;border-radius:50%;border:2px solid #ddd;background:#eee;flex-shrink:0;overflow:visible;display:flex;align-items:center;justify-content:center;font-size:28px;color:#aaa"><span id=sp-photo-ph>👵</span>
-<button id=sp-photo-del onclick=deletePhoto(event) style="display:none;position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;border:none;background:#e53935;color:#fff;font-size:12px;cursor:pointer;align-items:center;justify-content:center;padding:0;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.3)" title="Supprimer la photo">✕</button></div><div style=flex:1><label for=sp-photo-input id=sp-upload-label style="display:block;padding:7px 10px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;border:1.5px dashed #bbb;border-radius:6px;text-align:center;color:#555">📷 Ajouter une photo…
-</label><input type=file id=sp-photo-input accept=image/* style=display:none><div id=sp-photo-name style=font-size:11px;color:#888;margin-top:3px;text-align:center></div></div></div><div style=margin-bottom:12px><label style=display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase>Nom</label>
-<input type=text id=edit-nom style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none"></div><div style=margin-bottom:12px><label style=display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase>Genre</label>
-<select id=edit-genre style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px"><option value=male>Homme</option><option value=female>Femme</option><option value=unknown>Inconnu</option></select></div><div style=margin-bottom:12px><label style=display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase>Naissance</label>
-<input type=text id=edit-naissance style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none"></div><div style=margin-bottom:12px><label style=display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase>Décès</label>
-<input type=text id=edit-deces style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none"></div><div style=margin-bottom:12px><label style=display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase>Ville / Village</label>
-<input type=text id=edit-ville placeholder="ex: Bamako, Mopti…" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none"></div><div style=margin-bottom:12px><label style=display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase>Commentaires</label>
-<textarea id=edit-commentaires rows=3 style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;resize:vertical"></textarea></div><div style=display:flex;gap:10px;margin-top:18px><button onclick=closeEditModal() style=flex:1;padding:9px;font-size:14px;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:#eee;color:#333>Annuler</button>
-<button id=btn-save onclick=saveEdit() style=flex:1;padding:9px;font-size:14px;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:#2e7d32;color:#fff>💾 Enregistrer</button></div><div id=save-status style=font-size:12px;color:#666;text-align:center;margin-top:8px;min-height:18px></div></div></div><script>function toggleSiblings(e){const n=e.nextElementSibling,t=e.getAttribute("aria-expanded")==="true";n.style.display=t?"none":"block",e.setAttribute("aria-expanded",!t),e.querySelector(".toggle-arrow").textContent=t?"▼":"▲"}const PERSON_ID="I202",API="http://localhost:1315";function openEditModal(){document.getElementById("edit-nom").value=document.getElementById("person-title").textContent.trim(),document.getElementById("edit-genre").value="female"||"unknown",document.getElementById("edit-naissance").value=""||"",document.getElementById("edit-deces").value=""||"",document.getElementById("edit-ville").value=""||"",document.getElementById("edit-commentaires").value=""||"",document.getElementById("save-status").textContent="",document.getElementById("sp-photo-input").value="",document.getElementById("sp-photo-name").textContent="";const e=document.getElementById("modal-overlay");e.style.display="flex",document.getElementById("edit-nom").focus()}function closeEditModal(){document.getElementById("modal-overlay").style.display="none"}document.getElementById("modal-overlay").addEventListener("click",function(e){e.target===this&&closeEditModal()}),document.addEventListener("keydown",e=>{e.key==="Escape"&&closeEditModal()}),document.getElementById("sp-photo-input").addEventListener("change",function(){const e=this.files[0];if(!e)return;document.getElementById("sp-photo-name").textContent=e.name;const t=new FileReader;t.onload=e=>{const n=document.getElementById("sp-photo-wrap"),s=document.getElementById("sp-photo-ph");let t=document.getElementById("sp-photo-img");t||(t=document.createElement("img"),t.id="sp-photo-img",t.style.cssText="width:64px;height:64px;object-fit:cover;border-radius:50%;",n.insertBefore(t,n.firstChild)),s&&(s.style.display="none"),t.src=e.target.result,t.style.display="block",document.getElementById("sp-photo-del").style.display="flex",document.getElementById("sp-upload-label").innerHTML="📷 Changer la photo…"},t.readAsDataURL(e)});async function deletePhoto(e){if(e.preventDefault(),e.stopPropagation(),!confirm("Supprimer la photo de cette personne ?"))return;try{const t=await fetch(`${API}/api/photo/${PERSON_ID}`,{method:"DELETE"});if(!t.ok)throw new Error(`HTTP ${t.status}`);const e=document.getElementById("sp-photo-img"),n=document.getElementById("sp-photo-ph");e&&(e.src="",e.style.display="none"),n&&(n.style.display="block"),document.getElementById("sp-photo-del").style.display="none",document.getElementById("sp-upload-label").innerHTML="📷 Ajouter une photo…",document.getElementById("sp-photo-input").value="",document.getElementById("sp-photo-name").textContent="";const s=document.querySelector(".person-photo img");s&&(s.closest(".person-photo").outerHTML='<div class="person-photo person-photo--placeholder">👤</div>')}catch(e){alert("Erreur : "+e.message)}}async function saveEdit(){const t=document.getElementById("edit-nom").value.trim(),o=document.getElementById("edit-genre").value,i=document.getElementById("edit-naissance").value.trim(),a=document.getElementById("edit-deces").value.trim(),r=document.getElementById("edit-ville").value.trim(),c=document.getElementById("edit-commentaires").value.trim(),n=document.getElementById("sp-photo-input").files[0],e=document.getElementById("save-status"),s=document.getElementById("btn-save");if(!t){e.textContent="⚠️ Le nom est obligatoire.";return}s.disabled=!0,e.style.color="#666";try{if(n){e.textContent="📷 Upload de la photo…";const t=new FormData;t.append("photo",n);const s=await fetch(`${API}/api/photo/${PERSON_ID}`,{method:"POST",body:t});if(!s.ok)throw new Error(`Photo upload HTTP ${s.status}`)}e.textContent="⏳ Enregistrement…";const s=await fetch(`${API}/api/person/${PERSON_ID}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({nom:t,genre:o,naissance:i,deces:a,ville:r,commentaires:c})});if(!s.ok)throw new Error(`HTTP ${s.status}`);e.textContent="✅ Enregistré ! La page va se recharger…",e.style.color="#2e7d32",setTimeout(()=>location.reload(),1200)}catch(t){e.style.color="#c62828",e.textContent=t.message.includes("fetch")?"❌ API indisponible. Lance : python3 scripts/api_server.py":"❌ "+t.message}finally{s.disabled=!1}}</script></main><footer class=site-footer><div class=container><p>Arbre Genealogique Dicko Ardo Hayre — Diona · Boundoucoli · Dalla et Boni · 662 personnes</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lobo — Arbre Genealogique Dicko Ardo Hayre</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-title">🌳 Arbre Genealogique Dicko Ardo Hayre</a>
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="/arbre/">Arbre</a>
+        <a href="/personnes/">Personnes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+
+
+
+
+<article class="person-card">
+  <div class="person-header">
+    
+    <div class="person-photo person-photo--placeholder">
+      👵
+    </div>
+    
+
+    <div class="person-info">
+      <h1 id="person-title">Lobo</h1>
+      <button class="btn btn-edit" id="btn-open-edit" onclick="openEditModal()">✏️ Modifier</button>
+      <dl class="person-details">
+        <dt>ID Gramps</dt><dd>I202</dd>
+        <dt>Genre</dt><dd>Femme</dd>
+        
+        
+        
+        
+        
+        
+        
+      </dl>
+    </div>
+  </div>
+
+  
+  <section class="person-section">
+    <h2>Parents</h2>
+    <ul class="person-list">
+      
+      <li>
+        <span class="relation-badge pere">Père</span>
+        
+        <a href="/personnes/i187/">Moussa Dicko - Dalla</a>
+        
+      </li>
+      
+      <li>
+        <span class="relation-badge mere">Mère</span>
+        
+        <a href="/personnes/i199/">Dico Hama (&#34;la Giraffe&#34;)</a>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="person-section">
+    <button class="btn-toggle-siblings" onclick="toggleSiblings(this)" aria-expanded="false">
+      👨‍👩‍👧‍👦 Frères &amp; Sœurs (7) <span class="toggle-arrow">▼</span>
+    </button>
+    <ul class="person-list siblings-list" style="display:none;margin-top:10px;">
+      
+      <li>
+        
+        <a href="/personnes/i200/">Nassourou</a>
+        
+      </li>
+      
+      <li>
+        
+        <a href="/personnes/i201/">Sedou</a>
+        
+      </li>
+      
+      <li>
+        
+        <a href="/personnes/i203/">Boussi</a>
+        
+      </li>
+      
+      <li>
+        
+        <a href="/personnes/i204/">Mariam</a>
+        
+      </li>
+      
+      <li>
+        
+        <a href="/personnes/i205/">Vieux (Hamadoun)</a>
+        
+      </li>
+      
+      <li>
+        
+        <a href="/personnes/i206/">Mamadou</a>
+        
+      </li>
+      
+      <li>
+        
+        <a href="/personnes/i207/">Aye</a>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+
+  <div class="person-actions">
+    <a href="/arbre/?focus=I202" class="btn btn-primary">Voir dans l'arbre</a>
+    <a href="/personnes/" class="btn btn-secondary">← Toutes les personnes</a>
+  </div>
+</article>
+
+
+<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:10px;padding:24px 28px;min-width:320px;max-width:440px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.3);">
+    <h2 style="margin:0 0 16px;font-size:1.1rem;">✏️ Modifier la personne</h2>
+
+    
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:12px;background:#f8f8f8;border-radius:8px;">
+      <div id="sp-photo-wrap" style="position:relative;width:64px;height:64px;border-radius:50%;border:2px solid #ddd;background:#eee;flex-shrink:0;overflow:visible;display:flex;align-items:center;justify-content:center;font-size:28px;color:#aaa;">
+        <span id="sp-photo-ph">👵</span>
+        
+        <button id="sp-photo-del" onclick="deletePhoto(event)"
+          style="display:none;position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;border:none;background:#e53935;color:#fff;font-size:12px;cursor:pointer;align-items:center;justify-content:center;padding:0;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.3);"
+          title="Supprimer la photo">✕</button>
+      </div>
+      <div style="flex:1;">
+        <label for="sp-photo-input" id="sp-upload-label" style="display:block;padding:7px 10px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;border:1.5px dashed #bbb;border-radius:6px;text-align:center;color:#555;">
+          📷 Ajouter une photo…
+        </label>
+        <input type="file" id="sp-photo-input" accept="image/*" style="display:none;"/>
+        <div id="sp-photo-name" style="font-size:11px;color:#888;margin-top:3px;text-align:center;"></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Nom</label>
+      <input type="text" id="edit-nom" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Genre</label>
+      <select id="edit-genre" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;">
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+        <option value="unknown">Inconnu</option>
+      </select>
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Naissance</label>
+      <input type="text" id="edit-naissance" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Décès</label>
+      <input type="text" id="edit-deces" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Ville / Village</label>
+      <input type="text" id="edit-ville" placeholder="ex: Bamako, Mopti…" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Commentaires</label>
+      <textarea id="edit-commentaires" rows="3" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;resize:vertical;"></textarea>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button onclick="closeEditModal()" style="flex:1;padding:9px;font-size:14px;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:#eee;color:#333;">Annuler</button>
+      <button id="btn-save" onclick="saveEdit()" style="flex:1;padding:9px;font-size:14px;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:#2e7d32;color:#fff;">💾 Enregistrer</button>
+    </div>
+    <div id="save-status" style="font-size:12px;color:#666;text-align:center;margin-top:8px;min-height:18px;"></div>
+  </div>
+</div>
+
+<script>
+
+
+function toggleSiblings(btn) {
+  const list = btn.nextElementSibling;
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  list.style.display = expanded ? 'none' : 'block';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.querySelector('.toggle-arrow').textContent = expanded ? '▼' : '▲';
+}
+
+
+
+const PERSON_ID = "I202";
+const API_HOST = ['localhost', '127.0.0.1'].includes(location.hostname)
+  ? location.hostname
+  : '127.0.0.1';
+const API = `http://${API_HOST}:1315`; 
+
+
+
+function openEditModal() {
+  document.getElementById('edit-nom').value          = document.getElementById('person-title').textContent.trim();
+  document.getElementById('edit-genre').value        = "female" || 'unknown';
+  document.getElementById('edit-naissance').value    = "" || '';
+  document.getElementById('edit-deces').value        = "" || '';
+  document.getElementById('edit-ville').value        = "" || '';
+  document.getElementById('edit-commentaires').value = "" || '';
+  document.getElementById('save-status').textContent = '';
+  document.getElementById('sp-photo-input').value    = '';
+  document.getElementById('sp-photo-name').textContent = '';
+  const ov = document.getElementById('modal-overlay');
+  ov.style.display = 'flex';
+  document.getElementById('edit-nom').focus();
+}
+
+function closeEditModal() {
+  document.getElementById('modal-overlay').style.display = 'none';
+}
+
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeEditModal();
+});
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeEditModal(); });
+
+
+
+document.getElementById('sp-photo-input').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  document.getElementById('sp-photo-name').textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const wrap = document.getElementById('sp-photo-wrap');
+    const ph   = document.getElementById('sp-photo-ph');
+    let img    = document.getElementById('sp-photo-img');
+    if (!img) {
+      img = document.createElement('img');
+      img.id = 'sp-photo-img';
+      img.style.cssText = 'width:64px;height:64px;object-fit:cover;border-radius:50%;';
+      wrap.insertBefore(img, wrap.firstChild);
+    }
+    if (ph) ph.style.display = 'none';
+    img.src = ev.target.result; img.style.display = 'block';
+    document.getElementById('sp-photo-del').style.display = 'flex';
+    document.getElementById('sp-upload-label').textContent = '📷 Changer la photo…';
+  };
+  reader.readAsDataURL(file);
+});
+
+
+
+async function deletePhoto(e) {
+  e.preventDefault(); e.stopPropagation();
+  if (!confirm('Supprimer la photo de cette personne ?')) return;
+  try {
+    const res = await fetch(`${API}/api/photo/${PERSON_ID}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const img = document.getElementById('sp-photo-img');
+    const ph  = document.getElementById('sp-photo-ph');
+    if (img) { img.src = ''; img.style.display = 'none'; }
+    if (ph) ph.style.display = 'block';
+    document.getElementById('sp-photo-del').style.display = 'none';
+    document.getElementById('sp-upload-label').textContent = '📷 Ajouter une photo…';
+    document.getElementById('sp-photo-input').value = '';
+    document.getElementById('sp-photo-name').textContent = '';
+    
+    const headerPhoto = document.querySelector('.person-photo img');
+    if (headerPhoto) headerPhoto.closest('.person-photo').outerHTML =
+      '<div class="person-photo person-photo--placeholder">👤</div>';
+  } catch(err) {
+    alert('Erreur : ' + err.message);
+  }
+}
+
+
+
+
+
+async function saveEdit() {
+  const nom          = document.getElementById('edit-nom').value.trim();
+  const genre        = document.getElementById('edit-genre').value;
+  const naissance    = document.getElementById('edit-naissance').value.trim();
+  const deces        = document.getElementById('edit-deces').value.trim();
+  const ville        = document.getElementById('edit-ville').value.trim();
+  const commentaires = document.getElementById('edit-commentaires').value.trim();
+  const photoFile    = document.getElementById('sp-photo-input').files[0];
+  const status       = document.getElementById('save-status');
+  const btn          = document.getElementById('btn-save');
+
+  if (!nom) { status.textContent = '⚠️ Le nom est obligatoire.'; return; }
+  btn.disabled = true;
+  status.style.color = '#666';
+
+  try {
+    
+    if (photoFile) {
+      status.textContent = '📷 Upload de la photo…';
+      const fd = new FormData();
+      fd.append('photo', photoFile);
+      const pr = await fetch(`${API}/api/photo/${PERSON_ID}`, { method: 'POST', body: fd });
+      if (!pr.ok) throw new Error(`Photo upload HTTP ${pr.status}`);
+    }
+
+    
+    status.textContent = '⏳ Enregistrement…';
+    const res = await fetch(`${API}/api/person/${PERSON_ID}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nom, genre, naissance, deces, ville, commentaires }),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    status.textContent = '✅ Enregistré ! La page va se recharger…';
+    status.style.color = '#2e7d32';
+    setTimeout(() => location.reload(), 1200);
+  } catch(err) {
+    status.style.color = '#c62828';
+    status.textContent = err.message.includes('fetch')
+      ? '❌ API indisponible. Lance : python3 scripts/api_server.py'
+      : '❌ ' + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+}
+</script>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Arbre Genealogique Dicko Ardo Hayre — Diona · Boundoucoli · Dalla et Boni · 677 personnes</p>
+    </div>
+  </footer>
+</body>
+</html>

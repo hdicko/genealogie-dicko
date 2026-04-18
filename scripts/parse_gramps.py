@@ -173,6 +173,10 @@ def match_photos(persons):
 
 
 def toml_str(s):
+    """Encode a Python value as an inline TOML double-quoted string literal.
+    Returns '""' for None; escapes backslashes and double-quotes otherwise.
+    Note: unlike markup.toml_str, this version does NOT handle multi-line strings.
+    """
     if s is None:
         return '""'
     return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"') + '"'

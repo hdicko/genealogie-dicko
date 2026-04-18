@@ -73,7 +73,8 @@ Nécessaire uniquement si vous souhaitez modifier des fiches ou des photos depui
 python3 scripts/api_server.py
 ```
 
-L'API tourne sur **http://localhost:1315** et répond aux modifications envoyées par les formulaires du site.
+L'API tourne sur **http://127.0.0.1:1315** et répond aux modifications envoyées par les formulaires du site.
+Les interfaces d'édition acceptent aussi bien **localhost** que **127.0.0.1** côté navigateur.
 
 ---
 

@@ -184,6 +184,8 @@
 </div>
 
 <script>
+// ── Siblings toggle ──────────────────────────────────────────────────────────
+// Expand or collapse the siblings list when the toggle button is clicked.
 function toggleSiblings(btn) {
   const list = btn.nextElementSibling;
   const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -192,9 +194,16 @@ function toggleSiblings(btn) {
   btn.querySelector('.toggle-arrow').textContent = expanded ? '▼' : '▲';
 }
 
+// ── Constants ────────────────────────────────────────────────────────────────
+// PERSON_ID is injected by Hugo at build time from the page's Gramps front-matter ID.
 const PERSON_ID = {{ .Params.gramps_id | jsonify | safeJS }};
-const API = 'http://localhost:1315';
+const API_HOST = ['localhost', '127.0.0.1'].includes(location.hostname)
+  ? location.hostname
+  : '127.0.0.1';
+const API = `http://${API_HOST}:1315`; // local editing API — must be running separately
 
+// ── Edit Modal ───────────────────────────────────────────────────────────────
+// Open the modal and pre-fill all fields from the current page's Hugo front-matter values.
 function openEditModal() {
   document.getElementById('edit-nom').value          = document.getElementById('person-title').textContent.trim();
   document.getElementById('edit-genre').value        = {{ .Params.genre | jsonify | safeJS }} || 'unknown';
@@ -209,15 +218,18 @@ function openEditModal() {
   ov.style.display = 'flex';
   document.getElementById('edit-nom').focus();
 }
+// Close the edit modal.
 function closeEditModal() {
   document.getElementById('modal-overlay').style.display = 'none';
 }
+// Close on backdrop click or Escape key.
 document.getElementById('modal-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeEditModal();
 });
 document.addEventListener('keydown', e => { if (e.key==='Escape') closeEditModal(); });
 
-// Photo preview
+// ── Photo preview ────────────────────────────────────────────────────────────
+// When the user picks a file, show a circular preview inside the modal.
 document.getElementById('sp-photo-input').addEventListener('change', function() {
   const file = this.files[0];
   if (!file) return;
@@ -241,6 +253,8 @@ document.getElementById('sp-photo-input').addEventListener('change', function() 
   reader.readAsDataURL(file);
 });
 
+// ── Photo deletion ───────────────────────────────────────────────────────────
+// Call DELETE /api/photo/{id}, then clear all photo elements on this page.
 async function deletePhoto(e) {
   e.preventDefault(); e.stopPropagation();
   if (!confirm('Supprimer la photo de cette personne ?')) return;
@@ -264,6 +278,10 @@ async function deletePhoto(e) {
   }
 }
 
+// ── Save (PATCH) ─────────────────────────────────────────────────────────────
+// 1. Upload photo if a new file was chosen  → POST /api/photo/{id}
+// 2. PATCH updated person fields            → PATCH /api/person/{id}
+// 3. Reload the page to reflect server-side changes.
 async function saveEdit() {
   const nom          = document.getElementById('edit-nom').value.trim();
   const genre        = document.getElementById('edit-genre').value;

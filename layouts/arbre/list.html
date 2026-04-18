@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arbre généalogique — {{ .Site.Title }}</title>
   <style>
+    /* ---- base reset & canvas ---- */
     * { box-sizing: border-box; }
     body { margin: 0; background: #1a1a2e; font-family: sans-serif; overflow: hidden; }
     svg { width: 100vw; height: 100vh; display: block; }
 
+    /* ---- tree nodes, labels & links (dark-theme defaults) ---- */
     .node circle  { cursor: pointer; stroke-width: 2; }
     .node.male    circle { fill: #4a90d9; stroke: #2c6fad; }
     .node.female  circle { fill: #e87bae; stroke: #c4507a; }
@@ -128,11 +130,14 @@
     .node.female circle       { fill: #e87bae; }
     .node.unknown circle      { fill: #888; }
     .node.focused circle      { stroke: #fff; stroke-width: 3; }
+    .node.no-profile circle   { stroke-dasharray: 4,2; opacity: .85; }
     /* Épouse / mère en polygamie : cercle blanc avec bordure rose tiretée */
     .node.conjoint-node circle {
       fill: #fff3f8; stroke: #c9527a; stroke-width: 2.5; stroke-dasharray: 5,3;
     }
     .node.conjoint-node .node-label { fill: #c9527a; font-style: italic; }
+
+    /* ---- legend & fixed overlay labels ---- */
     #legend {
       position: fixed; bottom: 12px; left: 12px;
       background: rgba(255,255,255,.86); border-radius: 6px;
@@ -182,6 +187,7 @@
   <p  id="i-parents"></p>
   <p  id="i-spouses"></p>
   <button id="btn-goto-parent" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#5c7a9e;color:#fff;border:none;border-radius:5px;cursor:pointer;">⬆ Voir le père / la mère</button>
+  <button id="btn-goto-child" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#2e7d32;color:#fff;border:none;border-radius:5px;cursor:pointer;">⬇ Voir un descendant</button>
   <div class="info-actions">
     <button id="btn-edit-node">✏️ Modifier</button>
     <a id="btn-goto-page" href="#">📄 Fiche</a>
@@ -253,14 +259,20 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 const DATA = {{ hugo.Data.famille.personnes | jsonify | safeJS }};
-const API  = 'http://localhost:1315';
+const API_HOST = ['localhost', '127.0.0.1'].includes(location.hostname)
+  ? location.hostname
+  : '127.0.0.1';
+const API  = `http://${API_HOST}:1315`;
 
+// Layout constants: R = node radius (px), DX = vertical gap between siblings, DY = horizontal gap per generation.
 const R=16, DX=44, DY=210;
+// rootId: person currently at the top of the tree. focusId: highlighted node (e.g. from ?focus= URL param).
 let rootId='I1', focusId=null;
-let currentInfoData = null;
+let currentInfoData = null; // data of the last-clicked node — kept for the edit modal
 let mode = 'desc'; // 'desc' = descendants, 'anc' = ancestors
-let history = []; // navigation history stack
+let history = []; // back-navigation stack of previous rootIds
 
+// Re-centre the tree on `id`, pushing the previous root onto the history stack.
 function navigate(id) {
   if (rootId !== id) history.push(rootId);
   document.getElementById('btn-back').disabled = history.length === 0;
@@ -268,6 +280,7 @@ function navigate(id) {
   render(rootId, +document.getElementById('depth-input').value);
 }
 
+// Navigate back one step (undo the last navigate() call).
 function goBack() {
   if (!history.length) return;
   rootId = history.pop();
@@ -279,7 +292,38 @@ function goBack() {
 const urlP = new URLSearchParams(location.search);
 if (urlP.get('focus')) { focusId=urlP.get('focus'); rootId=focusId; }
 
+function hasProfile(id) {
+  return Boolean(id && DATA[id]);
+}
+
+const NAME_COUNTS = Object.values(DATA).reduce((acc, p) => {
+  const nom = (p.nom || '').trim();
+  if (!nom) return acc;
+  acc[nom] = (acc[nom] || 0) + 1;
+  return acc;
+}, {});
+
+function searchLabel(id, p) {
+  const nom = (p.nom || id).trim();
+  if ((NAME_COUNTS[nom] || 0) < 2) return nom;
+  const premierParent = (p.parents || []).find(par => par && par.nom);
+  if (premierParent) return `${nom} — enfant de ${premierParent.nom} (${id})`;
+  const premierConjoint = (p.familles || []).find(fam => fam && fam.conjoint);
+  if (premierConjoint) return `${nom} — conjoint de ${premierConjoint.conjoint} (${id})`;
+  return `${nom} (${id})`;
+}
+
+function setMode(nextMode) {
+  mode = nextMode;
+  const btnMode = document.getElementById('btn-mode');
+  btnMode.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
+  btnMode.style.background = mode === 'anc' ? '#5c7a9e' : '';
+}
+
 /* ── hierarchy builder ─────────────────────────────────────── */
+// Build a d3.hierarchy-compatible tree of descendants.
+// Wives/partners are inserted as intermediate "conjoint" nodes so each
+// father–wife pair groups their children visually on the same branch.
 function buildHier(id, depth) {
   const vis = new Set();
   function walk(gid, d) {
@@ -292,8 +336,29 @@ function buildHier(id, depth) {
       for (const fam of (p.familles||[])) {
         // Collect children of this family
         const famKids = [];
-        for (const e of (fam.enfants||[]))
-          if (e.id) { const c=walk(e.id,d-1); if(c) famKids.push(c); }
+        for (const [index, e] of (fam.enfants||[]).entries()) {
+          if (hasProfile(e.id)) {
+            const c = walk(e.id, d - 1);
+            if (c) famKids.push(c);
+            continue;
+          }
+          if (!e.nom) continue;
+          famKids.push({
+            id: `sans-id-${gid}-${fam.conjoint_id || 'sans-conjoint'}-${index}`,
+            nom: e.nom,
+            genre: 'unknown',
+            type: 'enfant-sans-id',
+            photo: null,
+            naissance: '',
+            deces: '',
+            parents: [
+              { id: gid, nom: p.nom || gid },
+              fam.conjoint ? { id: hasProfile(fam.conjoint_id) ? fam.conjoint_id : '', nom: fam.conjoint } : null,
+            ].filter(Boolean),
+            hasProfile: false,
+            children: null,
+          });
+        }
         if (!famKids.length) continue;
 
         // Insert the wife as an intermediate node if she exists in DATA
@@ -315,13 +380,14 @@ function buildHier(id, depth) {
       }
     }
     return { id:gid, nom:p.nom||gid, genre:p.genre||'unknown', type:'person',
-             photo:p.photo||null, naissance:p.naissance||'',
-             deces:p.deces||'', parents:p.parents||[],
+              photo:p.photo||null, naissance:p.naissance||'',
+             deces:p.deces||'', parents:p.parents||[], hasProfile: true,
              children: kids.length ? kids : null };
   }
   return walk(id, depth);
 }
 
+// Build a d3.hierarchy-compatible tree of ancestors (parents, grandparents…).
 function buildAncestors(id, depth) {
   const vis = new Set();
   function walk(gid, d) {
@@ -334,8 +400,8 @@ function buildAncestors(id, depth) {
       for (const par of (p.parents||[]))
         if (par.id) { const c=walk(par.id, d-1); if(c) pars.push(c); }
     return { id:gid, nom:p.nom||gid, genre:p.genre||'unknown',
-             photo:p.photo||null, naissance:p.naissance||'',
-             deces:p.deces||'', parents:p.parents||[],
+              photo:p.photo||null, naissance:p.naissance||'',
+             deces:p.deces||'', parents:p.parents||[], hasProfile: true,
              children: pars.length ? pars : null };
   }
   return walk(id, depth);
@@ -352,6 +418,8 @@ const zoomer = d3.zoom().scaleExtent([0.03,6])
 svg.call(zoomer).on('dblclick.zoom', null);
 
 /* ── render ────────────────────────────────────────────────── */
+// Fully redraw the D3 tree from startId to `depth` generations.
+// Clears all SVG content, rebuilds hierarchy, draws links then nodes.
 function render(startId, depth) {
   gRoot.selectAll('*').remove();
   defs.selectAll('clipPath').remove();
@@ -373,11 +441,13 @@ function render(startId, depth) {
     .attr('class', d => [
       'node', d.data.genre,
       d.data.type === 'conjoint' ? 'conjoint-node' : '',
+      d.data.hasProfile === false ? 'no-profile' : '',
       d.data.id === focusId ? 'focused' : ''
     ].filter(Boolean).join(' '))
     .attr('transform', d => `translate(${d.y},${d.x})`)
     .on('click', (ev,d) => { ev.stopPropagation(); showInfo(d.data); })
     .on('dblclick', (ev,d) => {
+      if (d.data.hasProfile === false) return;
       ev.stopPropagation();
       focusId=null;
       navigate(d.data.id);
@@ -414,6 +484,7 @@ function render(startId, depth) {
   svg.call(zoomer.transform, d3.zoomIdentity.translate(60, H/2-r.x).scale(1));
 }
 
+// Compute the bounding box of all visible nodes and zoom/pan to fit them in the viewport.
 function fitAll() {
   const d = mode === 'anc'
     ? buildAncestors(rootId, +document.getElementById('depth-input').value)
@@ -430,6 +501,7 @@ function fitAll() {
       .translate(pad-x0*sc,(H-(y0+y1)*sc)/2).scale(sc));
 }
 
+// Truncate a full name to at most the first 3 words for compact node labels.
 function shortName(n) {
   if(!n) return '';
   const p=n.split(' ');
@@ -437,6 +509,7 @@ function shortName(n) {
 }
 
 /* ── info panel ────────────────────────────────────────────── */
+// Build a spouse summary string for the info panel from the live DATA cache.
 function spouseText(d) {
   const full = DATA[d.id] || {};
   const fams = full.familles || [];
@@ -447,6 +520,7 @@ function spouseText(d) {
   return label + ' : ' + conjoints.join(', ');
 }
 
+// Populate and reveal the bottom-right info panel for the clicked node.
 function showInfo(d) {
   currentInfoData = d;
   document.getElementById('i-nom').textContent   = d.nom||'—';
@@ -454,8 +528,10 @@ function showInfo(d) {
     d.genre==='male'?'♂ Homme':d.genre==='female'?'♀ Femme':'';
   document.getElementById('i-birth').textContent = d.naissance?'🎂 '+d.naissance:'';
   document.getElementById('i-death').textContent = d.deces?'✝ '+d.deces:'';
-  const full = DATA[d.id] || {};
-  document.getElementById('i-ville').textContent = full.ville ? '📍 '+full.ville : '';
+  const full = d.hasProfile === false ? {} : (DATA[d.id] || {});
+  document.getElementById('i-ville').textContent = full.ville
+    ? '📍 '+full.ville
+    : (d.hasProfile === false ? 'ℹ️ Entrée sans fiche Gramps' : '');
 
   // Parents — cliquables pour naviguer vers le haut
   const pEl = document.getElementById('i-parents');
@@ -480,9 +556,13 @@ function showInfo(d) {
 
   document.getElementById('i-spouses').textContent = spouseText(d);
 
-  // Bouton "Voir le parent"
+  // Boutons de navigation contextuels
   const btnPar = document.getElementById('btn-goto-parent');
+  const btnChild = document.getElementById('btn-goto-child');
   const firstParWithId = (d.parents||[]).find(p=>p.id && DATA[p.id]);
+  const firstChildWithId = (full.familles || [])
+    .flatMap(f => f.enfants || [])
+    .find(e => e.id && DATA[e.id]);
   if (firstParWithId) {
     btnPar.style.display = 'block';
     btnPar.onclick = () => navigate(firstParWithId.id);
@@ -490,17 +570,38 @@ function showInfo(d) {
   } else {
     btnPar.style.display = 'none';
   }
+  if (firstChildWithId) {
+    btnChild.style.display = 'block';
+    btnChild.onclick = () => {
+      setMode('desc');
+      navigate(firstChildWithId.id);
+    };
+    btnChild.textContent = '⬇ Descendre vers ' + firstChildWithId.nom;
+  } else {
+    btnChild.style.display = 'none';
+  }
 
-  document.getElementById('btn-goto-page').href = `/personnes/${d.id.toLowerCase()}/`;
+  const btnEdit = document.getElementById('btn-edit-node');
+  const btnPage = document.getElementById('btn-goto-page');
+  if (d.hasProfile === false) {
+    btnEdit.style.display = 'none';
+    btnPage.style.display = 'none';
+  } else {
+    btnEdit.style.display = '';
+    btnPage.style.display = '';
+    btnPage.href = `/personnes/${d.id.toLowerCase()}/`;
+  }
   document.getElementById('info').style.display = 'block';
 }
 
 /* ── edit modal ────────────────────────────────────────────── */
+// Trigger the modal from the info panel's "Modifier" button.
 document.getElementById('btn-edit-node').onclick = () => {
   if (!currentInfoData) return;
   openModal(currentInfoData);
 };
 
+// Open the edit modal pre-filled with the data of person d.
 function openModal(d) {
   document.getElementById('edit-id').value              = d.id;
   document.getElementById('edit-nom').value             = d.nom||'';
@@ -536,6 +637,7 @@ document.getElementById('btn-cancel').onclick = closeModal;
 document.getElementById('modal-overlay').onclick = (e) => {
   if (e.target === document.getElementById('modal-overlay')) closeModal();
 };
+// Close the edit modal.
 function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
 }
@@ -802,9 +904,7 @@ document.getElementById('btn-zi').onclick   = () => svg.transition().call(zoomer
 document.getElementById('btn-zo').onclick   = () => svg.transition().call(zoomer.scaleBy,0.7);
 document.getElementById('btn-pdf').onclick  = printTree;
 document.getElementById('btn-mode').onclick = function() {
-  mode = mode === 'desc' ? 'anc' : 'desc';
-  this.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
-  this.style.background = mode === 'anc' ? '#5c7a9e' : '';
+  setMode(mode === 'desc' ? 'anc' : 'desc');
   render(rootId, +document.getElementById('depth-input').value);
 };
 document.getElementById('depth-input').onchange = function() {
@@ -823,9 +923,10 @@ si.addEventListener('input', function() {
   if(!hits.length) return;
   hits.forEach(([id,p])=>{
     const li=document.createElement('li');
-    li.textContent=p.nom;
+    li.textContent=searchLabel(id, p);
+    li.title = id;
     li.onclick=()=>{
-      si.value=p.nom; sl.style.display='none';
+      si.value=searchLabel(id, p); sl.style.display='none';
       navigate(id);
     };
     sl.appendChild(li);

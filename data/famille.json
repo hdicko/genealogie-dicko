@@ -48,7 +48,7 @@
               "id": "I5"
             },
             {
-              "nom": "Pathe (Madio)",
+              "nom": "Pathe Ameri (Madio)",
               "id": "I6"
             },
             {
@@ -102,10 +102,10 @@
       "gramps_id": "I2",
       "nom": "Oumou",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/isOumou Pathé.jpg",
       "parents": [],
       "fratrie": [],
@@ -131,7 +131,7 @@
               "id": "I5"
             },
             {
-              "nom": "Pathe (Madio)",
+              "nom": "Pathe Ameri (Madio)",
               "id": "I6"
             },
             {
@@ -494,12 +494,12 @@
     },
     "I6": {
       "gramps_id": "I6",
-      "nom": "Pathe (Madio)",
+      "nom": "Pathe Ameri (Madio)",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "4 novembre 1983",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I6.jpg",
       "parents": [
         {
@@ -557,7 +557,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Adama (Koumbel)",
+          "conjoint": "Adama (Koumbel Ameri)",
           "conjoint_id": "I83",
           "enfants": [
             {
@@ -599,7 +599,7 @@
               "id": "I66"
             },
             {
-              "nom": "Beldo Pathe",
+              "nom": "Beldo Pathe Farmata",
               "id": "I67"
             }
           ]
@@ -1385,6 +1385,10 @@
             {
               "nom": "Dico",
               "id": "I28"
+            },
+            {
+              "nom": "Gallo",
+              "id": "LOC-I20-I95-GALLO"
             }
           ]
         }
@@ -1449,6 +1453,10 @@
         {
           "nom": "Dico",
           "id": "I28"
+        },
+        {
+          "nom": "Gallo",
+          "id": "LOC-I20-I95-GALLO"
         }
       ],
       "familles": [],
@@ -1487,6 +1495,10 @@
         {
           "nom": "Dico",
           "id": "I28"
+        },
+        {
+          "nom": "Gallo",
+          "id": "LOC-I20-I95-GALLO"
         }
       ],
       "familles": [],
@@ -1525,6 +1537,10 @@
         {
           "nom": "Dico",
           "id": "I28"
+        },
+        {
+          "nom": "Gallo",
+          "id": "LOC-I20-I95-GALLO"
         }
       ],
       "familles": [
@@ -1569,6 +1585,10 @@
         {
           "nom": "Neneh Sidi (Adama)",
           "id": "I27"
+        },
+        {
+          "nom": "Gallo",
+          "id": "LOC-I20-I95-GALLO"
         }
       ],
       "familles": [
@@ -1690,7 +1710,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Beldo Pathe",
+          "conjoint": "Beldo Pathe Farmata",
           "conjoint_id": "I67",
           "enfants": [
             {
@@ -2781,7 +2801,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Pathe (Madio)",
+          "conjoint": "Pathe Ameri (Madio)",
           "conjoint_id": "I6",
           "enfants": [
             {
@@ -2801,7 +2821,7 @@
               "id": "I66"
             },
             {
-              "nom": "Beldo Pathe",
+              "nom": "Beldo Pathe Farmata",
               "id": "I67"
             }
           ]
@@ -2820,7 +2840,7 @@
       "photo": "/images/personnes/I63.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
@@ -2892,7 +2912,7 @@
       "photo": "/images/personnes/I64.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
@@ -2949,7 +2969,7 @@
       "photo": "/images/personnes/I65.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
@@ -2991,7 +3011,7 @@
       "photo": "/images/personnes/I66.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
@@ -3051,16 +3071,16 @@
     },
     "I67": {
       "gramps_id": "I67",
-      "nom": "Beldo Pathe",
+      "nom": "Beldo Pathe Farmata",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I67.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
@@ -3537,7 +3557,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Beldo Pathe",
+          "conjoint": "Beldo Pathe Farmata",
           "conjoint_id": "I67",
           "enfants": [
             {
@@ -3569,7 +3589,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Beldo Pathe",
+          "nom": "Beldo Pathe Farmata",
           "id": "I67",
           "relation": "mere"
         }
@@ -3599,7 +3619,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Beldo Pathe",
+          "nom": "Beldo Pathe Farmata",
           "id": "I67",
           "relation": "mere"
         }
@@ -3610,17 +3630,28 @@
           "id": "I81"
         }
       ],
-      "familles": [],
+      "familles": [
+        {
+          "conjoint": "Seyoma",
+          "conjoint_id": "LOC-I82-SEYOMA",
+          "enfants": [
+            {
+              "nom": "Farmata",
+              "id": "LOC-I82-SEYOMA-FARMATA"
+            }
+          ]
+        }
+      ],
       "html_file": "ppl/a/d/ad758a31d045481afbf.html"
     },
     "I83": {
       "gramps_id": "I83",
-      "nom": "Adama (Koumbel)",
+      "nom": "Adama (Koumbel Ameri)",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "6 Septembre 1980",
+      "ville": "Douentza",
+      "commentaires": "",
       "photo": "/images/personnes/I83.jpg",
       "parents": [
         {
@@ -3654,7 +3685,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Pathe (Madio)",
+          "conjoint": "Pathe Ameri (Madio)",
           "conjoint_id": "I6",
           "enfants": [
             {
@@ -3689,12 +3720,12 @@
       "photo": "/images/personnes/I84.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83",
           "relation": "mere"
         }
@@ -3756,12 +3787,12 @@
       "photo": "/images/personnes/I85.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83",
           "relation": "mere"
         }
@@ -3813,12 +3844,12 @@
       "photo": "/images/personnes/isMaouloud.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83",
           "relation": "mere"
         }
@@ -4097,12 +4128,12 @@
       "photo": "/images/personnes/I95.jpg",
       "parents": [
         {
-          "nom": "Pathe (Madio)",
+          "nom": "Pathe Ameri (Madio)",
           "id": "I6",
           "relation": "pere"
         },
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83",
           "relation": "mere"
         }
@@ -4141,6 +4172,10 @@
             {
               "nom": "Dico",
               "id": "I28"
+            },
+            {
+              "nom": "Gallo",
+              "id": "LOC-I20-I95-GALLO"
             }
           ]
         }
@@ -5008,7 +5043,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Gogo",
+          "conjoint": "Gogo (Djeneba)",
           "conjoint_id": "I120",
           "enfants": [
             {
@@ -5042,6 +5077,16 @@
             {
               "nom": "Vieux",
               "id": "I128"
+            }
+          ]
+        },
+        {
+          "conjoint": "Fatima",
+          "conjoint_id": "LOC-I117-FATIMA",
+          "enfants": [
+            {
+              "nom": "Oumou",
+              "id": "LOC-I117-FATIMA-OUMOU"
             }
           ]
         }
@@ -5157,12 +5202,12 @@
     },
     "I120": {
       "gramps_id": "I120",
-      "nom": "Gogo",
+      "nom": "Gogo (Djeneba)",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I120.jpg",
       "parents": [],
       "fratrie": [],
@@ -5224,7 +5269,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5297,7 +5342,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5366,7 +5411,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5426,7 +5471,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5499,7 +5544,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5568,7 +5613,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5628,7 +5673,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -5688,7 +5733,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Gogo",
+          "nom": "Gogo (Djeneba)",
           "id": "I120",
           "relation": "mere"
         }
@@ -6205,7 +6250,7 @@
       "photo": "/images/personnes/I144.jpg",
       "parents": [
         {
-          "nom": "Alma Ami Hama",
+          "nom": "Almami Hama",
           "id": "I495",
           "relation": "pere"
         }
@@ -6290,7 +6335,7 @@
           "conjoint_id": "I232",
           "enfants": [
             {
-              "nom": "Adama (Koumbel)",
+              "nom": "Adama (Koumbel Ameri)",
               "id": "I83"
             },
             {
@@ -6707,7 +6752,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Moussa",
+          "conjoint": "Moussa Dicko - Dalla",
           "conjoint_id": "I187",
           "enfants": [
             {
@@ -6735,7 +6780,7 @@
               "id": "I375"
             },
             {
-              "nom": "Aba Kadji (Hamadoun)",
+              "nom": "Abba Kadji (Hamadoun)",
               "id": "I194"
             },
             {
@@ -8380,12 +8425,12 @@
     },
     "I187": {
       "gramps_id": "I187",
-      "nom": "Moussa",
+      "nom": "Moussa Dicko - Dalla",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [],
       "fratrie": [],
@@ -8419,7 +8464,7 @@
               "id": "I375"
             },
             {
-              "nom": "Aba Kadji (Hamadoun)",
+              "nom": "Abba Kadji (Hamadoun)",
               "id": "I194"
             },
             {
@@ -8488,7 +8533,7 @@
       "photo": "/images/personnes/I188.jpg",
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8569,7 +8614,7 @@
       "photo": "/images/personnes/I189.jpg",
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8633,6 +8678,14 @@
             {
               "nom": "Dioro (Oussmane)",
               "id": "I378"
+            },
+            {
+              "nom": "Papa",
+              "id": "LOC-I189-I271-PAPA-GARCON"
+            },
+            {
+              "nom": "Moussa",
+              "id": "LOC-I189-I271-MOUSSA-GARCON"
             }
           ]
         }
@@ -8650,7 +8703,7 @@
       "photo": "/images/personnes/I190.jpg",
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8708,7 +8761,7 @@
               "id": "I380"
             },
             {
-              "nom": "? fille de Koumba Djadje",
+              "nom": "Oumou",
               "id": "I381"
             }
           ]
@@ -8727,7 +8780,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8808,7 +8861,7 @@
       "photo": "/images/personnes/I192.jpg",
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8876,7 +8929,7 @@
       "photo": "/images/personnes/I193.jpg",
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8929,16 +8982,16 @@
     },
     "I194": {
       "gramps_id": "I194",
-      "nom": "Aba Kadji (Hamadoun)",
+      "nom": "Abba Kadji (Hamadoun)",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -8988,12 +9041,32 @@
       ],
       "familles": [
         {
-          "conjoint": "? Dialo",
+          "conjoint": "Fatoumata Diallo (Segou)",
           "conjoint_id": "I384",
           "enfants": [
             {
               "nom": "Dico Djadje",
               "id": "I385"
+            },
+            {
+              "nom": "Oumou",
+              "id": "LOC-I194-I384-OUMOU-1"
+            },
+            {
+              "nom": "Oumou",
+              "id": "LOC-I194-I384-OUMOU-2"
+            },
+            {
+              "nom": "Kadji",
+              "id": "LOC-I194-I384-KADJI"
+            },
+            {
+              "nom": "Mohamed",
+              "id": "LOC-I194-I384-MOHAMED"
+            },
+            {
+              "nom": "Aminata",
+              "id": "LOC-I194-I384-AMINATA"
             }
           ]
         }
@@ -9154,7 +9227,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Moussa",
+          "conjoint": "Moussa Dicko - Dalla",
           "conjoint_id": "I187",
           "enfants": [
             {
@@ -9205,7 +9278,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9259,7 +9332,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9313,7 +9386,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9367,7 +9440,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9421,7 +9494,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9475,7 +9548,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9529,7 +9602,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -9583,7 +9656,7 @@
       "photo": "/images/personnes/isAllaye Pathé.jpg",
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -10685,7 +10758,7 @@
           "conjoint_id": "I144",
           "enfants": [
             {
-              "nom": "Adama (Koumbel)",
+              "nom": "Adama (Koumbel Ameri)",
               "id": "I83"
             },
             {
@@ -12647,6 +12720,14 @@
             {
               "nom": "Dioro (Oussmane)",
               "id": "I378"
+            },
+            {
+              "nom": "Papa",
+              "id": "LOC-I189-I271-PAPA-GARCON"
+            },
+            {
+              "nom": "Moussa",
+              "id": "LOC-I189-I271-MOUSSA-GARCON"
             }
           ]
         }
@@ -12720,6 +12801,14 @@
         {
           "nom": "Dioro (Oussmane)",
           "id": "I378"
+        },
+        {
+          "nom": "Papa (Garcon)",
+          "id": "LOC-I189-I271-PAPA-GARCON"
+        },
+        {
+          "nom": "Moussa (garcon)",
+          "id": "LOC-I189-I271-MOUSSA-GARCON"
         }
       ],
       "familles": [],
@@ -14047,7 +14136,7 @@
           "conjoint_id": "I307",
           "enfants": [
             {
-              "nom": "Ala Seni",
+              "nom": "Allah Seyni",
               "id": "I308"
             },
             {
@@ -14076,7 +14165,7 @@
           "conjoint_id": "I306",
           "enfants": [
             {
-              "nom": "Ala Seni",
+              "nom": "Allah Seyni",
               "id": "I308"
             }
           ]
@@ -14086,12 +14175,12 @@
     },
     "I308": {
       "gramps_id": "I308",
-      "nom": "Ala Seni",
+      "nom": "Allah Seyni",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -14131,7 +14220,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Ala Seni",
+          "nom": "Allah Seyni",
           "id": "I308",
           "relation": "pere"
         }
@@ -16449,7 +16538,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -16511,7 +16600,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -16584,7 +16673,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Moussa",
+          "nom": "Moussa Dicko - Dalla",
           "id": "I187",
           "relation": "pere"
         },
@@ -16664,6 +16753,14 @@
         {
           "nom": "Dioro (Oussmane)",
           "id": "I378"
+        },
+        {
+          "nom": "Papa (Garcon)",
+          "id": "LOC-I189-I271-PAPA-GARCON"
+        },
+        {
+          "nom": "Moussa (garcon)",
+          "id": "LOC-I189-I271-MOUSSA-GARCON"
         }
       ],
       "familles": [],
@@ -16698,6 +16795,14 @@
         {
           "nom": "Ina Ouro (Oumou)",
           "id": "I377"
+        },
+        {
+          "nom": "Papa (Garcon)",
+          "id": "LOC-I189-I271-PAPA-GARCON"
+        },
+        {
+          "nom": "Moussa (garcon)",
+          "id": "LOC-I189-I271-MOUSSA-GARCON"
         }
       ],
       "familles": [],
@@ -16724,7 +16829,7 @@
               "id": "I380"
             },
             {
-              "nom": "? fille de Koumba Djadje",
+              "nom": "Oumou",
               "id": "I381"
             }
           ]
@@ -16764,12 +16869,12 @@
     },
     "I381": {
       "gramps_id": "I381",
-      "nom": "? fille de Koumba Djadje",
+      "nom": "Oumou",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -16844,23 +16949,43 @@
     },
     "I384": {
       "gramps_id": "I384",
-      "nom": "? Dialo",
+      "nom": "Fatoumata Diallo (Segou)",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I384.jpg",
       "parents": [],
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Aba Kadji (Hamadoun)",
+          "conjoint": "Abba Kadji (Hamadoun)",
           "conjoint_id": "I194",
           "enfants": [
             {
               "nom": "Dico Djadje",
               "id": "I385"
+            },
+            {
+              "nom": "Oumou",
+              "id": "LOC-I194-I384-OUMOU-1"
+            },
+            {
+              "nom": "Oumou",
+              "id": "LOC-I194-I384-OUMOU-2"
+            },
+            {
+              "nom": "Kadji",
+              "id": "LOC-I194-I384-KADJI"
+            },
+            {
+              "nom": "Mohamed",
+              "id": "LOC-I194-I384-MOHAMED"
+            },
+            {
+              "nom": "Aminata",
+              "id": "LOC-I194-I384-AMINATA"
             }
           ]
         }
@@ -16878,17 +17003,38 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Aba Kadji (Hamadoun)",
+          "nom": "Abba Kadji (Hamadoun)",
           "id": "I194",
           "relation": "pere"
         },
         {
-          "nom": "? Dialo",
+          "nom": "Fatoumata Diallo (Segou)",
           "id": "I384",
           "relation": "mere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-1"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-2"
+        },
+        {
+          "nom": "Kadji",
+          "id": "LOC-I194-I384-KADJI"
+        },
+        {
+          "nom": "Mohamed",
+          "id": "LOC-I194-I384-MOHAMED"
+        },
+        {
+          "nom": "Aminata",
+          "id": "LOC-I194-I384-AMINATA"
+        }
+      ],
       "familles": [],
       "html_file": "ppl/a/d/ad758a3273155fd9344.html"
     },
@@ -20314,7 +20460,7 @@
     },
     "I495": {
       "gramps_id": "I495",
-      "nom": "Alma Ami Hama",
+      "nom": "Almami Hama",
       "genre": "male",
       "naissance": "",
       "deces": "",
@@ -20352,7 +20498,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Alma Ami Hama",
+          "nom": "Almami Hama",
           "id": "I495",
           "relation": "pere"
         }
@@ -20576,7 +20722,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Beldo Pathe",
+          "nom": "Beldo Pathe Farmata",
           "id": "I67",
           "relation": "mere"
         }
@@ -22034,14 +22180,6 @@
               "id": "I547"
             },
             {
-              "nom": "Sirè",
-              "id": "I590"
-            },
-            {
-              "nom": "Mamoudou",
-              "id": "I597"
-            },
-            {
               "nom": "Hamassala",
               "id": "I600"
             },
@@ -22082,7 +22220,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamassala",
+          "id": "I600"
+        },
+        {
+          "nom": "Allah Djogo",
+          "id": "I615"
+        },
+        {
+          "nom": "Daray",
+          "id": "I616"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I676"
+        },
+        {
+          "nom": "Galo",
+          "id": "I679"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -22091,6 +22250,26 @@
             {
               "nom": "Amadou",
               "id": "I548"
+            },
+            {
+              "nom": "Sirè",
+              "id": "I590"
+            },
+            {
+              "nom": "Mamoudou",
+              "id": "I597"
+            },
+            {
+              "nom": "Tidiani",
+              "id": "I671"
+            },
+            {
+              "nom": "Fatoumata",
+              "id": "I672"
+            },
+            {
+              "nom": "Hadiata",
+              "id": "I585"
             }
           ]
         }
@@ -22113,7 +22292,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Sirè",
+          "id": "I590"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I597"
+        },
+        {
+          "nom": "Tidiani",
+          "id": "I671"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I672"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I585"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -22763,10 +22963,6 @@
             {
               "nom": "Gouro Issa",
               "id": "I579"
-            },
-            {
-              "nom": "Hadiata",
-              "id": "I585"
             }
           ]
         }
@@ -22789,7 +22985,20 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I571"
+        },
+        {
+          "nom": "Issa",
+          "id": "I572"
+        },
+        {
+          "nom": "Gouro Issa",
+          "id": "I579"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -22815,7 +23024,20 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Gouro",
+          "id": "I570"
+        },
+        {
+          "nom": "Issa",
+          "id": "I572"
+        },
+        {
+          "nom": "Gouro Issa",
+          "id": "I579"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -22841,7 +23063,20 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Gouro",
+          "id": "I570"
+        },
+        {
+          "nom": "Hamadoun",
+          "id": "I571"
+        },
+        {
+          "nom": "Gouro Issa",
+          "id": "I579"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23049,7 +23284,20 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Gouro",
+          "id": "I570"
+        },
+        {
+          "nom": "Hamadoun",
+          "id": "I571"
+        },
+        {
+          "nom": "Issa",
+          "id": "I572"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23221,12 +23469,33 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Aissata",
-          "id": "I569",
+          "nom": "Aly Founè",
+          "id": "I547",
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I548"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I590"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I597"
+        },
+        {
+          "nom": "Tidiani",
+          "id": "I671"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I672"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23365,12 +23634,33 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hama Mana",
-          "id": "I546",
+          "nom": "Aly Founè",
+          "id": "I547",
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I548"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I597"
+        },
+        {
+          "nom": "Tidiani",
+          "id": "I671"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I672"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I585"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23572,12 +23862,33 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hama Mana",
-          "id": "I546",
+          "nom": "Aly Founè",
+          "id": "I547",
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I548"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I590"
+        },
+        {
+          "nom": "Tidiani",
+          "id": "I671"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I672"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I585"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23664,7 +23975,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Aly Founè",
+          "id": "I547"
+        },
+        {
+          "nom": "Allah Djogo",
+          "id": "I615"
+        },
+        {
+          "nom": "Daray",
+          "id": "I616"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I676"
+        },
+        {
+          "nom": "Galo",
+          "id": "I679"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24113,7 +24445,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Aly Founè",
+          "id": "I547"
+        },
+        {
+          "nom": "Hamassala",
+          "id": "I600"
+        },
+        {
+          "nom": "Daray",
+          "id": "I616"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I676"
+        },
+        {
+          "nom": "Galo",
+          "id": "I679"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24139,7 +24492,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Aly Founè",
+          "id": "I547"
+        },
+        {
+          "nom": "Hamassala",
+          "id": "I600"
+        },
+        {
+          "nom": "Allah Djogo",
+          "id": "I615"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I676"
+        },
+        {
+          "nom": "Galo",
+          "id": "I679"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24178,14 +24552,6 @@
               "id": "I667"
             },
             {
-              "nom": "Tidiani",
-              "id": "I671"
-            },
-            {
-              "nom": "Fatoumata",
-              "id": "I672"
-            },
-            {
               "nom": "Hadiata",
               "id": "I674"
             },
@@ -24214,7 +24580,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24271,7 +24674,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24448,7 +24888,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24474,7 +24951,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24561,7 +25075,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24648,7 +25199,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -24855,7 +25443,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25695,7 +26320,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25807,12 +26469,33 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Daray",
-          "id": "I616",
+          "nom": "Aly Founè",
+          "id": "I547",
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I548"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I590"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I597"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I672"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I585"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25833,12 +26516,33 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Daray",
-          "id": "I616",
+          "nom": "Aly Founè",
+          "id": "I547",
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I548"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I590"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I597"
+        },
+        {
+          "nom": "Tidiani",
+          "id": "I671"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I585"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25895,7 +26599,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Coumbel",
+          "id": "I675"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25921,7 +26662,44 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I617"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "I619"
+        },
+        {
+          "nom": "Bollaye",
+          "id": "I625"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I626"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I629"
+        },
+        {
+          "nom": "Ada",
+          "id": "I632"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I639"
+        },
+        {
+          "nom": "Dadie",
+          "id": "I667"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I674"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25947,7 +26725,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Aly Founè",
+          "id": "I547"
+        },
+        {
+          "nom": "Hamassala",
+          "id": "I600"
+        },
+        {
+          "nom": "Allah Djogo",
+          "id": "I615"
+        },
+        {
+          "nom": "Daray",
+          "id": "I616"
+        },
+        {
+          "nom": "Galo",
+          "id": "I679"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -26034,7 +26833,28 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Aly Founè",
+          "id": "I547"
+        },
+        {
+          "nom": "Hamassala",
+          "id": "I600"
+        },
+        {
+          "nom": "Allah Djogo",
+          "id": "I615"
+        },
+        {
+          "nom": "Daray",
+          "id": "I616"
+        },
+        {
+          "nom": "Naforè",
+          "id": "I676"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -26261,7 +27081,569 @@
         }
       ],
       "html_file": null
+    },
+    "LOC-I194-I384-OUMOU-1": {
+      "gramps_id": "LOC-I194-I384-OUMOU-1",
+      "nom": "Oumou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Abba Kadji (Hamadoun)",
+          "id": "I194",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fatoumata Diallo (Segou)",
+          "id": "I384",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dico Djadje",
+          "id": "I385"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-2"
+        },
+        {
+          "nom": "Kadji",
+          "id": "LOC-I194-I384-KADJI"
+        },
+        {
+          "nom": "Mohamed",
+          "id": "LOC-I194-I384-MOHAMED"
+        },
+        {
+          "nom": "Aminata",
+          "id": "LOC-I194-I384-AMINATA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I194-I384-OUMOU-2": {
+      "gramps_id": "LOC-I194-I384-OUMOU-2",
+      "nom": "Oumou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Abba Kadji (Hamadoun)",
+          "id": "I194",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fatoumata Diallo (Segou)",
+          "id": "I384",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dico Djadje",
+          "id": "I385"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-1"
+        },
+        {
+          "nom": "Kadji",
+          "id": "LOC-I194-I384-KADJI"
+        },
+        {
+          "nom": "Mohamed",
+          "id": "LOC-I194-I384-MOHAMED"
+        },
+        {
+          "nom": "Aminata",
+          "id": "LOC-I194-I384-AMINATA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I194-I384-KADJI": {
+      "gramps_id": "LOC-I194-I384-KADJI",
+      "nom": "Kadji",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Abba Kadji (Hamadoun)",
+          "id": "I194",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fatoumata Diallo (Segou)",
+          "id": "I384",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dico Djadje",
+          "id": "I385"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-1"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-2"
+        },
+        {
+          "nom": "Mohamed",
+          "id": "LOC-I194-I384-MOHAMED"
+        },
+        {
+          "nom": "Aminata",
+          "id": "LOC-I194-I384-AMINATA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I194-I384-MOHAMED": {
+      "gramps_id": "LOC-I194-I384-MOHAMED",
+      "nom": "Mohamed",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Abba Kadji (Hamadoun)",
+          "id": "I194",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fatoumata Diallo (Segou)",
+          "id": "I384",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dico Djadje",
+          "id": "I385"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-1"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-2"
+        },
+        {
+          "nom": "Kadji",
+          "id": "LOC-I194-I384-KADJI"
+        },
+        {
+          "nom": "Aminata",
+          "id": "LOC-I194-I384-AMINATA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I194-I384-AMINATA": {
+      "gramps_id": "LOC-I194-I384-AMINATA",
+      "nom": "Aminata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Abba Kadji (Hamadoun)",
+          "id": "I194",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fatoumata Diallo (Segou)",
+          "id": "I384",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dico Djadje",
+          "id": "I385"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-1"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-I194-I384-OUMOU-2"
+        },
+        {
+          "nom": "Kadji",
+          "id": "LOC-I194-I384-KADJI"
+        },
+        {
+          "nom": "Mohamed",
+          "id": "LOC-I194-I384-MOHAMED"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I189-I271-PAPA-GARCON": {
+      "gramps_id": "LOC-I189-I271-PAPA-GARCON",
+      "nom": "Papa",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Samba Djadje",
+          "id": "I189",
+          "relation": "pere"
+        },
+        {
+          "nom": "Tchoumo",
+          "id": "I271",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dicore (Fatoumata)",
+          "id": "I273"
+        },
+        {
+          "nom": "Ina Ouro (Oumou)",
+          "id": "I377"
+        },
+        {
+          "nom": "Dioro (Oussmane)",
+          "id": "I378"
+        },
+        {
+          "nom": "Moussa (garcon)",
+          "id": "LOC-I189-I271-MOUSSA-GARCON"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I189-I271-MOUSSA-GARCON": {
+      "gramps_id": "LOC-I189-I271-MOUSSA-GARCON",
+      "nom": "Moussa",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Samba Djadje",
+          "id": "I189",
+          "relation": "pere"
+        },
+        {
+          "nom": "Tchoumo",
+          "id": "I271",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Dicore (Fatoumata)",
+          "id": "I273"
+        },
+        {
+          "nom": "Ina Ouro (Oumou)",
+          "id": "I377"
+        },
+        {
+          "nom": "Dioro (Oussmane)",
+          "id": "I378"
+        },
+        {
+          "nom": "Papa (Garcon)",
+          "id": "LOC-I189-I271-PAPA-GARCON"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I117-FATIMA": {
+      "gramps_id": "LOC-I117-FATIMA",
+      "nom": "Fatima",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": "Hama Hamidou",
+          "conjoint_id": "I117",
+          "enfants": [
+            {
+              "nom": "Oumou",
+              "id": "LOC-I117-FATIMA-OUMOU"
+            }
+          ]
+        }
+      ],
+      "html_file": ""
+    },
+    "LOC-I117-FATIMA-OUMOU": {
+      "gramps_id": "LOC-I117-FATIMA-OUMOU",
+      "nom": "Oumou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hama Hamidou",
+          "id": "I117",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fatima",
+          "id": "LOC-I117-FATIMA",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": "",
+          "conjoint_id": "",
+          "enfants": [
+            {
+              "nom": "Garba",
+              "id": "LOC-I117-FATIMA-OUMOU-GARBA"
+            },
+            {
+              "nom": "Baba Hama",
+              "id": "LOC-I117-FATIMA-OUMOU-BABA"
+            },
+            {
+              "nom": "Fatoumata",
+              "id": "LOC-I117-FATIMA-OUMOU-FATOUMATA"
+            }
+          ]
+        }
+      ],
+      "html_file": ""
+    },
+    "LOC-I117-FATIMA-OUMOU-GARBA": {
+      "gramps_id": "LOC-I117-FATIMA-OUMOU-GARBA",
+      "nom": "Garba",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Oumou",
+          "id": "LOC-I117-FATIMA-OUMOU",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Baba",
+          "id": "LOC-I117-FATIMA-OUMOU-BABA"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "LOC-I117-FATIMA-OUMOU-FATOUMATA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I117-FATIMA-OUMOU-BABA": {
+      "gramps_id": "LOC-I117-FATIMA-OUMOU-BABA",
+      "nom": "Baba Hama",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Oumou",
+          "id": "LOC-I117-FATIMA-OUMOU",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Garba",
+          "id": "LOC-I117-FATIMA-OUMOU-GARBA"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "LOC-I117-FATIMA-OUMOU-FATOUMATA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I117-FATIMA-OUMOU-FATOUMATA": {
+      "gramps_id": "LOC-I117-FATIMA-OUMOU-FATOUMATA",
+      "nom": "Fatoumata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Oumou",
+          "id": "LOC-I117-FATIMA-OUMOU",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Garba",
+          "id": "LOC-I117-FATIMA-OUMOU-GARBA"
+        },
+        {
+          "nom": "Baba",
+          "id": "LOC-I117-FATIMA-OUMOU-BABA"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I20-I95-GALLO": {
+      "gramps_id": "LOC-I20-I95-GALLO",
+      "nom": "Gallo",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Sidi Nassourou",
+          "id": "I20",
+          "relation": "pere"
+        },
+        {
+          "nom": "Oumou Pathe",
+          "id": "I95",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hama Sidi",
+          "id": "I24"
+        },
+        {
+          "nom": "Salif Sidi",
+          "id": "I26"
+        },
+        {
+          "nom": "Neneh Sidi (Adama)",
+          "id": "I27"
+        },
+        {
+          "nom": "Dico",
+          "id": "I28"
+        }
+      ],
+      "familles": [],
+      "html_file": ""
+    },
+    "LOC-I82-SEYOMA": {
+      "gramps_id": "LOC-I82-SEYOMA",
+      "nom": "Seyoma",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": "Nafore (ou Koumbourou)",
+          "conjoint_id": "I82",
+          "enfants": [
+            {
+              "nom": "Farmata",
+              "id": "LOC-I82-SEYOMA-FARMATA"
+            }
+          ]
+        }
+      ],
+      "html_file": ""
+    },
+    "LOC-I82-SEYOMA-FARMATA": {
+      "gramps_id": "LOC-I82-SEYOMA-FARMATA",
+      "nom": "Farmata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Seyoma",
+          "id": "LOC-I82-SEYOMA",
+          "relation": "pere"
+        },
+        {
+          "nom": "Nafore (ou Koumbourou)",
+          "id": "I82",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [],
+      "html_file": ""
     }
   },
-  "total": 662
+  "total": 677
 }

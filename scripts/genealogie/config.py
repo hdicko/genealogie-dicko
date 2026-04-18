@@ -12,10 +12,16 @@ PHOTOS_DIR = HUGO_DIR / "static" / "images" / "personnes"  # uploaded portraits
 PHOTOS_DIR.mkdir(parents=True, exist_ok=True)
 
 # ---------------------------------------------------------------------------
-# CORS — the local API runs on 1315; Hugo dev server runs on 1314.
-# Only requests from the Hugo dev server are allowed; never widen to "*".
+# CORS — the local API runs on 1315; Hugo dev server commonly runs on 1313
+# (default) or 1314. Only local development origins are allowed; never widen
+# to "*".
 # ---------------------------------------------------------------------------
-ALLOWED_ORIGINS    = {"http://localhost:1314", "http://127.0.0.1:1314"}
+ALLOWED_ORIGINS    = {
+    "http://localhost:1313",
+    "http://127.0.0.1:1313",
+    "http://localhost:1314",
+    "http://127.0.0.1:1314",
+}
 CORS_METHODS       = "GET, PATCH, POST, DELETE, OPTIONS"
 CORS_HEADERS_ALLOW = "Content-Type"
 
