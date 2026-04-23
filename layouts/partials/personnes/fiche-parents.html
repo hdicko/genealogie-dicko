@@ -1,0 +1,15 @@
+{{ $page := .page }}
+{{ if $page.Params.parents }}
+{{/* Bloc simple : les parents sont déjà normalisés dans les données Hugo. */}}
+<section class="person-section">
+  <h2>Parents</h2>
+  <ul class="person-list">
+    {{ range $page.Params.parents }}
+    <li>
+      <span class="relation-badge {{ .relation }}">{{ if eq .relation "pere" }}Père{{ else }}Mère{{ end }}</span>
+      {{ partial "personnes/lien-personne.html" (dict "id" .id "nom" .nom) }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

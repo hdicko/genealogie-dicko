@@ -1,0 +1,27 @@
+{{ $page := .page }}
+{{ if $page.Params.familles }}
+{{/* Une personne peut avoir plusieurs unions ; on rend donc chaque famille séparément. */}}
+<section class="person-section">
+  <h2>Famille{{ if gt (len $page.Params.familles) 1 }}s{{ end }}</h2>
+  {{ range $page.Params.familles }}
+  <div class="family-block">
+    {{ if .conjoint }}
+    <p class="conjoint">
+      <span class="relation-badge conjoint">Conjoint·e</span>
+      {{ partial "personnes/lien-personne.html" (dict "id" .conjoint_id "nom" .conjoint) }}
+    </p>
+    {{ end }}
+    {{ if .enfants }}
+    <div class="children-section">
+      <h3>Enfants ({{ len .enfants }})</h3>
+      <ul class="person-list person-list--children">
+        {{ range .enfants }}
+        <li>{{ partial "personnes/lien-personne.html" (dict "id" .id "nom" .nom) }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
+{{ end }}

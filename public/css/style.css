@@ -109,6 +109,9 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   border-color: var(--primary);
   color: var(--primary);
 }
+.siblings-list {
+  margin-top: 10px;
+}
 .siblings-list li {
   background: var(--bg);
   border-radius: 4px;
@@ -331,6 +334,159 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+/* La modale d'édition partage un préfixe unique pour éviter toute collision
+   avec les styles du reste du site ou du layout D3. */
+.person-edit-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.person-edit-dialog {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  min-width: 320px;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.person-edit-title {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+}
+.person-edit-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+.person-edit-photo-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: #eee;
+  flex-shrink: 0;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #aaa;
+}
+.person-edit-photo-image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.person-edit-photo-delete {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: #e53935;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  box-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+.person-edit-photo-delete[hidden] {
+  display: none;
+}
+.person-edit-photo-actions {
+  flex: 1;
+}
+.person-edit-upload-label {
+  display: block;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  border: 1.5px dashed #bbb;
+  border-radius: 6px;
+  text-align: center;
+  color: #555;
+}
+.person-edit-file-input {
+  display: none;
+}
+.person-edit-photo-name {
+  font-size: 11px;
+  color: #888;
+  margin-top: 3px;
+  text-align: center;
+}
+.person-edit-field {
+  margin-bottom: 12px;
+}
+.person-edit-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.person-edit-input,
+.person-edit-select,
+.person-edit-textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+}
+.person-edit-textarea {
+  resize: vertical;
+}
+.person-edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.person-edit-button {
+  flex: 1;
+  padding: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.person-edit-button--cancel {
+  background: #eee;
+  color: #333;
+}
+.person-edit-button--save {
+  background: #2e7d32;
+  color: #fff;
+}
+.person-edit-status {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  margin-top: 8px;
+  min-height: 18px;
 }
 
 /* ---- Persons table ---- */

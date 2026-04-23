@@ -1,0 +1,6 @@
+{{/* Centralise le rendu des liens de personne pour garder le comportement homogène partout. */}}
+{{ if .id }}
+<a href="/personnes/{{ lower .id }}/">{{ .nom }}</a>
+{{ else }}
+{{ .nom }}
+{{ end }}

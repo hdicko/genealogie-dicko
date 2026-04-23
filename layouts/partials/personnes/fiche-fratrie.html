@@ -1,0 +1,14 @@
+{{ $page := .page }}
+{{ if $page.Params.fratrie }}
+{{/* La fratrie est repliée par défaut pour éviter d'allonger inutilement la fiche. */}}
+<section class="person-section">
+  <button class="btn-toggle-siblings" onclick="toggleSiblings(this)" aria-expanded="false">
+    👨‍👩‍👧‍👦 Frères &amp; Sœurs ({{ len $page.Params.fratrie }}) <span class="toggle-arrow">▼</span>
+  </button>
+  <ul class="person-list siblings-list" hidden>
+    {{ range $page.Params.fratrie }}
+    <li>{{ partial "personnes/lien-personne.html" (dict "id" .id "nom" .nom) }}</li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

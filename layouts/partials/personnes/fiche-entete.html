@@ -1,0 +1,43 @@
+{{ $page := .page }}
+{{ $gid := .gid }}
+{{/* En-tête principal : identité, photo et résumé des informations clés. */}}
+<div class="person-header">
+  {{ if $page.Params.photo }}
+  <div class="person-photo">
+    <img src="{{ $page.Params.photo }}" alt="{{ $page.Title }}" />
+  </div>
+  {{ else }}
+  <div class="person-photo person-photo--placeholder">
+    {{ if eq $page.Params.genre "male" }}👴{{ else if eq $page.Params.genre "female" }}👵{{ else }}👤{{ end }}
+  </div>
+  {{ end }}
+
+  <div class="person-info">
+    <h1 id="person-title">{{ $page.Title }}</h1>
+    <button class="btn btn-edit" id="btn-open-edit" onclick="openEditModal()">✏️ Modifier</button>
+    <dl class="person-details">
+      <dt>ID Gramps</dt><dd>{{ $gid }}</dd>
+      {{ if $page.Params.genre }}<dt>Genre</dt><dd>{{ if eq $page.Params.genre "male" }}Homme{{ else if eq $page.Params.genre "female" }}Femme{{ else }}Inconnu{{ end }}</dd>{{ end }}
+      {{ if $page.Params.naissance }}<dt>Naissance</dt><dd>{{ $page.Params.naissance }}</dd>{{ end }}
+      {{ if $page.Params.deces }}<dt>Décès</dt><dd>{{ $page.Params.deces }}</dd>{{ end }}
+      {{ if $page.Params.ville }}<dt>Ville / Village</dt><dd>{{ $page.Params.ville }}</dd>{{ end }}
+      {{/* On prépare d'abord la liste des conjoints pour adapter le libellé
+           (Époux / Épouse / Épouses) avant de l'afficher. */}}
+      {{ $conjoints := slice }}
+      {{ range $page.Params.familles }}{{ if .conjoint }}{{ $conjoints = $conjoints | append . }}{{ end }}{{ end }}
+      {{ if $conjoints }}
+        {{ if eq $page.Params.genre "female" }}
+          <dt>Époux</dt>
+          {{ range $conjoints }}
+          <dd>{{ partial "personnes/lien-personne.html" (dict "id" .conjoint_id "nom" .conjoint) }}</dd>
+          {{ end }}
+        {{ else }}
+          <dt>{{ if gt (len $conjoints) 1 }}Épouses ({{ len $conjoints }}){{ else }}Épouse{{ end }}</dt>
+          {{ range $conjoints }}
+          <dd>{{ partial "personnes/lien-personne.html" (dict "id" .conjoint_id "nom" .conjoint) }}</dd>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </dl>
+  </div>
+</div>

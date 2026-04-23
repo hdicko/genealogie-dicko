@@ -1,0 +1,63 @@
+{{ $page := .page }}
+{{/* La modale reste purement structurelle : toute la logique d'édition vit dans single.html. */}}
+<div id="modal-overlay" class="person-edit-overlay">
+  <div class="person-edit-dialog">
+    <h2 class="person-edit-title">✏️ Modifier la personne</h2>
+
+    <div class="person-edit-photo-row">
+      <div id="sp-photo-wrap" class="person-edit-photo-wrap">
+        {{ if $page.Params.photo }}<img id="sp-photo-img" src="{{ $page.Params.photo }}" class="person-edit-photo-image" alt="" />
+        {{ else }}<span id="sp-photo-ph">{{ if eq $page.Params.genre "male" }}👴{{ else if eq $page.Params.genre "female" }}👵{{ else }}👤{{ end }}</span>
+        {{ end }}
+        <button
+          id="sp-photo-del"
+          class="person-edit-photo-delete"
+          onclick="deletePhoto(event)"
+          {{ if not $page.Params.photo }}hidden{{ end }}
+          title="Supprimer la photo"
+        >✕</button>
+      </div>
+      <div class="person-edit-photo-actions">
+        <label for="sp-photo-input" id="sp-upload-label" class="person-edit-upload-label">
+          📷 {{ if $page.Params.photo }}Changer la photo…{{ else }}Ajouter une photo…{{ end }}
+        </label>
+        <input type="file" id="sp-photo-input" accept="image/*" class="person-edit-file-input" />
+        <div id="sp-photo-name" class="person-edit-photo-name"></div>
+      </div>
+    </div>
+
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-nom">Nom</label>
+      <input type="text" id="edit-nom" class="person-edit-input" />
+    </div>
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-genre">Genre</label>
+      <select id="edit-genre" class="person-edit-select">
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+        <option value="unknown">Inconnu</option>
+      </select>
+    </div>
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-naissance">Naissance</label>
+      <input type="text" id="edit-naissance" class="person-edit-input" />
+    </div>
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-deces">Décès</label>
+      <input type="text" id="edit-deces" class="person-edit-input" />
+    </div>
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-ville">Ville / Village</label>
+      <input type="text" id="edit-ville" class="person-edit-input" placeholder="ex: Bamako, Mopti…" />
+    </div>
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-commentaires">Commentaires</label>
+      <textarea id="edit-commentaires" rows="3" class="person-edit-textarea"></textarea>
+    </div>
+    <div class="person-edit-actions">
+      <button onclick="closeEditModal()" class="person-edit-button person-edit-button--cancel">Annuler</button>
+      <button id="btn-save" onclick="saveEdit()" class="person-edit-button person-edit-button--save">💾 Enregistrer</button>
+    </div>
+    <div id="save-status" class="person-edit-status"></div>
+  </div>
+</div>
