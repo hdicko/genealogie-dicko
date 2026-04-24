@@ -19,6 +19,11 @@ IMAGES_SRC = Path("/home/dicko/Documents/HD/Ardo Diona/Genealogie/Famille Dicko/
 IMAGES_DST = HUGO_DIR / "static" / "images" / "personnes"
 
 
+def _escape_front_matter_delimiters(s):
+    """Avoid emitting a bare +++ line inside TOML front matter."""
+    return "\n".join("\\u002b\\u002b\\u002b" if line == "+++" else line for line in s.split("\n"))
+
+
 def extract_gramps_id(text):
     """Extract GRAMPS ID like [I1] from text."""
     m = re.search(r'\[([A-Z0-9]+)\]', text)
@@ -47,7 +52,6 @@ def parse_person_page(html_path):
         'parents': [],
         'fratrie': [],
         'familles': [],
-        'html_file': str(html_path.relative_to(GRAMPS_DIR)),
     }
 
     # Name from h3
@@ -174,12 +178,16 @@ def match_photos(persons):
 
 def toml_str(s):
     """Encode a Python value as an inline TOML double-quoted string literal.
-    Returns '""' for None; escapes backslashes and double-quotes otherwise.
-    Note: unlike markup.toml_str, this version does NOT handle multi-line strings.
+    Returns '""' for None and safely handles multi-line values.
     """
     if s is None:
         return '""'
-    return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"') + '"'
+    s = str(s)
+    if '\n' in s:
+        s = _escape_front_matter_delimiters(s)
+        s = s.replace('\\', '\\\\').replace('"""', '\\"\\"\\"')
+        return '"""\n' + s + '"""'
+    return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"'
 
 
 def main():
@@ -248,6 +256,11 @@ def main():
             f'photo = {toml_str(p["photo"])}',
             'draft = false',
         ]
+
+        for sib in p['fratrie']:
+            lines += ['', '[[fratrie]]',
+                      f'  nom = {toml_str(sib["nom"])}',
+                      f'  id = {toml_str(sib["id"])}']
 
         for par in p['parents']:
             lines += ['', '[[parents]]',

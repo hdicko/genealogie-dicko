@@ -1,6 +1,11 @@
 from .config import PPL_DIR
 
 
+def _escape_front_matter_delimiters(s):
+    """Avoid emitting a bare +++ line inside TOML front matter."""
+    return "\n".join("\\u002b\\u002b\\u002b" if line == "+++" else line for line in s.split("\n"))
+
+
 def toml_str(s):
     """Encode a Python value as a TOML string literal.
 
@@ -12,8 +17,14 @@ def toml_str(s):
         return '""'
     s = str(s)
     if '\n' in s:
-        # TOML multi-line basic string — escape backslashes and any triple-quote
-        # sequences that would prematurely close the literal.
+        # TOML multi-line basic string.
+        # _escape_front_matter_delimiters runs FIRST: it replaces any bare +++ line
+        # with the literal text \u002b\u002b\u002b (backslash sequences, not the +
+        # character). The subsequent backslash-escape then doubles those backslashes
+        # so that TOML reads \\u002b as the text \u002b — not as the + character.
+        # Reversing this order would produce bare \u002b in the file, which TOML
+        # would decode back to +, defeating the protection.
+        s = _escape_front_matter_delimiters(s)
         s = s.replace('\\', '\\\\').replace('"""', '\\"\\"\\"')
         return '"""\n' + s + '"""'
     return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"'
