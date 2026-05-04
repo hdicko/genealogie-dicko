@@ -1,0 +1,18 @@
+{{- $publicPersons := dict -}}
+{{- range $id, $person := hugo.Data.famille.personnes -}}
+  {{- $publicPerson := dict
+      "gramps_id" $person.gramps_id
+      "nom" $person.nom
+      "genre" $person.genre
+      "naissance" $person.naissance
+      "deces" $person.deces
+      "ville" $person.ville
+      "commentaires" $person.commentaires
+      "photo" $person.photo
+      "parents" $person.parents
+      "fratrie" $person.fratrie
+      "familles" $person.familles
+  -}}
+  {{- $publicPersons = merge $publicPersons (dict $id $publicPerson) -}}
+{{- end -}}
+{{- return $publicPersons -}}

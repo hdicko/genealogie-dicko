@@ -38,8 +38,9 @@
   <ul id="search-results"></ul>
 </section>
 
+{{ $publicPersons := partial "public-persons.html" . }}
 <script>
-const persons = {{ hugo.Data.famille.personnes | jsonify | safeJS }};
+const persons = {{ $publicPersons | jsonify | safeJS }};
 
 const input = document.getElementById('search-input');
 const results = document.getElementById('search-results');
