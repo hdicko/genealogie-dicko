@@ -77,15 +77,12 @@
   </section>
   {{ end }}
 
-  {{/* Note 9: fratrie (siblings) can be large, so it is hidden behind a toggle button
-       to keep the page compact. aria-expanded conveys state to screen readers. */}}
-  {{ if .Params.fratrie }}
+  {{ $fratrie := .Params.fratrie | default $person.fratrie }}
+  {{ if $fratrie }}
   <section class="person-section">
-    <button class="btn-toggle-siblings" onclick="toggleSiblings(this)" aria-expanded="false">
-      👨‍👩‍👧‍👦 Frères &amp; Sœurs ({{ len .Params.fratrie }}) <span class="toggle-arrow">▼</span>
-    </button>
-    <ul class="person-list siblings-list" style="display:none;margin-top:10px;">
-      {{ range .Params.fratrie }}
+    <h2>👨‍👩‍👧‍👦 Frères &amp; Sœurs ({{ len $fratrie }})</h2>
+    <ul class="person-list siblings-list">
+      {{ range $fratrie }}
       <li>
         {{ if .id }}
         <a href="/personnes/{{ lower .id }}/">{{ .nom }}</a>
@@ -205,17 +202,6 @@
 </div>
 
 <script>
-// Note 12: toggleSiblings uses the DOM structure: the <ul> is the immediate
-// nextElementSibling of the button that was clicked. This coupling means the
-// HTML structure must not change without updating this function.
-function toggleSiblings(btn) {
-  const list = btn.nextElementSibling;
-  const expanded = btn.getAttribute('aria-expanded') === 'true';
-  list.style.display = expanded ? 'none' : 'block';
-  btn.setAttribute('aria-expanded', !expanded);
-  btn.querySelector('.toggle-arrow').textContent = expanded ? '▼' : '▲';
-}
-
 // ── Constants ────────────────────────────────────────────────────────────────
 // PERSON_ID is injected by Hugo at build time from the page's Gramps front-matter ID.
 // Note 13: PERSON_ID is baked into the page at Hugo build time using jsonify | safeJS.

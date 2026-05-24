@@ -1478,6 +1478,13 @@
       <description>&lt;h2 id=&#34;coumbel&#34;&gt;Coumbel&lt;/h2&gt;</description>
     </item>
     <item>
+      <title>Coumbel Sidi</title>
+      <link>//localhost:1313/personnes/i499/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/i499/</guid>
+      <description>&lt;h2 id=&#34;coumbel-sidi&#34;&gt;Coumbel Sidi&lt;/h2&gt;</description>
+    </item>
+    <item>
       <title>Coumbewel</title>
       <link>//localhost:1313/personnes/i699/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2486,11 +2493,11 @@
       <description>&lt;h2 id=&#34;hama-sirè&#34;&gt;Hama Sirè&lt;/h2&gt;</description>
     </item>
     <item>
-      <title>Hama Tairou</title>
+      <title>Hama Tahirou</title>
       <link>//localhost:1313/personnes/i100/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i100/</guid>
-      <description>&lt;h2 id=&#34;hama-tairou&#34;&gt;Hama Tairou&lt;/h2&gt;</description>
+      <description>&lt;h2 id=&#34;hama-tahirou&#34;&gt;Hama Tahirou&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Hama Yero</title>
@@ -2861,7 +2868,7 @@
       <link>//localhost:1313/personnes/i283/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i283/</guid>
-      <description>&lt;h2 id=&#34;ina-cisse&#34;&gt;Ina Cisse&lt;/h2&gt;</description>
+      <description>&lt;p&gt;++&lt;/p&gt;&#xA;&lt;h2 id=&#34;ina-cis&#34;&gt;Ina Cis&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Ina Modi</title>
@@ -2917,7 +2924,7 @@
       <link>//localhost:1313/personnes/i282/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i282/</guid>
-      <description>&lt;h2 id=&#34;ina-tal&#34;&gt;Ina Tal&lt;/h2&gt;</description>
+      <description>&lt;p&gt;++&lt;/p&gt;&#xA;&lt;h2 id=&#34;ina-t&#34;&gt;Ina T&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Inger Beate Pettersen</title>
@@ -3114,13 +3121,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i190/</guid>
       <description>&lt;h2 id=&#34;koumba-djadje-aminata&#34;&gt;Koumba Djadje (Aminata)&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Koumbel Sidi</title>
-      <link>//localhost:1313/personnes/i499/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/i499/</guid>
-      <description>&lt;h2 id=&#34;koumbel-sidi&#34;&gt;Koumbel Sidi&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Kowi</title>
@@ -3754,13 +3754,6 @@
     </item>
     <item>
       <title>Neneh</title>
-      <link>//localhost:1313/personnes/i102/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/i102/</guid>
-      <description>&lt;h2 id=&#34;neneh&#34;&gt;Neneh&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Neneh</title>
       <link>//localhost:1313/personnes/i298/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i298/</guid>
@@ -3786,6 +3779,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i211/</guid>
       <description>&lt;h2 id=&#34;neneh-fatoumata&#34;&gt;Neneh (Fatoumata)&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Neneh Ba</title>
+      <link>//localhost:1313/personnes/i102/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/i102/</guid>
+      <description>&lt;h2 id=&#34;neneh-ba&#34;&gt;Neneh Ba&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Neneh Mobo-Modi</title>
@@ -3883,7 +3883,7 @@
       <link>//localhost:1313/personnes/i284/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i284/</guid>
-      <description>&lt;h2 id=&#34;oumar-cisse&#34;&gt;Oumar Cisse&lt;/h2&gt;</description>
+      <description>&lt;p&gt;++&lt;/p&gt;&#xA;&lt;h2 id=&#34;oumar-cis&#34;&gt;Oumar Cis&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Oumar Gouro</title>
@@ -4411,13 +4411,6 @@
       <description>&lt;h2 id=&#34;sedou&#34;&gt;Sedou&lt;/h2&gt;</description>
     </item>
     <item>
-      <title>Segdou</title>
-      <link>//localhost:1313/personnes/i286/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/i286/</guid>
-      <description>&lt;h2 id=&#34;seydou&#34;&gt;Seydou&lt;/h2&gt;</description>
-    </item>
-    <item>
       <title>Sekou</title>
       <link>//localhost:1313/personnes/i60/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -4425,18 +4418,18 @@
       <description>&lt;h2 id=&#34;sekou&#34;&gt;Sekou&lt;/h2&gt;</description>
     </item>
     <item>
-      <title>Seoma (Dico, Afo Dtza)</title>
-      <link>//localhost:1313/personnes/i618/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/i618/</guid>
-      <description>&lt;h2 id=&#34;seoma-dico-afo-dtza&#34;&gt;Seoma (Dico, Afo Dtza)&lt;/h2&gt;</description>
-    </item>
-    <item>
       <title>Serge Pierre</title>
       <link>//localhost:1313/personnes/i137/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i137/</guid>
       <description>&lt;h2 id=&#34;serge-pierre&#34;&gt;Serge Pierre&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Seydou</title>
+      <link>//localhost:1313/personnes/i286/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/i286/</guid>
+      <description>&lt;h2 id=&#34;seydou&#34;&gt;Seydou&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Seyoma</title>
@@ -4458,6 +4451,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/loc-i82-seyoma/</guid>
       <description>&lt;h2 id=&#34;seyoma&#34;&gt;Seyoma&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Seyoma (Dico, Afo Dtza)</title>
+      <link>//localhost:1313/personnes/i618/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/i618/</guid>
+      <description>&lt;h2 id=&#34;seyoma-dico-afo-dtza&#34;&gt;Seyoma (Dico, Afo Dtza)&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Sharon Grimm</title>
@@ -4600,18 +4600,18 @@
       <description>&lt;h2 id=&#34;soumbou-pathe&#34;&gt;Soumbou Pathe&lt;/h2&gt;</description>
     </item>
     <item>
+      <title>Tacco Sidi</title>
+      <link>//localhost:1313/personnes/i498/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/i498/</guid>
+      <description>&lt;h2 id=&#34;tacco-sidi&#34;&gt;Tacco Sidi&lt;/h2&gt;</description>
+    </item>
+    <item>
       <title>Taco</title>
       <link>//localhost:1313/personnes/i656/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i656/</guid>
       <description>&lt;h2 id=&#34;taco&#34;&gt;Taco&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Taco Sidi</title>
-      <link>//localhost:1313/personnes/i498/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/i498/</guid>
-      <description>&lt;h2 id=&#34;taco-sidi&#34;&gt;Taco Sidi&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Tacore</title>
@@ -4642,25 +4642,25 @@
       <description>&lt;h2 id=&#34;tahirou&#34;&gt;Tahirou&lt;/h2&gt;</description>
     </item>
     <item>
+      <title>Tahirou</title>
+      <link>//localhost:1313/personnes/i8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/i8/</guid>
+      <description>&lt;h2 id=&#34;tahirou&#34;&gt;Tahirou&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Tahirou Hami</title>
+      <link>//localhost:1313/personnes/0497/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/personnes/0497/</guid>
+      <description>&lt;h2 id=&#34;tahirou-hami&#34;&gt;Tahirou Hami&lt;/h2&gt;</description>
+    </item>
+    <item>
       <title>Tairou</title>
       <link>//localhost:1313/personnes/i262/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/personnes/i262/</guid>
       <description>&lt;h2 id=&#34;tairou&#34;&gt;Tairou&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Tairou</title>
-      <link>//localhost:1313/personnes/i8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/i8/</guid>
-      <description>&lt;h2 id=&#34;tairou&#34;&gt;Tairou&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Tairou Hami</title>
-      <link>//localhost:1313/personnes/0497/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/personnes/0497/</guid>
-      <description>&lt;h2 id=&#34;tairou-hami&#34;&gt;Tairou Hami&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Taybou</title>

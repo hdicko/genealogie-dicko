@@ -56,7 +56,7 @@
               "id": "I7"
             },
             {
-              "nom": "Tairou",
+              "nom": "Tahirou",
               "id": "I8"
             },
             {
@@ -138,7 +138,7 @@
               "id": "I7"
             },
             {
-              "nom": "Tairou",
+              "nom": "Tahirou",
               "id": "I8"
             },
             {
@@ -258,7 +258,7 @@
           ]
         },
         {
-          "conjoint": "Koumbel Sidi",
+          "conjoint": "Coumbel Sidi",
           "conjoint_id": "I499",
           "enfants": [
             {
@@ -696,7 +696,7 @@
               "id": "person0497"
             },
             {
-              "nom": "Tairou Hami",
+              "nom": "Tahirou Hami",
               "id": "0497"
             },
             {
@@ -713,12 +713,12 @@
     },
     "I8": {
       "gramps_id": "I8",
-      "nom": "Tairou",
+      "nom": "Tahirou",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -780,7 +780,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Hama Tairou",
+              "nom": "Hama Tahirou",
               "id": "I100"
             }
           ]
@@ -968,7 +968,7 @@
               "id": "I101"
             },
             {
-              "nom": "Neneh",
+              "nom": "Neneh Ba",
               "id": "I102"
             }
           ]
@@ -1395,7 +1395,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Koumbel Sidi",
+          "nom": "Coumbel Sidi",
           "id": "I499",
           "relation": "mere"
         }
@@ -4258,16 +4258,16 @@
     },
     "I100": {
       "gramps_id": "I100",
-      "nom": "Hama Tairou",
+      "nom": "Hama Tahirou",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
-      "photo": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": "/images/personnes/I100.jpg",
       "parents": [
         {
-          "nom": "Tairou",
+          "nom": "Tahirou",
           "id": "I8",
           "relation": "pere"
         },
@@ -4353,12 +4353,12 @@
     },
     "I102": {
       "gramps_id": "I102",
-      "nom": "Neneh",
+      "nom": "Neneh Ba",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -12881,7 +12881,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Neneh",
+          "nom": "Neneh Ba",
           "id": "I102",
           "relation": "mere"
         }
@@ -12909,7 +12909,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Neneh",
+          "nom": "Neneh Ba",
           "id": "I102",
           "relation": "mere"
         }
@@ -12937,7 +12937,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Neneh",
+          "nom": "Neneh Ba",
           "id": "I102",
           "relation": "mere"
         }
@@ -15365,7 +15365,7 @@
               "id": "person0497"
             },
             {
-              "nom": "Tairou Hami",
+              "nom": "Tahirou Hami",
               "id": "0497"
             },
             {
@@ -19724,11 +19724,11 @@
       "gramps_id": "I487",
       "nom": "Boubou Modi",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
-      "photo": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": "/images/personnes/I487.jpg",
       "parents": [
         {
           "nom": "Modi",
@@ -20046,11 +20046,11 @@
           "conjoint_id": "I497",
           "enfants": [
             {
-              "nom": "Taco Sidi",
+              "nom": "Tacco Sidi",
               "id": "I498"
             },
             {
-              "nom": "Koumbel Sidi",
+              "nom": "Coumbel Sidi",
               "id": "I499"
             },
             {
@@ -20078,11 +20078,11 @@
           "conjoint_id": "I496",
           "enfants": [
             {
-              "nom": "Taco Sidi",
+              "nom": "Tacco Sidi",
               "id": "I498"
             },
             {
-              "nom": "Koumbel Sidi",
+              "nom": "Coumbel Sidi",
               "id": "I499"
             },
             {
@@ -20095,12 +20095,12 @@
     },
     "I498": {
       "gramps_id": "I498",
-      "nom": "Taco Sidi",
+      "nom": "Tacco Sidi",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -20128,12 +20128,12 @@
     },
     "I499": {
       "gramps_id": "I499",
-      "nom": "Koumbel Sidi",
+      "nom": "Coumbel Sidi",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -20425,11 +20425,11 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Tairou",
+          "conjoint": "Tahirou",
           "conjoint_id": "I8",
           "enfants": [
             {
-              "nom": "Hama Tairou",
+              "nom": "Hama Tahirou",
               "id": "I100"
             }
           ]
@@ -20569,12 +20569,12 @@
     },
     "0497": {
       "gramps_id": "0497",
-      "nom": "Tairou Hami",
+      "nom": "Tahirou Hami",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/0497.jpg",
       "parents": [
         {
@@ -21639,10 +21639,10 @@
       "gramps_id": "I546",
       "nom": "Hama Mana",
       "genre": "male",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "Hama Mana Barke Djan Allah",
       "photo": null,
       "parents": [
         {
@@ -24035,7 +24035,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Seoma (Dico, Afo Dtza)",
+              "nom": "Seyoma (Dico, Afo Dtza)",
               "id": "I618"
             }
           ]
@@ -24044,12 +24044,12 @@
     },
     "I618": {
       "gramps_id": "I618",
-      "nom": "Seoma (Dico, Afo Dtza)",
+      "nom": "Seyoma (Dico, Afo Dtza)",
       "genre": "female",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -25577,10 +25577,10 @@
       "gramps_id": "I662",
       "nom": "Fatoumata (Mère de Boye Ba – Gouro)",
       "genre": "female",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "Mère de Boye Ba – Gouro",
       "photo": null,
       "parents": [
         {
@@ -25701,11 +25701,11 @@
     "I667": {
       "gramps_id": "I667",
       "nom": "Dadie",
-      "genre": "female",
-      "naissance": null,
+      "genre": "male",
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {

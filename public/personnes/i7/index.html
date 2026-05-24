@@ -92,10 +92,8 @@
   
   
   <section class="person-section">
-    <button class="btn-toggle-siblings" onclick="toggleSiblings(this)" aria-expanded="false">
-      👨‍👩‍👧‍👦 Frères &amp; Sœurs (10) <span class="toggle-arrow">▼</span>
-    </button>
-    <ul class="person-list siblings-list" style="display:none;margin-top:10px;">
+    <h2>👨‍👩‍👧‍👦 Frères &amp; Sœurs (10)</h2>
+    <ul class="person-list siblings-list">
       
       <li>
         
@@ -322,17 +320,6 @@
 </div>
 
 <script>
-
-
-
-function toggleSiblings(btn) {
-  const list = btn.nextElementSibling;
-  const expanded = btn.getAttribute('aria-expanded') === 'true';
-  list.style.display = expanded ? 'none' : 'block';
-  btn.setAttribute('aria-expanded', !expanded);
-  btn.querySelector('.toggle-arrow').textContent = expanded ? '▼' : '▲';
-}
-
 
 
 

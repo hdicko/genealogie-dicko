@@ -191,17 +191,6 @@
 
 
 
-function toggleSiblings(btn) {
-  const list = btn.nextElementSibling;
-  const expanded = btn.getAttribute('aria-expanded') === 'true';
-  list.style.display = expanded ? 'none' : 'block';
-  btn.setAttribute('aria-expanded', !expanded);
-  btn.querySelector('.toggle-arrow').textContent = expanded ? '▼' : '▲';
-}
-
-
-
-
 
 
 const PERSON_ID = "I351";
