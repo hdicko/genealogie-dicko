@@ -1,8 +1,17 @@
+# Note 1: Hugo reads this file at startup to configure the entire site build.
+# TOML uses bare keys, quoted keys, or dotted keys; [section] headers create tables.
+# Single-quoted strings are literal (no escape sequences); double-quoted allow escapes.
 baseURL = '/'
-languageCode = 'fr-FR'
+# Note 2: locale replaces the deprecated languageCode key (Hugo 0.158+).
+# It populates the <html lang=""> attribute and controls date/number formatting.
+locale = 'fr-FR'
 title = 'Arbre Genealogique Dicko Ardo Hayre'
 enableRobotsTXT = true
 
+# Note 3: Keys under [params] become .Site.Params.KeyName inside any Hugo template.
+# They are available at build time only -- not at runtime in the browser.
 [params]
   description = "Arbre genealogique Dicko Ardo Hayre : Diona - Boundoucoli - Dalla et Boni"
+  # Note 4: rootPerson seeds the D3 tree's default root node (Gramps IDs are uppercase).
+  # The JavaScript tree also hardcodes 'I1', making this a documentation anchor.
   rootPerson = "I1"

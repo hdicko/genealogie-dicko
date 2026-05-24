@@ -1,15 +1,27 @@
+# Note 1: Netlify reads netlify.toml from the repository root on every deploy.
+# The [build] section tells Netlify how to compile the site.
 [build]
   publish = "public"
   command = "hugo --minify"
 
 [build.environment]
+  # Note 2: Pinning HUGO_VERSION ensures the build is reproducible across Netlify's
+  # build fleet. Never set this below 0.159.0 -- hugo.Data support requires it.
   HUGO_VERSION = "0.159.0"
+  # Note 3: HUGO_ENV = "production" disables livereload injection and enables minification
+  # inside templates that check hugo.Environment (e.g. analytics, debug output).
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
 
+# Note 4: [[headers]] is a TOML array of tables (double brackets = array element).
+# Each element attaches HTTP response headers to URLs matching the for pattern.
+# These headers follow OWASP recommendations for hardening static sites.
 [[headers]]
   for = "/*"
   [headers.values]
+    # Note 5: X-Frame-Options DENY prevents the site from being embedded in an iframe,
+    # mitigating clickjacking attacks. frame-ancestors in the CSP below does the same
+    # for modern browsers; both are kept for backward compatibility.
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
@@ -17,4 +29,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Cross-Origin-Opener-Policy = "same-origin"
     X-Permitted-Cross-Domain-Policies = "none"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; font-src 'self'; frame-ancestors 'none';"
+    # Note 6: Content Security Policy restricts which origins the browser may load
+    # resources from. 'unsafe-inline' is required because all JavaScript lives in
+    # Hugo templates as inline <script> blocks. d3js.org is the D3.js CDN origin.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://d3js.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; font-src 'self'; frame-ancestors 'none';"

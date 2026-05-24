@@ -1,6 +1,11 @@
 from .config import PPL_DIR
 
 
+# Note 1: TOML front matter is delimited by +++. If a person's 'commentaires'
+# field literally contains a line consisting of only "+++" it would prematurely
+# close the front matter and break Hugo's parser. _escape_front_matter_delimiters
+# replaces such lines with the Unicode escape sequence \u002b\u002b\u002b so
+# they cannot be misinterpreted.
 def _escape_front_matter_delimiters(s):
     """Avoid emitting a bare +++ line inside TOML front matter."""
     return "\n".join("\\u002b\\u002b\\u002b" if line == "+++" else line for line in s.split("\n"))
@@ -17,7 +22,11 @@ def toml_str(s):
         return '""'
     s = str(s)
     if '\n' in s:
-        # TOML multi-line basic string.
+        # Note 2: The double-escaping order matters. _escape_front_matter_delimiters
+        # must run BEFORE the backslash escape: it replaces +++ with \u002b\u002b\u002b
+        # (literal backslash sequences). The subsequent .replace('\\', '\\\\') then
+        # doubles those backslashes so TOML reads \\u002b, which decodes to \u002b
+        # (not to +). Reversing the order would let + through unchanged.
         # _escape_front_matter_delimiters runs FIRST: it replaces any bare +++ line
         # with the literal text \u002b\u002b\u002b (backslash sequences, not the +
         # character). The subsequent backslash-escape then doubles those backslashes
@@ -38,8 +47,14 @@ def regen_markdown(gid, p):
     The front matter is TOML (delimited by +++).
     """
     slug = gid.lower()
+    # Note 3: The .md filename uses the lowercase Gramps ID. Hugo's URL routing
+    # lowercases content filenames by default, so "/personnes/i1/" maps to
+    # content/personnes/i1.md. Using gid.lower() here keeps file and URL in sync.
     md_path = PPL_DIR / f"{slug}.md"
 
+    # Note 4: p.get('nom') or gid falls back to the Gramps ID if the name is
+    # absent, ensuring the title field is never an empty string (which would
+    # produce a blank page title in Hugo).
     lines = [
         "+++",
         f"title = {toml_str(p.get('nom') or gid)}",
@@ -53,6 +68,9 @@ def regen_markdown(gid, p):
         "draft = false",
     ]
 
+    # Note 5: [[fratrie]], [[parents]], [[familles]] are TOML arrays-of-tables.
+    # Each [[key]] header appends one table to the array. Hugo reads them
+    # as .Params.fratrie, .Params.parents, .Params.familles in templates.
     # Fratrie entries — each becomes a [[fratrie]] TOML array-of-tables block
     for f in p.get("fratrie", []):
         lines += ["", "[[fratrie]]",
@@ -93,6 +111,9 @@ def update_references(persons, gid, old_nom, new_nom):
     Only updates entries where both the id AND the old name match, to avoid
     accidental overwrites of legitimately different people with the same name.
     """
+    # Note 6: Comparing old_nom == new_nom short-circuits the O(n) scan when
+    # the name did not actually change — a common case when only a date or
+    # photo field is updated via the API.
     if old_nom == new_nom:
         return
 

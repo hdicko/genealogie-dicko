@@ -5,6 +5,11 @@ Parse Gramps HTML export and generate:
 - content/personnes/*.md (Hugo content pages)
 """
 
+# Note 1: BeautifulSoup (bs4) is a third-party HTML/XML parsing library.
+# It builds a parse tree from raw HTML, making it easy to navigate and
+# search elements by tag, id, class, or CSS selector.
+# The 'lxml' back-end (also third-party) is faster than Python's built-in
+# 'html.parser' and more tolerant of malformed HTML from Gramps exports.
 import os
 import re
 import json
@@ -12,6 +17,9 @@ import shutil
 from pathlib import Path
 from bs4 import BeautifulSoup
 
+# Note 2: Hard-coded absolute paths are intentional for this one-off import
+# script. The script is only run manually on the developer's machine when
+# refreshing data from Gramps; the paths will differ on another machine.
 GRAMPS_DIR = Path("/home/dicko/Documents/HD/Ardo Diona/Genealogie/Famille Dicko/Complet HTML")
 HUGO_DIR = Path("/home/dicko/dev/hugo/hugo_sites/genealogie")
 PPL_DIR = GRAMPS_DIR / "ppl"
@@ -21,20 +29,33 @@ IMAGES_DST = HUGO_DIR / "static" / "images" / "personnes"
 
 def extract_gramps_id(text):
     """Extract GRAMPS ID like [I1] from text."""
+    # Note 3: Gramps embeds the person ID in brackets after their name in
+    # link text, e.g. "Dicko Ardo [I1]". The regex captures the bracketed
+    # uppercase-alphanumeric sequence and returns it, or None if not found.
     m = re.search(r'\[([A-Z0-9]+)\]', text)
     return m.group(1) if m else None
 
 
 def clean_name(n):
     """Remove [Ixx] suffix from names."""
+    # Note 4: Names extracted from link text include the Gramps ID suffix,
+    # e.g. 'Dicko Ardo [I1]'. re.sub strips the bracketed suffix so only the
+    # human-readable name is stored in famille.json and the .md files.
     return re.sub(r'\s*\[[A-Z0-9]+\]\s*$', '', n).strip() if n else n
 
 
 def parse_person_page(html_path):
     """Parse a single Gramps individual HTML page and return a dict."""
+    # Note 5: errors='replace' substitutes the Unicode replacement character
+    # (U+FFFD) for any byte sequences that are not valid UTF-8. This prevents
+    # a UnicodeDecodeError from aborting the import if one page has a bad
+    # encoding, at the cost of losing a few characters in that page.
     with open(html_path, 'r', encoding='utf-8', errors='replace') as f:
         soup = BeautifulSoup(f, 'lxml')
 
+    # Note 6: html_file stores the path relative to GRAMPS_DIR so the entry
+    # in famille.json is portable across machines — it does not embed the
+    # absolute path of any particular developer's home directory.
     person = {
         'gramps_id': None,
         'nom': None,
@@ -154,6 +175,11 @@ def match_photos(persons):
         if img_file.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.gif'):
             continue
         stem = img_file.stem
+        # Note 7: Gramps image filenames follow the convention:
+        #   "is'Alias' Full Name" — the alias is in single quotes after 'is'
+        #   "isFullName"          — no alias, just the name after 'is'
+        # The code removes the 'is' prefix and any quoted alias to extract
+        # the plain name for fuzzy matching against person['nom'].
         # Pattern: "is'Alias' Full Name" or "isFullName"
         # Remove leading "is"
         if stem.startswith('is'):
@@ -162,6 +188,9 @@ def match_photos(persons):
         stem_clean = re.sub(r"'[^']*'\s*", '', stem).strip()
         stem_clean_lower = stem_clean.lower()
 
+        # Note 8: The three-condition OR (exact, stem-in-name, name-in-stem)
+        # handles partial name matches that arise when the image filename
+        # contains only part of the full name stored in Gramps, or vice versa.
         for gid, person in persons.items():
             if person['nom']:
                 nom_lower = person['nom'].lower()
@@ -177,6 +206,9 @@ def toml_str(s):
     Returns '""' for None; escapes backslashes and double-quotes otherwise.
     Note: unlike markup.toml_str, this version does NOT handle multi-line strings.
     """
+    # Note 9: This is a simpler sibling of markup.toml_str. parse_gramps.py
+    # generates initial content from Gramps data which does not contain
+    # multi-line fields. markup.toml_str handles multi-line data for API edits.
     if s is None:
         return '""'
     return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"') + '"'

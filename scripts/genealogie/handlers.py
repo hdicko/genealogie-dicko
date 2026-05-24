@@ -1,3 +1,6 @@
+# Note 1: defaultdict(list) from collections provides a dict that automatically
+# creates an empty list for any key that has not been seen before. This avoids
+# an explicit 'if key not in dict: dict[key] = []' check in the rate limiter.
 import json
 import logging
 import os
@@ -20,6 +23,10 @@ from .markup import regen_markdown, update_references
 # ---------------------------------------------------------------------------
 # Audit logging — write to project logs/ dir (not world-writable /tmp)
 # ---------------------------------------------------------------------------
+# Note 2: Using a project-local logs/ directory (not /tmp) prevents other
+# users on the same machine from reading or tampering with the audit log.
+# The symlink guard below prevents a pre-existing symlink from redirecting
+# writes to an attacker-controlled file outside the project directory.
 _LOG_DIR = HUGO_DIR / "logs"
 _LOG_DIR.mkdir(exist_ok=True)
 _LOG_FILE = _LOG_DIR / "api.log"
@@ -38,6 +45,10 @@ _log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Rate limiter — max 60 write requests per IP per minute
 # ---------------------------------------------------------------------------
+# Note 3: The rate limiter is a sliding-window counter keyed by client IP.
+# 60 requests/minute is well above normal interactive use (editing one person
+# at a time) but prevents a runaway script or browser extension from
+# hammering the API and corrupting famille.json via rapid concurrent writes.
 class _RateLimiter:
     def __init__(self, max_requests: int = 60, window: int = 60):
         self._max = max_requests
@@ -45,6 +56,9 @@ class _RateLimiter:
         self._hits: dict[str, list[float]] = defaultdict(list)
 
     def is_allowed(self, ip: str) -> bool:
+        # Note 4: time.monotonic() is used instead of time.time() because
+        # monotonic time never goes backwards (e.g. due to NTP adjustments),
+        # making the window calculation robust under system clock changes.
         now = time.monotonic()
         self._hits[ip] = [t for t in self._hits[ip] if now - t < self._window]
         if len(self._hits[ip]) >= self._max:
@@ -59,6 +73,10 @@ _rate_limiter = _RateLimiter()
 # ---------------------------------------------------------------------------
 # Image magic-byte validation (imghdr removed in Python 3.13)
 # ---------------------------------------------------------------------------
+# Note 5: Checking the file extension is not enough for upload validation
+# because an attacker can rename any file to .jpg. Magic-byte validation
+# reads the first few bytes of the uploaded content and checks them against
+# the known signatures of each accepted image format.
 def _is_valid_image(data: bytes) -> bool:
     """Return True only if *data* starts with a known image file signature."""
     if data[:3] == b"\xff\xd8\xff":                                        # JPEG
@@ -102,6 +120,10 @@ def _safe_unlink_photo(photo_url: str | None) -> None:
     rel = photo_url.removeprefix("/")
     candidate = (HUGO_DIR / "static" / rel).resolve()
     try:
+        # Note 6: Path.relative_to() raises ValueError if candidate is not
+        # a descendant of PHOTOS_DIR. This is the canonical path-traversal
+        # guard: it is immune to tricks like '../' segments, symlinks, and
+        # URL encoding because .resolve() canonicalises the path first.
         candidate.relative_to(PHOTOS_DIR.resolve())  # ValueError if outside
     except ValueError:
         _log.warning("Path traversal attempt blocked: %s", photo_url)
@@ -117,6 +139,10 @@ def resolve_id(raw_id, persons):
     full case-insensitive scan.  Returns raw_id unchanged if nothing matches
     (the caller will then get a 404).
     """
+    # Note 7: The four-step lookup (exact, uppercase, lowercase, full scan)
+    # handles Gramps exports where the same logical ID appears in different
+    # cases. Most IDs are uppercase (I1), but some old exports used lowercase
+    # or mixed case. The full scan is O(n) but only reached as a last resort.
     if raw_id in persons:
         return raw_id
     upper = raw_id.upper()
@@ -147,6 +173,11 @@ class GenealogieHandler(BaseHTTPRequestHandler):
     DELETE /api/photo/{id}    — remove the portrait image
     OPTIONS /api/*            — CORS preflight (browser sends this before PATCH/POST/DELETE)
     """
+    # Note 8: BaseHTTPRequestHandler calls do_GET(), do_POST() etc. on each
+    # request by dispatching on the HTTP method name. The handler runs in the
+    # HTTPServer's thread (single-threaded by default in api_server.py).
+    # The DataTransaction context manager in each mutating method ensures
+    # thread-safe access to famille.json.
 
     def log_message(self, fmt, *args):
         # Prefix each access-log line with the client address for clarity.
@@ -205,6 +236,10 @@ class GenealogieHandler(BaseHTTPRequestHandler):
     # PATCH /api/person/{id}
     # Updates whitelisted fields only; propagates name changes to relatives.
     # ------------------------------------------------------------------
+    # Note 9: PATCH (not PUT) is the correct HTTP method for partial updates.
+    # PUT would require the client to send the entire resource representation;
+    # PATCH only requires the fields being changed. This reduces payload size
+    # and avoids accidental overwrites of fields the browser did not render.
 
     def do_PATCH(self):
         parsed = urlparse(self.path)
@@ -243,8 +278,10 @@ class GenealogieHandler(BaseHTTPRequestHandler):
                 p = persons[gid]
                 old_nom = p.get("nom")
 
-                # Only these fields may be edited via the API.
+                # Note 10: Only whitelisted fields may be edited via the API.
                 # Structural data (parents, familles) is managed by parse_gramps.py.
+                # Blocking structural fields prevents the API from creating
+                # dangling references (e.g. a parent ID that does not exist).
                 ALLOWED = ("nom", "genre", "naissance", "deces", "ville", "commentaires")
                 for field in ALLOWED:
                     if field not in body:

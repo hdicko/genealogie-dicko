@@ -4320,7 +4320,7 @@
               "id": "I104"
             },
             {
-              "nom": "Segdou",
+              "nom": "Seydou",
               "id": "I286"
             },
             {
@@ -13023,12 +13023,12 @@
     },
     "I286": {
       "gramps_id": "I286",
-      "nom": "Segdou",
+      "nom": "Seydou",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -24702,12 +24702,45 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Ada",
-          "id": "I632",
+          "nom": "Almamy Bokari",
+          "id": "I696",
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -26968,7 +27001,778 @@
       ],
       "fratrie": [],
       "familles": []
+    },
+    "I688": {
+      "gramps_id": "I688",
+      "nom": "Hamadoun",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I689": {
+      "gramps_id": "I689",
+      "nom": "Boureima",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I690": {
+      "gramps_id": "I690",
+      "nom": "Gouro",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I691": {
+      "gramps_id": "I691",
+      "nom": "Toca",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I692": {
+      "gramps_id": "I692",
+      "nom": "Fatoumata",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I693": {
+      "gramps_id": "I693",
+      "nom": "Kadiatou",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I694": {
+      "gramps_id": "I694",
+      "nom": "Haouwa",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I695"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I695": {
+      "gramps_id": "I695",
+      "nom": "Halimatou",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Almamy Bokari",
+          "id": "I696",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun",
+          "id": "I688"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I689"
+        },
+        {
+          "nom": "Gouro",
+          "id": "I690"
+        },
+        {
+          "nom": "Toca",
+          "id": "I691"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I692"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "I693"
+        },
+        {
+          "nom": "Haouwa",
+          "id": "I694"
+        },
+        {
+          "nom": "Amadou Almamy",
+          "id": "I634"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I696": {
+      "gramps_id": "I696",
+      "nom": "Almamy Bokari",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Djeneba",
+          "id": "I697",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hamadoun",
+              "id": "I688"
+            },
+            {
+              "nom": "Boureima",
+              "id": "I689"
+            },
+            {
+              "nom": "Gouro",
+              "id": "I690"
+            },
+            {
+              "nom": "Toca",
+              "id": "I691"
+            },
+            {
+              "nom": "Fatoumata",
+              "id": "I692"
+            },
+            {
+              "nom": "Kadiatou",
+              "id": "I693"
+            },
+            {
+              "nom": "Haouwa",
+              "id": "I694"
+            },
+            {
+              "nom": "Halimatou",
+              "id": "I695"
+            },
+            {
+              "nom": "Amadou Almamy",
+              "id": "I634"
+            }
+          ]
+        }
+      ]
+    },
+    "I697": {
+      "gramps_id": "I697",
+      "nom": "Djeneba",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [
+        {
+          "nom": "Woodou Alou",
+          "id": "I698"
+        },
+        {
+          "nom": "Coumbewel",
+          "id": "I699"
+        },
+        {
+          "nom": "Sambourou",
+          "id": "I700"
+        },
+        {
+          "nom": "Tahirou",
+          "id": "I701"
+        },
+        {
+          "nom": "Tahibou",
+          "id": "I702"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Almamy Bokari",
+              "id": "I696"
+            }
+          ]
+        }
+      ]
+    },
+    "I698": {
+      "gramps_id": "I698",
+      "nom": "Woodou Alou",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [
+        {
+          "nom": "Djeneba",
+          "id": "I697"
+        },
+        {
+          "nom": "Coumbewel",
+          "id": "I699"
+        },
+        {
+          "nom": "Sambourou",
+          "id": "I700"
+        },
+        {
+          "nom": "Tahirou",
+          "id": "I701"
+        },
+        {
+          "nom": "Tahibou",
+          "id": "I702"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I699": {
+      "gramps_id": "I699",
+      "nom": "Coumbewel",
+      "genre": "female",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [
+        {
+          "nom": "Djeneba",
+          "id": "I697"
+        },
+        {
+          "nom": "Woodou Alou",
+          "id": "I698"
+        },
+        {
+          "nom": "Sambourou",
+          "id": "I700"
+        },
+        {
+          "nom": "Tahirou",
+          "id": "I701"
+        },
+        {
+          "nom": "Tahibou",
+          "id": "I702"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I700": {
+      "gramps_id": "I700",
+      "nom": "Sambourou",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [
+        {
+          "nom": "Djeneba",
+          "id": "I697"
+        },
+        {
+          "nom": "Woodou Alou",
+          "id": "I698"
+        },
+        {
+          "nom": "Coumbewel",
+          "id": "I699"
+        },
+        {
+          "nom": "Tahirou",
+          "id": "I701"
+        },
+        {
+          "nom": "Tahibou",
+          "id": "I702"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I701": {
+      "gramps_id": "I701",
+      "nom": "Tahirou",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [
+        {
+          "nom": "Djeneba",
+          "id": "I697"
+        },
+        {
+          "nom": "Woodou Alou",
+          "id": "I698"
+        },
+        {
+          "nom": "Coumbewel",
+          "id": "I699"
+        },
+        {
+          "nom": "Sambourou",
+          "id": "I700"
+        },
+        {
+          "nom": "Tahibou",
+          "id": "I702"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
+    },
+    "I702": {
+      "gramps_id": "I702",
+      "nom": "Tahibou",
+      "genre": "male",
+      "naissance": null,
+      "deces": "",
+      "ville": null,
+      "commentaires": null,
+      "photo": null,
+      "parents": [],
+      "fratrie": [
+        {
+          "nom": "Djeneba",
+          "id": "I697"
+        },
+        {
+          "nom": "Woodou Alou",
+          "id": "I698"
+        },
+        {
+          "nom": "Coumbewel",
+          "id": "I699"
+        },
+        {
+          "nom": "Sambourou",
+          "id": "I700"
+        },
+        {
+          "nom": "Tahirou",
+          "id": "I701"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": []
+        }
+      ]
     }
   },
-  "total": 677
+  "total": 692
 }

@@ -1,8 +1,16 @@
+{{/* Note 1: layouts/personnes/list.html overrides the default list template
+     specifically for the /personnes/ section. Hugo's template lookup prefers
+     section-specific templates over _default ones. */}}
 {{ define "main" }}
 <div class="persons-index">
   <h1>Toutes les personnes</h1>
+  {{/* Note 2: hugo.Data.famille is loaded from data/famille.json at build time.
+       All 677+ persons are baked into the HTML as <tr> rows -- no API call needed. */}}
   <p>{{ len hugo.Data.famille.personnes }} personnes dans la base</p>
 
+  {{/* Note 3: The filter input is a plain text box. Client-side JS (below)
+       hides/shows table rows by comparing data-name against the typed query.
+       This approach works without a server or search index for small datasets. */}}
   <input type="text" id="filter-input" placeholder="Filtrer par nom…" />
 
   <table class="persons-table" id="persons-table">
@@ -16,16 +24,24 @@
       </tr>
     </thead>
     <tbody>
+      {{/* Note 4: range over a map iterates in non-deterministic order in Go.
+           Hugo sorts the output alphabetically by key by default for data files. */}}
       {{ range $gid, $p := hugo.Data.famille.personnes }}
       {{ if $p.nom }}
+      {{/* Note 5: data-name stores the lowercased name as a DOM attribute so the
+           JS filter can compare without repeatedly calling toLowerCase(). */}}
       <tr data-name="{{ lower $p.nom }}">
         <td class="td-photo">
           {{ if $p.photo }}
           <img src="{{ $p.photo }}" alt="{{ $p.nom }}" class="thumb" />
           {{ else }}
+          {{/* Note 6: Gender symbols (HTML entities) act as a visual placeholder
+               when no portrait photo has been uploaded yet. */}}
           <span class="no-photo">{{ if eq $p.genre "male" }}♂{{ else if eq $p.genre "female" }}♀{{ else }}?{{ end }}</span>
           {{ end }}
         </td>
+        {{/* Note 7: lower is a Hugo template function that lowercases a string.
+             Gramps IDs like 'I1' become 'i1' to match the generated URL slug. */}}
         <td><a href="/personnes/{{ lower $gid }}/">{{ $p.nom }}</a></td>
         <td>{{ if eq $p.genre "male" }}H{{ else if eq $p.genre "female" }}F{{ else }}—{{ end }}</td>
         <td>{{ $p.naissance }}</td>
@@ -38,9 +54,13 @@
 </div>
 
 <script>
+// Note 8: querySelectorAll returns a NodeList (not an Array).
+// forEach works on NodeList in modern browsers, so no spread or Array.from needed.
 document.getElementById('filter-input').addEventListener('input', function() {
   const q = this.value.trim().toLowerCase();
   document.querySelectorAll('#persons-table tbody tr').forEach(row => {
+    // Note 9: row.dataset.name reads the data-name HTML attribute set by Hugo above.
+    // Hiding rows with style.display='none' keeps them in the DOM -- no re-render needed.
     row.style.display = (!q || row.dataset.name.includes(q)) ? '' : 'none';
   });
 });

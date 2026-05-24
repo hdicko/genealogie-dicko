@@ -1,4 +1,9 @@
+{{/* Note 1: This is the fallback list template for any section that doesn't have
+     its own layouts/{section}/list.html. It renders the section title, its
+     Markdown body (.Content), then links to every immediate child page. */}}
 {{ define "main" }}
+{{/* Note 2: .Pages contains only the direct children of this section,
+     already sorted by Hugo's default weight/date/title ordering. */}}
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 {{ range .Pages }}

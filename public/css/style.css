@@ -2,8 +2,17 @@
    Famille Dicko — Généalogie — CSS
    ============================================================ */
 
+/* Note 1: box-sizing: border-box makes padding and border included in an
+   element's declared width/height. Without this, adding padding to a 100%
+   wide element overflows its container. The * selector and pseudo-elements
+   ensure no element escapes this reset. */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Note 2: CSS custom properties (variables) are defined on :root so they
+   cascade to every element in the document. Centralising colours here means
+   a theme change only requires editing this block, not hunting through the
+   entire file. --primary and --accent drive brand colours; --shadow is
+   reused for all card elevations. */
 :root {
   --primary: #3b5998;
   --primary-dark: #2d4373;
@@ -32,6 +41,9 @@ body {
 }
 
 /* ---- Header ---- */
+/* Note 3: The header uses flexbox with flex-wrap: wrap so the title and nav
+   stack vertically on narrow screens without a media query. justify-content:
+   space-between pushes the nav to the right on wide screens. */
 .site-header {
   background: var(--primary);
   color: white;
@@ -67,6 +79,10 @@ body {
 main.container { padding-top: 32px; padding-bottom: 48px; }
 
 /* ---- Buttons ---- */
+/* Note 4: All button variants share the .btn base class which sets layout,
+   padding, font weight, and transition. Variant classes (btn-primary,
+   btn-secondary, btn-edit) only override colours, following the
+   single-responsibility principle for CSS classes. */
 .btn {
   display: inline-block;
   padding: 10px 22px;
@@ -104,6 +120,10 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   border-color: var(--primary);
   color: var(--primary);
 }
+/* Note 5: aria-expanded="true" on .btn-toggle-siblings is set by JavaScript
+   when the siblings list is shown. Styling via the attribute selector keeps
+   the appearance in sync with the accessible state without extra JS class
+   manipulation. */
 .btn-toggle-siblings[aria-expanded="true"] {
   background: #e8ecf8;
   border-color: var(--primary);
@@ -119,6 +139,9 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 }
 
 /* ---- Home Hero ---- */
+/* Note 6: The hero section uses text-align: center with flex justify-content:
+   center on .hero-actions. flex-wrap: wrap allows the CTA buttons to stack
+   vertically on small screens without a JS breakpoint. */
 .home-hero {
   text-align: center;
   padding: 48px 0 32px;
@@ -141,6 +164,9 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 }
 
 /* ---- Stats ---- */
+/* Note 7: .home-stats uses flex with flex-wrap: wrap so the stat cards flow
+   into a single column on mobile. Each .stat-card has a min-width so three
+   cards fit side by side on a tablet but wrap gracefully on a phone. */
 .home-stats {
   display: flex;
   gap: 16px;
@@ -178,6 +204,9 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 .epopee-figure figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--text-muted); }
 
 /* ---- Search ---- */
+/* Note 8: The focus ring (box-shadow with low-opacity primary colour) is used
+   instead of the browser default outline so it matches the brand colour while
+   remaining visible for keyboard and screen-reader users (accessibility). */
 .home-search {
   max-width: 480px;
   margin: 32px auto 0;
@@ -221,6 +250,9 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 .no-result { padding: 8px 14px; color: var(--text-muted); font-style: italic; }
 
 /* ---- Person card ---- */
+/* Note 9: .person-header uses flexbox with flex-wrap: wrap so the circular
+   photo and the person name/details block stack vertically on narrow screens
+   without writing a separate media query for this layout. */
 .person-card {
   background: var(--bg-card);
   border-radius: var(--radius);
@@ -255,6 +287,10 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   font-size: 1.6rem;
   color: var(--primary);
 }
+/* Note 10: .person-details uses CSS Grid with grid-template-columns: auto 1fr.
+   The first column (dt labels) sizes to its content; the second column
+   (dd values) takes the remaining width. This produces a clean two-column
+   key/value layout without any fixed widths. */
 .person-details {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -309,6 +345,10 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   padding: 4px 10px;
   border: 1px solid var(--border);
 }
+/* Note 11: .relation-badge uses semantic background colours to distinguish
+   roles at a glance: blue for father (père), pink for mother (mère), and
+   amber for spouse (conjoint). The colours match the D3 tree node palette
+   (male #4a90d9, female #e87bae) to create a consistent visual language. */
 .relation-badge {
   display: inline-block;
   padding: 2px 8px;
@@ -335,6 +375,11 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   gap: 10px;
   flex-wrap: wrap;
 }
+/* Note 12: The edit modal uses position: fixed with inset: 0 to cover the
+   entire viewport regardless of scroll position. The semi-transparent overlay
+   (rgba 0,0,0,0.5) visually disables the page behind it. The dialog is
+   centred by display: flex with align/justify-content: center on the overlay.
+   display: none hides it initially; JS sets it to 'flex' to open it. */
 /* La modale d'édition partage un préfixe unique pour éviter toute collision
    avec les styles du reste du site ou du layout D3. */
 .person-edit-overlay {
@@ -490,6 +535,10 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 }
 
 /* ---- Persons table ---- */
+/* Note 13: border-collapse: collapse removes the double borders between
+   adjacent table cells. overflow: hidden on the wrapper clips the thead
+   background to the border-radius so the table corners are correctly rounded
+   without an extra wrapper element. */
 .persons-index h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 4px; }
 .persons-index p { color: var(--text-muted); margin-bottom: 16px; }
 #filter-input { max-width: 360px; margin-bottom: 16px; }
@@ -542,6 +591,9 @@ img.thumb {
 }
 
 /* ---- Footer ---- */
+/* Note 14: The footer uses --primary-dark (a darker shade of the header blue)
+   to create visual depth while keeping a consistent brand palette. The text
+   colour is semi-transparent white so it softens without switching hues. */
 .site-footer {
   background: var(--primary-dark);
   color: rgba(255,255,255,0.6);
@@ -552,6 +604,10 @@ img.thumb {
 .site-footer p { margin: 0; }
 
 /* ---- Responsive ---- */
+/* Note 15: A single breakpoint at 600px handles phone-size screens. The first
+   table column (photo thumbnail) is hidden (display:none) to save horizontal
+   space. The person-header switches to column direction so the circular photo
+   appears above the name, which is more natural on a portrait screen. */
 @media (max-width: 600px) {
   .home-hero h1 { font-size: 1.8rem; }
   .person-header { flex-direction: column; align-items: center; text-align: center; }

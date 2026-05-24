@@ -1,15 +1,24 @@
+{{/* Note 1: baseof.html is Hugo's base template. Every other template that calls
+     {{ define "main" }} is wrapped inside this shell. It provides the shared
+     <head>, header, nav, footer -- avoiding duplication across all page types. */}}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {{/* Note 2: .IsHome is true only on the root / page. The ternary-style
+       template logic uses Hugo's if/else to build context-aware page titles. */}}
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  {{/* Note 3: Hugo serves static files from static/ at the root URL.
+       /css/style.css maps to static/css/style.css in the source tree. */}}
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a href="/" class="site-title">🌳 {{ .Site.Title }}</a>
+      {{/* Note 4: nav links are hardcoded here, not auto-generated from sections,
+           because the site has exactly three top-level destinations. */}}
       <nav>
         <a href="/">Accueil</a>
         <a href="/arbre/">Arbre</a>
@@ -19,11 +28,16 @@
   </header>
 
   <main class="container">
+    {{/* Note 5: block defines a named slot. Child templates fill it with
+         {{ define "main" }}...{{ end }}. The empty fallback here means pages
+         that forget to define "main" render a blank body -- not an error. */}}
     {{ block "main" . }}{{ end }}
   </main>
 
   <footer class="site-footer">
     <div class="container">
+      {{/* Note 6: hugo.Data.famille.personnes is the Go map from data/famille.json.
+           len returns the number of keys, giving a live person count at build time. */}}
       <p>Arbre Genealogique Dicko Ardo Hayre — Diona · Boundoucoli · Dalla et Boni · {{ len hugo.Data.famille.personnes }} personnes</p>
     </div>
   </footer>

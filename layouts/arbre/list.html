@@ -1,22 +1,35 @@
 <!DOCTYPE html>
+<!-- Note 1: arbre/list.html is a standalone page that does NOT extend baseof.html.
+     It defines its own full <html> shell so it can fill the entire viewport
+     with the SVG canvas -- the standard site nav would waste vertical space. -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arbre généalogique — {{ .Site.Title }}</title>
+  <!-- Note 2: All styles are inlined here (not in style.css) because this page
+       is fully self-contained and shares no layout with the rest of the site. -->
   <style>
-    /* ---- base reset & canvas ---- */
+    /* Note 3: SVG fills the full viewport. overflow:hidden on body prevents
+       the default scrollbar from appearing when the tree extends beyond edges. */
     * { box-sizing: border-box; }
     body { margin: 0; background: #1a1a2e; font-family: sans-serif; overflow: hidden; }
     svg { width: 100vw; height: 100vh; display: block; }
 
+    /* Note 4: CSS class selectors match the d3.select().attr('class', ...) values
+       set in the render() function. .node.male, .node.female etc. use multi-class
+       selectors (no space between class names) to increase specificity. */
     /* ---- tree nodes, labels & links (dark-theme defaults) ---- */
     .node circle  { cursor: pointer; stroke-width: 2; }
     .node.male    circle { fill: #4a90d9; stroke: #2c6fad; }
     .node.female  circle { fill: #e87bae; stroke: #c4507a; }
     .node.unknown circle { fill: #888;    stroke: #666; }
+    /* Note 5: !important overrides the fill/stroke set by the gender class above,
+       making the gold ring visible regardless of gender. */
     .node.focused circle { stroke: #f5c518 !important; stroke-width: 4 !important; }
     .node-label { pointer-events: none; font-size: 11px; fill: #dde; }
+    /* Note 6: .link has fill:none because SVG path elements fill their enclosed
+       area by default. Without this, diagonal connector lines would appear filled. */
     .link { fill: none; stroke: #5566aa; stroke-width: 1.5; opacity: 0.6; }
 
     /* ---- controls ---- */
@@ -130,7 +143,6 @@
     .node.female circle       { fill: #e87bae; }
     .node.unknown circle      { fill: #888; }
     .node.focused circle      { stroke: #fff; stroke-width: 3; }
-    .node.no-profile circle   { stroke-dasharray: 4,2; opacity: .85; }
     /* Épouse / mère en polygamie : cercle blanc avec bordure rose tiretée */
     .node.conjoint-node circle {
       fill: #fff3f8; stroke: #c9527a; stroke-width: 2.5; stroke-dasharray: 5,3;
@@ -187,7 +199,6 @@
   <p  id="i-parents"></p>
   <p  id="i-spouses"></p>
   <button id="btn-goto-parent" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#5c7a9e;color:#fff;border:none;border-radius:5px;cursor:pointer;">⬆ Voir le père / la mère</button>
-  <button id="btn-goto-child" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#2e7d32;color:#fff;border:none;border-radius:5px;cursor:pointer;">⬇ Voir un descendant</button>
   <div class="info-actions">
     <button id="btn-edit-node">✏️ Modifier</button>
     <a id="btn-goto-page" href="#">📄 Fiche</a>
@@ -256,25 +267,38 @@
   <g id="g-root"></g>
 </svg>
 
-{{ $publicPersons := partial "public-persons.html" . }}
-<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"
-        integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i"
-        crossorigin="anonymous"></script>
+<!-- Note 7: D3.js is loaded from the official CDN. It must appear before the
+     inline <script> block below that calls d3.select(), d3.tree(), etc. -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-const DATA = {{ $publicPersons | jsonify | safeJS }};
-const API_HOST = ['localhost', '127.0.0.1'].includes(location.hostname)
-  ? location.hostname
-  : '127.0.0.1';
-const API  = `http://${API_HOST}:1315`;
+// Note 8: DATA is the entire famille.json personnes map injected by Hugo at
+// build time. jsonify converts the Go map to a JSON string; safeJS prevents
+// Hugo's HTML escaper from encoding the braces/quotes, yielding valid JS.
+const DATA = {{ hugo.Data.famille.personnes | jsonify | safeJS }};
+// Note 9: API points to the local Python editing server (port 1315).
+// It is never deployed to production; CORS restricts it to localhost only.
+const API  = 'http://localhost:1315';
 
+// Note 10: R controls the radius of every node circle in pixels.
+// DX is the vertical gap between siblings (tree is drawn left-to-right so
+// x = depth axis, y = sibling axis in D3's tree coordinate convention).
+// DY is the horizontal gap per generation (depth spacing).
 // Layout constants: R = node radius (px), DX = vertical gap between siblings, DY = horizontal gap per generation.
 const R=16, DX=44, DY=210;
+// Note 11: rootId is the Gramps ID of the topmost node currently displayed.
+// focusId is highlighted with a gold ring; it is set from the ?focus= URL param
+// or updated when the user double-clicks a node.
+// Note 12: history is a simple array used as a stack (push/pop) for back-navigation.
+// It stores previous rootIds so the user can undo re-centring operations.
 // rootId: person currently at the top of the tree. focusId: highlighted node (e.g. from ?focus= URL param).
 let rootId='I1', focusId=null;
 let currentInfoData = null; // data of the last-clicked node — kept for the edit modal
 let mode = 'desc'; // 'desc' = descendants, 'anc' = ancestors
 let history = []; // back-navigation stack of previous rootIds
 
+// Note 13: navigate() is the central routing function. Pushing the current root
+// onto history before changing it enables the back button. focusId=id causes
+// render() to add the 'focused' CSS class to that node's circle.
 // Re-centre the tree on `id`, pushing the previous root onto the history stack.
 function navigate(id) {
   if (rootId !== id) history.push(rootId);
@@ -295,35 +319,11 @@ function goBack() {
 const urlP = new URLSearchParams(location.search);
 if (urlP.get('focus')) { focusId=urlP.get('focus'); rootId=focusId; }
 
-function hasProfile(id) {
-  return Boolean(id && DATA[id]);
-}
-
-const NAME_COUNTS = Object.values(DATA).reduce((acc, p) => {
-  const nom = (p.nom || '').trim();
-  if (!nom) return acc;
-  acc[nom] = (acc[nom] || 0) + 1;
-  return acc;
-}, {});
-
-function searchLabel(id, p) {
-  const nom = (p.nom || id).trim();
-  if ((NAME_COUNTS[nom] || 0) < 2) return nom;
-  const premierParent = (p.parents || []).find(par => par && par.nom);
-  if (premierParent) return `${nom} — enfant de ${premierParent.nom} (${id})`;
-  const premierConjoint = (p.familles || []).find(fam => fam && fam.conjoint);
-  if (premierConjoint) return `${nom} — conjoint de ${premierConjoint.conjoint} (${id})`;
-  return `${nom} (${id})`;
-}
-
-function setMode(nextMode) {
-  mode = nextMode;
-  const btnMode = document.getElementById('btn-mode');
-  btnMode.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
-  btnMode.style.background = mode === 'anc' ? '#5c7a9e' : '';
-}
-
 /* ── hierarchy builder ─────────────────────────────────────── */
+// Note 14: buildHier() converts the flat DATA map into a tree object compatible
+// with d3.hierarchy(). D3 expects { children: [...] } nesting; this function
+// recursively builds that structure while tracking visited IDs in a Set to
+// prevent infinite loops from circular references in the data.
 // Build a d3.hierarchy-compatible tree of descendants.
 // Wives/partners are inserted as intermediate "conjoint" nodes so each
 // father–wife pair groups their children visually on the same branch.
@@ -339,31 +339,14 @@ function buildHier(id, depth) {
       for (const fam of (p.familles||[])) {
         // Collect children of this family
         const famKids = [];
-        for (const [index, e] of (fam.enfants||[]).entries()) {
-          if (hasProfile(e.id)) {
-            const c = walk(e.id, d - 1);
-            if (c) famKids.push(c);
-            continue;
-          }
-          if (!e.nom) continue;
-          famKids.push({
-            id: `sans-id-${gid}-${fam.conjoint_id || 'sans-conjoint'}-${index}`,
-            nom: e.nom,
-            genre: 'unknown',
-            type: 'enfant-sans-id',
-            photo: null,
-            naissance: '',
-            deces: '',
-            parents: [
-              { id: gid, nom: p.nom || gid },
-              fam.conjoint ? { id: hasProfile(fam.conjoint_id) ? fam.conjoint_id : '', nom: fam.conjoint } : null,
-            ].filter(Boolean),
-            hasProfile: false,
-            children: null,
-          });
-        }
+        for (const e of (fam.enfants||[]))
+          if (e.id) { const c=walk(e.id,d-1); if(c) famKids.push(c); }
         if (!famKids.length) continue;
 
+        // Note 15: Inserting the wife as an intermediate node (instead of
+        // attaching children directly to the father) groups each father+wife pair
+        // visually in the tree layout. The 'conjoint' type is used in render()
+        // to apply a distinct dashed-ring style to these nodes.
         // Insert the wife as an intermediate node if she exists in DATA
         const cjId = fam.conjoint_id;
         if (cjId && DATA[cjId] && !vis.has(cjId)) {
@@ -383,8 +366,8 @@ function buildHier(id, depth) {
       }
     }
     return { id:gid, nom:p.nom||gid, genre:p.genre||'unknown', type:'person',
-              photo:p.photo||null, naissance:p.naissance||'',
-             deces:p.deces||'', parents:p.parents||[], hasProfile: true,
+             photo:p.photo||null, naissance:p.naissance||'',
+             deces:p.deces||'', parents:p.parents||[],
              children: kids.length ? kids : null };
   }
   return walk(id, depth);
@@ -403,19 +386,31 @@ function buildAncestors(id, depth) {
       for (const par of (p.parents||[]))
         if (par.id) { const c=walk(par.id, d-1); if(c) pars.push(c); }
     return { id:gid, nom:p.nom||gid, genre:p.genre||'unknown',
-              photo:p.photo||null, naissance:p.naissance||'',
-             deces:p.deces||'', parents:p.parents||[], hasProfile: true,
+             photo:p.photo||null, naissance:p.naissance||'',
+             deces:p.deces||'', parents:p.parents||[],
              children: pars.length ? pars : null };
   }
   return walk(id, depth);
 }
 
 /* ── D3 setup ──────────────────────────────────────────────── */
+// Note 16: d3.select() wraps the SVG element in a D3 selection object.
+// gRoot is the <g> element that receives the zoom transform; all nodes and
+// links are children of gRoot so they move together during pan/zoom.
 const svg    = d3.select('#tree-svg');
 const gRoot  = d3.select('#g-root');
+// Note 17: defs is the SVG <defs> element used to define clipPath elements
+// that crop portrait photos into circles. Each person with a photo gets one.
 const defs   = d3.select('#svg-defs');
+// Note 18: d3.tree().nodeSize([dx, dy]) uses a fixed node size layout rather
+// than filling a bounding box. This keeps spacing consistent regardless of
+// how many nodes are visible.
 const layout = d3.tree().nodeSize([DX,DY]);
 
+// Note 19: d3.zoom() provides pan-and-zoom behaviour.
+// scaleExtent([0.03, 6]) sets the minimum and maximum zoom levels.
+// on('dblclick.zoom', null) removes D3's default double-click-to-zoom behaviour
+// so double-click can instead be used to re-centre the tree on a person.
 const zoomer = d3.zoom().scaleExtent([0.03,6])
   .on('zoom', e => gRoot.attr('transform', e.transform));
 svg.call(zoomer).on('dblclick.zoom', null);
@@ -435,22 +430,30 @@ function render(startId, depth) {
   const nodes = hier.descendants();
   document.getElementById('node-count').textContent = nodes.length + ' nœuds affichés';
 
+  // Note 21: gRoot.selectAll('.link').data(hier.links()).join('path') is D3's
+  // general update pattern. join() handles enter, update, and exit in one call:
+  // new elements are appended, existing ones are updated, removed ones deleted.
   gRoot.selectAll('.link')
     .data(hier.links()).join('path').attr('class','link')
+    // Note 22: d3.linkHorizontal() draws S-curve paths between parent and child.
+    // .x(d=>d.y) and .y(d=>d.x) swap axes because D3's tree lays out top-to-bottom
+    // by default; swapping x/y rotates it to left-to-right.
     .attr('d', d3.linkHorizontal().x(d=>d.y).y(d=>d.x));
 
+  // Note 23: translate(d.y, d.x) again swaps x/y to match the axis-swap above.
+  // Each node group is positioned at (generation * DY, sibling * DX) in SVG space.
   const node = gRoot.selectAll('.node')
     .data(nodes).join('g')
     .attr('class', d => [
       'node', d.data.genre,
       d.data.type === 'conjoint' ? 'conjoint-node' : '',
-      d.data.hasProfile === false ? 'no-profile' : '',
       d.data.id === focusId ? 'focused' : ''
     ].filter(Boolean).join(' '))
     .attr('transform', d => `translate(${d.y},${d.x})`)
+    // Note 24: ev.stopPropagation() prevents the click from bubbling to the SVG
+    // background, which would otherwise close the info panel immediately.
     .on('click', (ev,d) => { ev.stopPropagation(); showInfo(d.data); })
     .on('dblclick', (ev,d) => {
-      if (d.data.hasProfile === false) return;
       ev.stopPropagation();
       focusId=null;
       navigate(d.data.id);
@@ -461,6 +464,10 @@ function render(startId, depth) {
   node.each(function(d) {
     const n = d3.select(this);
     if (d.data.photo && d.data.type !== 'conjoint') {
+      // Note 25: SVG <clipPath> + <image> is the standard technique for circular
+      // portrait photos in SVG. The clipPath is defined once in <defs> and
+      // referenced by clip-path="url(#id)". The ID must be unique per node,
+      // hence the sanitised Gramps ID suffix (replace(/\W/g,'_')).
       const cid = 'cp'+d.data.id.replace(/\W/g,'_');
       defs.append('clipPath').attr('id',cid).append('circle').attr('r',R-1);
       n.append('image')
@@ -487,6 +494,10 @@ function render(startId, depth) {
   svg.call(zoomer.transform, d3.zoomIdentity.translate(60, H/2-r.x).scale(1));
 }
 
+// Note 26: fitAll() computes the axis-aligned bounding box of all rendered nodes
+// then calculates a scale factor that fits the entire tree into the viewport with
+// padding. It uses the same buildHier/buildAncestors + layout pipeline as render()
+// but only reads the computed coordinates -- it does not modify the DOM.
 // Compute the bounding box of all visible nodes and zoom/pan to fit them in the viewport.
 function fitAll() {
   const d = mode === 'anc'
@@ -531,12 +542,13 @@ function showInfo(d) {
     d.genre==='male'?'♂ Homme':d.genre==='female'?'♀ Femme':'';
   document.getElementById('i-birth').textContent = d.naissance?'🎂 '+d.naissance:'';
   document.getElementById('i-death').textContent = d.deces?'✝ '+d.deces:'';
-  const full = d.hasProfile === false ? {} : (DATA[d.id] || {});
-  document.getElementById('i-ville').textContent = full.ville
-    ? '📍 '+full.ville
-    : (d.hasProfile === false ? 'ℹ️ Entrée sans fiche Gramps' : '');
+  const full = DATA[d.id] || {};
+  document.getElementById('i-ville').textContent = full.ville ? '📍 '+full.ville : '';
 
   // Parents — cliquables pour naviguer vers le haut
+  // Note 28: replaceChildren() removes all child nodes of the element and is
+  // safer than innerHTML because it never parses HTML -- preventing XSS from
+  // names that contain < or > characters from Gramps data.
   const pEl = document.getElementById('i-parents');
   pEl.replaceChildren();
   const pars = (d.parents||[]).filter(p=>p.nom);
@@ -559,13 +571,9 @@ function showInfo(d) {
 
   document.getElementById('i-spouses').textContent = spouseText(d);
 
-  // Boutons de navigation contextuels
+  // Bouton "Voir le parent"
   const btnPar = document.getElementById('btn-goto-parent');
-  const btnChild = document.getElementById('btn-goto-child');
   const firstParWithId = (d.parents||[]).find(p=>p.id && DATA[p.id]);
-  const firstChildWithId = (full.familles || [])
-    .flatMap(f => f.enfants || [])
-    .find(e => e.id && DATA[e.id]);
   if (firstParWithId) {
     btnPar.style.display = 'block';
     btnPar.onclick = () => navigate(firstParWithId.id);
@@ -573,31 +581,15 @@ function showInfo(d) {
   } else {
     btnPar.style.display = 'none';
   }
-  if (firstChildWithId) {
-    btnChild.style.display = 'block';
-    btnChild.onclick = () => {
-      setMode('desc');
-      navigate(firstChildWithId.id);
-    };
-    btnChild.textContent = '⬇ Descendre vers ' + firstChildWithId.nom;
-  } else {
-    btnChild.style.display = 'none';
-  }
 
-  const btnEdit = document.getElementById('btn-edit-node');
-  const btnPage = document.getElementById('btn-goto-page');
-  if (d.hasProfile === false) {
-    btnEdit.style.display = 'none';
-    btnPage.style.display = 'none';
-  } else {
-    btnEdit.style.display = '';
-    btnPage.style.display = '';
-    btnPage.href = `/personnes/${d.id.toLowerCase()}/`;
-  }
+  document.getElementById('btn-goto-page').href = `/personnes/${d.id.toLowerCase()}/`;
   document.getElementById('info').style.display = 'block';
 }
 
 /* ── edit modal ────────────────────────────────────────────── */
+// Note 29: currentInfoData is set on every node click and read when the user
+// presses the edit button. The indirection (store then use) decouples the
+// click handler from the modal so both can be independently tested.
 // Trigger the modal from the info panel's "Modifier" button.
 document.getElementById('btn-edit-node').onclick = () => {
   if (!currentInfoData) return;
@@ -727,7 +719,10 @@ document.getElementById('btn-save').onclick = async () => {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const updated = await res.json();
 
-    // Update local DATA cache
+    // Note 30: Updating the local DATA cache after a successful PATCH means
+    // the info panel and tree labels reflect the new name immediately without
+    // a page reload. The loop below propagates name changes to denormalised
+    // copies stored in parents/conjoints/enfants of other persons.
     if (DATA[gid]) {
       const oldNom = DATA[gid].nom;
       DATA[gid].nom          = updated.nom;
@@ -788,6 +783,9 @@ document.addEventListener('keydown', e => {
 });
 
 /* ── print / PDF ───────────────────────────────────────────── */
+// Note 31: printTree() creates a standalone HTML document in memory, opens it in
+// a new tab, then triggers window.print(). This avoids modifying the live SVG and
+// gives the user a clean print dialog with correct colours (print-color-adjust).
 function printTree() {
   const depth = +document.getElementById('depth-input').value;
   const d = mode === 'anc' ? buildAncestors(rootId, depth) : buildHier(rootId, depth);
@@ -815,6 +813,10 @@ function printTree() {
   clone.removeAttribute('style');
   // Remove zoom event listeners by replacing with clean copy (already done via cloneNode)
 
+  // Note 32: _esc() uses the browser's built-in HTML escaping rather than a
+  // manual replace chain. It creates a throwaway <div>, sets textContent
+  // (which the browser escapes automatically), then reads innerHTML.
+  // This correctly handles all HTML special characters including quotes.
   // Escape HTML entities in user-controlled strings to prevent XSS in the
   // generated print document (nom comes from user-editable API data).
   function _esc(str) {
@@ -884,6 +886,9 @@ function printTree() {
 </body>
 </html>`;
 
+  // Note 33: Blob URL (URL.createObjectURL) is used instead of document.write()
+  // to avoid reopening the document in a possibly-cross-origin context.
+  // The blob is a synthetic HTML file; revokeObjectURL releases memory after 60s.
   // Use Blob URL instead of document.write() to avoid reopening the document
   // and to maintain a clean security context in the new window.
   const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
@@ -895,6 +900,8 @@ function printTree() {
 }
 
 /* ── controls ──────────────────────────────────────────────── */
+// Note 34: btn-root resets both rootId and history to their initial state.
+// Clearing history is important so the back button is correctly disabled.
 document.getElementById('btn-root').onclick = () => {
   history = [];
   document.getElementById('btn-back').disabled = true;
@@ -906,8 +913,12 @@ document.getElementById('btn-fit').onclick  = fitAll;
 document.getElementById('btn-zi').onclick   = () => svg.transition().call(zoomer.scaleBy,1.4);
 document.getElementById('btn-zo').onclick   = () => svg.transition().call(zoomer.scaleBy,0.7);
 document.getElementById('btn-pdf').onclick  = printTree;
+// Note 35: btn-mode toggles between descendant view ('desc') and ancestor view
+// ('anc'). The button label and background change to signal the active mode.
 document.getElementById('btn-mode').onclick = function() {
-  setMode(mode === 'desc' ? 'anc' : 'desc');
+  mode = mode === 'desc' ? 'anc' : 'desc';
+  this.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
+  this.style.background = mode === 'anc' ? '#5c7a9e' : '';
   render(rootId, +document.getElementById('depth-input').value);
 };
 document.getElementById('depth-input').onchange = function() {
@@ -915,6 +926,9 @@ document.getElementById('depth-input').onchange = function() {
 };
 
 /* ── search ────────────────────────────────────────────────── */
+// Note 36: The search input scans DATA entirely in the browser using
+// Array.filter on Object.entries(). This is O(n) per keystroke but is
+// fast enough for the ~700-person dataset without a search index.
 const si=document.getElementById('search-input');
 const sl=document.getElementById('suggestions');
 si.addEventListener('input', function() {
@@ -926,10 +940,9 @@ si.addEventListener('input', function() {
   if(!hits.length) return;
   hits.forEach(([id,p])=>{
     const li=document.createElement('li');
-    li.textContent=searchLabel(id, p);
-    li.title = id;
+    li.textContent=p.nom;
     li.onclick=()=>{
-      si.value=searchLabel(id, p); sl.style.display='none';
+      si.value=p.nom; sl.style.display='none';
       navigate(id);
     };
     sl.appendChild(li);
@@ -937,10 +950,16 @@ si.addEventListener('input', function() {
   sl.style.display='block';
 });
 document.addEventListener('click', e => {
+  // Note 37: Clicking anywhere outside the search wrapper dismisses the
+  // dropdown. closest() traverses DOM ancestors, returning null if not found.
   if(!e.target.closest('.search-wrap')) sl.style.display='none';
 });
 
 /* ── init ──────────────────────────────────────────────────── */
+// Note 38: Initial render is called once the DOM is ready (synchronous script
+// execution at the bottom of <body> ensures all elements exist at this point).
+// The ?focus= URL param is read earlier and stored in focusId, so the first
+// render already highlights and centres on the requested person.
 render(rootId, +document.getElementById('depth-input').value);
 </script>
 </body>

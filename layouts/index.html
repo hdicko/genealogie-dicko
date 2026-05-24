@@ -1,6 +1,11 @@
+{{/* Note 1: layouts/index.html is Hugo's homepage template. It is only rendered
+     for the root _index.md (URL: /). It must {{ define "main" }} to slot into
+     baseof.html's {{ block "main" }} placeholder. */}}
 {{ define "main" }}
 <section class="home-hero">
   <h1>🌳 Arbre Genealogique Dicko Ardo Hayre</h1>
+  {{/* Note 2: hugo.Data.famille.personnes is a Go map (key = Gramps ID, value = person dict).
+       len on a map returns the number of entries -- used here for the live count badge. */}}
   <p class="subtitle">Diona · Boundoucoli · Dalla et Boni · {{ len hugo.Data.famille.personnes }} personnes</p>
   <div class="hero-actions">
     <a href="/arbre/" class="btn btn-primary">Voir l'arbre interactif</a>
@@ -35,26 +40,41 @@
 <section class="home-search">
   <h2>Rechercher une personne</h2>
   <input type="text" id="search-input" placeholder="Nom, prénom…" autocomplete="off" />
+  {{/* Note 3: The <ul> starts empty. JavaScript populates it dynamically on keystroke.
+       autocomplete="off" suppresses the browser's built-in suggestion dropdown so
+       only our custom results list is shown. */}}
   <ul id="search-results"></ul>
 </section>
 
+{{/* Note 4: Partials are reusable template fragments stored in layouts/partials/.
+     public-persons.html produces a trimmed JSON-safe object (id -> {nom, naissance})
+     for the client-side search, avoiding leaking internal fields to the browser. */}}
 {{ $publicPersons := partial "public-persons.html" . }}
 <script>
+// Note 5: jsonify converts a Hugo object to a JSON string; safeJS marks it as
+// already-safe so Hugo does not HTML-encode the curly braces, producing valid JS.
 const persons = {{ $publicPersons | jsonify | safeJS }};
 
 const input = document.getElementById('search-input');
 const results = document.getElementById('search-results');
 
+// Note 6: 'input' fires on every keystroke (including paste), unlike 'change'
+// which only fires on blur. The 2-character minimum avoids flooding the DOM
+// with results on single-keypress searches.
 input.addEventListener('input', function() {
   const q = this.value.trim().toLowerCase();
   results.innerHTML = '';
   if (q.length < 2) return;
+  // Note 7: Object.entries() converts the persons object into an array of [id, data]
+  // pairs so we can filter and iterate using array methods.
   const matches = Object.entries(persons)
     .filter(([id, p]) => p.nom && p.nom.toLowerCase().includes(q))
     .slice(0, 10);
   matches.forEach(([id, p]) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
+    // Note 8: Gramps IDs like 'I1' are lowercased in Hugo's URL slugs (/personnes/i1/).
+    // toLowerCase() here ensures the link matches the generated URL.
     a.href = '/personnes/' + id.toLowerCase() + '/';
     a.textContent = p.nom + (p.naissance ? ' (' + p.naissance + ')' : '');
     li.appendChild(a);
