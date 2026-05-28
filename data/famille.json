@@ -556,7 +556,7 @@
           "conjoint_id": "I83",
           "enfants": [
             {
-              "nom": "Hama Pathe",
+              "nom": "Hamma Pathe",
               "id": "I84"
             },
             {
@@ -888,7 +888,7 @@
               "id": "I151"
             },
             {
-              "nom": "Demal (Hamsatou)",
+              "nom": "Demmal (Hamsatou)",
               "id": "I146"
             }
           ]
@@ -1356,7 +1356,7 @@
           "conjoint_id": "I95",
           "enfants": [
             {
-              "nom": "Hama Sidi",
+              "nom": "Hamma Sidi",
               "id": "I24"
             },
             {
@@ -1405,12 +1405,12 @@
     },
     "I24": {
       "gramps_id": "I24",
-      "nom": "Hama Sidi",
+      "nom": "Hamma Sidi",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I24.jpg",
       "parents": [
         {
@@ -3618,7 +3618,7 @@
           "conjoint_id": "I6",
           "enfants": [
             {
-              "nom": "Hama Pathe",
+              "nom": "Hamma Pathe",
               "id": "I84"
             },
             {
@@ -3639,7 +3639,7 @@
     },
     "I84": {
       "gramps_id": "I84",
-      "nom": "Hama Pathe",
+      "nom": "Hamma Pathe",
       "genre": "male",
       "naissance": "15 novembre 1952",
       "deces": "",
@@ -3674,7 +3674,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Sharon Grimm",
+          "conjoint": "Sharon Kaye Grimm",
           "conjoint_id": "I88",
           "enfants": [
             {
@@ -3809,18 +3809,18 @@
     },
     "I88": {
       "gramps_id": "I88",
-      "nom": "Sharon Grimm",
+      "nom": "Sharon Kaye Grimm",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "11-02-1957",
+      "deces": "27-03-2006",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I88.jpg",
       "parents": [],
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Hama Pathe",
+          "conjoint": "Hamma Pathe",
           "conjoint_id": "I84",
           "enfants": [
             {
@@ -3846,12 +3846,12 @@
       "photo": "/images/personnes/I89.jpg",
       "parents": [
         {
-          "nom": "Hama Pathe",
+          "nom": "Hamma Pathe",
           "id": "I84",
           "relation": "pere"
         },
         {
-          "nom": "Sharon Grimm",
+          "nom": "Sharon Kaye Grimm",
           "id": "I88",
           "relation": "mere"
         }
@@ -3868,7 +3868,7 @@
           "conjoint_id": "I505",
           "enfants": [
             {
-              "nom": "Hama Hama Pathe Ameri Diona",
+              "nom": "Hamma Hamma Pathe Ameri Diona",
               "id": "I506"
             }
           ]
@@ -3886,12 +3886,12 @@
       "photo": "/images/personnes/I90.jpg",
       "parents": [
         {
-          "nom": "Hama Pathe",
+          "nom": "Hamma Pathe",
           "id": "I84",
           "relation": "pere"
         },
         {
-          "nom": "Sharon Grimm",
+          "nom": "Sharon Kaye Grimm",
           "id": "I88",
           "relation": "mere"
         }
@@ -4076,7 +4076,7 @@
           "conjoint_id": "I20",
           "enfants": [
             {
-              "nom": "Hama Sidi",
+              "nom": "Hamma Sidi",
               "id": "I24"
             },
             {
@@ -4312,11 +4312,11 @@
               "id": "I285"
             },
             {
-              "nom": "Tjini (Aissata)",
+              "nom": "Aissata dite Tiini",
               "id": "I105"
             },
             {
-              "nom": "Poupee (Mariam)",
+              "nom": "Mariam dite Poupee",
               "id": "I104"
             },
             {
@@ -4450,7 +4450,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Hama Pathe",
+          "conjoint": "Hamma Pathe",
           "conjoint_id": "I84",
           "enfants": [
             {
@@ -4467,12 +4467,12 @@
     },
     "I104": {
       "gramps_id": "I104",
-      "nom": "Poupee (Mariam)",
+      "nom": "Mariam dite Poupee",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -4521,7 +4521,7 @@
       ],
       "familles": [
         {
-          "conjoint": "Bob",
+          "conjoint": "M'Bock",
           "conjoint_id": "I371",
           "enfants": [
             {
@@ -4534,12 +4534,12 @@
     },
     "I105": {
       "gramps_id": "I105",
-      "nom": "Tjini (Aissata)",
+      "nom": "Aissata dite Tiini",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I105.jpg",
       "parents": [
         {
@@ -6170,7 +6170,7 @@
               "id": "I151"
             },
             {
-              "nom": "Demal (Hamsatou)",
+              "nom": "Demmal (Hamsatou)",
               "id": "I146"
             }
           ]
@@ -6399,12 +6399,12 @@
     },
     "I146": {
       "gramps_id": "I146",
-      "nom": "Demal (Hamsatou)",
+      "nom": "Demmal (Hamsatou)",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -12394,7 +12394,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146",
           "relation": "mere"
         }
@@ -12431,7 +12431,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146",
           "relation": "mere"
         }
@@ -12482,11 +12482,11 @@
     "I272": {
       "gramps_id": "I272",
       "nom": "Baba",
-      "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -12495,7 +12495,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146",
           "relation": "mere"
         }
@@ -13413,7 +13413,7 @@
       "photo": "/images/personnes/I293.jpg",
       "parents": [
         {
-          "nom": "Tjini (Aissata)",
+          "nom": "Aissata dite Tiini",
           "id": "I105",
           "relation": "mere"
         }
@@ -13441,7 +13441,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Tjini (Aissata)",
+          "nom": "Aissata dite Tiini",
           "id": "I105",
           "relation": "mere"
         }
@@ -13469,7 +13469,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Tjini (Aissata)",
+          "nom": "Aissata dite Tiini",
           "id": "I105",
           "relation": "mere"
         }
@@ -13497,12 +13497,12 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Bob",
+          "nom": "M'Bock",
           "id": "I371",
           "relation": "pere"
         },
         {
-          "nom": "Poupee (Mariam)",
+          "nom": "Mariam dite Poupee",
           "id": "I104",
           "relation": "mere"
         }
@@ -16095,18 +16095,18 @@
     },
     "I371": {
       "gramps_id": "I371",
-      "nom": "Bob",
+      "nom": "M'Bock",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [],
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Poupee (Mariam)",
+          "conjoint": "Mariam dite Poupee",
           "conjoint_id": "I104",
           "enfants": [
             {
@@ -16149,7 +16149,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Demal (Hamsatou)",
+          "conjoint": "Demmal (Hamsatou)",
           "conjoint_id": "I146",
           "enfants": [
             {
@@ -18749,7 +18749,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146",
           "relation": "mere"
         }
@@ -21143,7 +21143,7 @@
       "photo": "/images/personnes/I503.jpg",
       "parents": [
         {
-          "nom": "Hama Pathe",
+          "nom": "Hamma Pathe",
           "id": "I84",
           "relation": "pere"
         },
@@ -21167,7 +21167,7 @@
       "photo": "/images/personnes/I504.jpg",
       "parents": [
         {
-          "nom": "Hama Pathe",
+          "nom": "Hamma Pathe",
           "id": "I84",
           "relation": "pere"
         },
@@ -21196,7 +21196,7 @@
           "conjoint_id": "I89",
           "enfants": [
             {
-              "nom": "Hama Hama Pathe Ameri Diona",
+              "nom": "Hamma Hamma Pathe Ameri Diona",
               "id": "I506"
             }
           ]
@@ -21205,11 +21205,11 @@
     },
     "I506": {
       "gramps_id": "I506",
-      "nom": "Hama Hama Pathe Ameri Diona",
+      "nom": "Hamma Hamma Pathe Ameri Diona",
       "genre": "male",
       "naissance": "",
       "deces": "",
-      "ville": "",
+      "ville": "Paris - France",
       "commentaires": "",
       "photo": "/images/personnes/I506.jpg",
       "parents": [

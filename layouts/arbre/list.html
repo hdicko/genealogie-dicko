@@ -197,7 +197,9 @@
   <p  id="i-death"></p>
   <p  id="i-ville"></p>
   <p  id="i-parents"></p>
+  <p  id="i-siblings"></p>
   <p  id="i-spouses"></p>
+  <button id="btn-goto-siblings" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#5865f2;color:#fff;border:none;border-radius:5px;cursor:pointer;">👥 Voir les frères et sœurs</button>
   <button id="btn-goto-parent" style="display:none;width:100%;margin-bottom:4px;padding:5px 8px;font-size:12px;background:#5c7a9e;color:#fff;border:none;border-radius:5px;cursor:pointer;">⬆ Voir le père / la mère</button>
   <div class="info-actions">
     <button id="btn-edit-node">✏️ Modifier</button>
@@ -295,15 +297,31 @@ let rootId='I1', focusId=null;
 let currentInfoData = null; // data of the last-clicked node — kept for the edit modal
 let mode = 'desc'; // 'desc' = descendants, 'anc' = ancestors
 let history = []; // back-navigation stack of previous rootIds
+const modeBtn = document.getElementById('btn-mode');
+
+function applyModeUI() {
+  modeBtn.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
+  modeBtn.style.background = mode === 'anc' ? '#5c7a9e' : '';
+}
+
+function setMode(nextMode) {
+  mode = nextMode;
+  applyModeUI();
+}
 
 // Note 13: navigate() is the central routing function. Pushing the current root
 // onto history before changing it enables the back button. focusId=id causes
 // render() to add the 'focused' CSS class to that node's circle.
 // Re-centre the tree on `id`, pushing the previous root onto the history stack.
 function navigate(id) {
+  navigateWithFocus(id, id);
+}
+
+function navigateWithFocus(id, focusedId) {
   if (rootId !== id) history.push(rootId);
   document.getElementById('btn-back').disabled = history.length === 0;
-  rootId = id; focusId = id;
+  rootId = id;
+  focusId = focusedId || id;
   render(rootId, +document.getElementById('depth-input').value);
 }
 
@@ -534,6 +552,31 @@ function spouseText(d) {
   return label + ' : ' + conjoints.join(', ');
 }
 
+function siblingsOf(d) {
+  const full = DATA[d.id] || {};
+  const fromFratrie = (full.fratrie || [])
+    .filter(s => s && s.nom && s.id !== d.id)
+    .map(s => ({ id: s.id || '', nom: s.nom }));
+  if (fromFratrie.length) return fromFratrie;
+
+  const parentIds = (full.parents || d.parents || [])
+    .map(p => p.id)
+    .filter(pid => pid && DATA[pid]);
+  if (!parentIds.length) return [];
+
+  const siblings = [];
+  const seen = new Set();
+  for (const [pid, person] of Object.entries(DATA)) {
+    if (pid === d.id) continue;
+    const personParentIds = (person.parents || []).map(p => p.id).filter(Boolean);
+    if (!personParentIds.some(parentId => parentIds.includes(parentId))) continue;
+    if (seen.has(pid)) continue;
+    seen.add(pid);
+    siblings.push({ id: pid, nom: person.nom || pid });
+  }
+  return siblings;
+}
+
 // Populate and reveal the bottom-right info panel for the clicked node.
 function showInfo(d) {
   currentInfoData = d;
@@ -569,7 +612,41 @@ function showInfo(d) {
     });
   }
 
+  // Frères / sœurs — cliquables pour naviguer latéralement dans la fratrie
+  const sEl = document.getElementById('i-siblings');
+  sEl.replaceChildren();
+  const siblings = siblingsOf(d);
+  if (siblings.length) {
+    sEl.appendChild(document.createTextNode('👥 Fratrie : '));
+    siblings.forEach((s, i) => {
+      if (i) sEl.appendChild(document.createTextNode(', '));
+      if (s.id && DATA[s.id]) {
+        const a = document.createElement('button');
+        a.textContent = s.nom;
+        a.title = 'Naviguer vers ' + s.nom;
+        a.style.cssText = 'background:none;border:none;color:#4a9;text-decoration:underline;cursor:pointer;font-size:inherit;padding:0;';
+        a.onclick = () => navigate(s.id);
+        sEl.appendChild(a);
+      } else {
+        sEl.appendChild(document.createTextNode(s.nom));
+      }
+    });
+  }
+
   document.getElementById('i-spouses').textContent = spouseText(d);
+
+  // Bouton "Voir la fratrie dans le graphe" (recentrage sur un parent)
+  const btnSib = document.getElementById('btn-goto-siblings');
+  const firstParForSiblings = (full.parents || d.parents || []).find(p => p.id && DATA[p.id]);
+  if (siblings.length && firstParForSiblings) {
+    btnSib.style.display = 'block';
+    btnSib.onclick = () => {
+      if (mode !== 'desc') setMode('desc');
+      navigateWithFocus(firstParForSiblings.id, d.id);
+    };
+  } else {
+    btnSib.style.display = 'none';
+  }
 
   // Bouton "Voir le parent"
   const btnPar = document.getElementById('btn-goto-parent');
@@ -915,10 +992,8 @@ document.getElementById('btn-zo').onclick   = () => svg.transition().call(zoomer
 document.getElementById('btn-pdf').onclick  = printTree;
 // Note 35: btn-mode toggles between descendant view ('desc') and ancestor view
 // ('anc'). The button label and background change to signal the active mode.
-document.getElementById('btn-mode').onclick = function() {
-  mode = mode === 'desc' ? 'anc' : 'desc';
-  this.textContent = mode === 'anc' ? '👨‍👩‍👧 Descendants' : '👴 Ancêtres';
-  this.style.background = mode === 'anc' ? '#5c7a9e' : '';
+modeBtn.onclick = function() {
+  setMode(mode === 'desc' ? 'anc' : 'desc');
   render(rootId, +document.getElementById('depth-input').value);
 };
 document.getElementById('depth-input').onchange = function() {
@@ -960,6 +1035,7 @@ document.addEventListener('click', e => {
 // execution at the bottom of <body> ensures all elements exist at this point).
 // The ?focus= URL param is read earlier and stored in focusId, so the first
 // render already highlights and centres on the requested person.
+applyModeUI();
 render(rootId, +document.getElementById('depth-input').value);
 </script>
 </body>
