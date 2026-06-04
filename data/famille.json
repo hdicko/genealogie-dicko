@@ -106,7 +106,13 @@
       "ville": "",
       "commentaires": "",
       "photo": "/images/personnes/isOumou Pathé.jpg",
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Maliki",
+          "id": "I761",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
@@ -856,7 +862,7 @@
           "conjoint_id": "I144",
           "enfants": [
             {
-              "nom": "Hamadoun",
+              "nom": "Hammadoun",
               "id": "I147"
             },
             {
@@ -890,6 +896,14 @@
             {
               "nom": "Demmal (Hamsatou)",
               "id": "I146"
+            },
+            {
+              "nom": "Hawa",
+              "id": "I704"
+            },
+            {
+              "nom": "Mamoudou",
+              "id": "I705"
             }
           ]
         }
@@ -3610,6 +3624,10 @@
         {
           "nom": "Maouloud",
           "id": "I236"
+        },
+        {
+          "nom": "Issa",
+          "id": "I706"
         }
       ],
       "familles": [
@@ -6138,7 +6156,7 @@
           "conjoint_id": "I9",
           "enfants": [
             {
-              "nom": "Hamadoun",
+              "nom": "Hammadoun",
               "id": "I147"
             },
             {
@@ -6172,6 +6190,14 @@
             {
               "nom": "Demmal (Hamsatou)",
               "id": "I146"
+            },
+            {
+              "nom": "Hawa",
+              "id": "I704"
+            },
+            {
+              "nom": "Mamoudou",
+              "id": "I705"
             }
           ]
         },
@@ -6224,6 +6250,10 @@
             {
               "nom": "Maouloud",
               "id": "I236"
+            },
+            {
+              "nom": "Issa",
+              "id": "I706"
             }
           ]
         },
@@ -6262,6 +6292,14 @@
             {
               "nom": "Hadjata",
               "id": "I419"
+            },
+            {
+              "nom": "Oumahani",
+              "id": "I707"
+            },
+            {
+              "nom": "Nassourou",
+              "id": "I710"
             }
           ]
         },
@@ -6288,6 +6326,14 @@
             {
               "nom": "Bolo (Cheido)",
               "id": "I400"
+            },
+            {
+              "nom": "Hamidou",
+              "id": "I708"
+            },
+            {
+              "nom": "Hawa",
+              "id": "I709"
             }
           ]
         },
@@ -6302,6 +6348,10 @@
             {
               "nom": "Mariam",
               "id": "I411"
+            },
+            {
+              "nom": "Idrissa",
+              "id": "I703"
             }
           ]
         }
@@ -6330,7 +6380,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -6358,8 +6408,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -6420,7 +6478,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -6450,6 +6508,14 @@
         {
           "nom": "Olo (Aissata Ameri)",
           "id": "I151"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -6479,12 +6545,12 @@
     },
     "I147": {
       "gramps_id": "I147",
-      "nom": "Hamadoun",
+      "nom": "Hammadoun",
       "genre": "male",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/I147.jpg",
       "parents": [
         {
@@ -6528,8 +6594,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -6585,7 +6659,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -6613,8 +6687,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -6689,7 +6771,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -6717,8 +6799,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -6727,7 +6817,7 @@
           "conjoint_id": "I352",
           "enfants": [
             {
-              "nom": "Dico Oussou",
+              "nom": "Dico Oussou - Aissata",
               "id": "I208"
             }
           ]
@@ -6757,7 +6847,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -6785,8 +6875,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -6868,7 +6966,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -6896,8 +6994,16 @@
           "id": "I148"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -7002,7 +7108,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Hamadoun",
+          "conjoint": "Hammadoun",
           "conjoint_id": "I147",
           "enfants": [
             {
@@ -7038,7 +7144,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Hamadoun",
+          "conjoint": "Hammadoun",
           "conjoint_id": "I147",
           "enfants": []
         }
@@ -7218,7 +7324,7 @@
       "photo": "/images/personnes/I160.jpg",
       "parents": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147",
           "relation": "pere"
         },
@@ -7286,7 +7392,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147",
           "relation": "pere"
         },
@@ -7323,7 +7429,7 @@
       "photo": "/images/personnes/I162.jpg",
       "parents": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147",
           "relation": "pere"
         },
@@ -7379,7 +7485,7 @@
       "photo": "/images/personnes/I163.jpg",
       "parents": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147",
           "relation": "pere"
         },
@@ -9509,12 +9615,12 @@
     },
     "I208": {
       "gramps_id": "I208",
-      "nom": "Dico Oussou",
+      "nom": "Dico Oussou - Aissata",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -9567,11 +9673,22 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
-      "fratrie": [],
+      "parents": [
+        {
+          "nom": "Oumarou",
+          "id": "I736",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Amadou (Hafi)",
+          "id": "I744"
+        }
+      ],
       "familles": [
         {
-          "conjoint": "Dico Oussou",
+          "conjoint": "Dico Oussou - Aissata",
           "conjoint_id": "I208",
           "enfants": [
             {
@@ -9614,7 +9731,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Dico Oussou",
+          "nom": "Dico Oussou - Aissata",
           "id": "I208",
           "relation": "mere"
         }
@@ -9666,7 +9783,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Dico Oussou",
+          "nom": "Dico Oussou - Aissata",
           "id": "I208",
           "relation": "mere"
         }
@@ -9742,7 +9859,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Dico Oussou",
+          "nom": "Dico Oussou - Aissata",
           "id": "I208",
           "relation": "mere"
         }
@@ -9789,7 +9906,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Dico Oussou",
+          "nom": "Dico Oussou - Aissata",
           "id": "I208",
           "relation": "mere"
         }
@@ -9841,7 +9958,7 @@
           "relation": "pere"
         },
         {
-          "nom": "Dico Oussou",
+          "nom": "Dico Oussou - Aissata",
           "id": "I208",
           "relation": "mere"
         }
@@ -10560,6 +10677,10 @@
             {
               "nom": "Maouloud",
               "id": "I236"
+            },
+            {
+              "nom": "Issa",
+              "id": "I706"
             }
           ]
         }
@@ -10588,7 +10709,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83"
         },
         {
@@ -10602,6 +10723,10 @@
         {
           "nom": "Maouloud",
           "id": "I236"
+        },
+        {
+          "nom": "Issa",
+          "id": "I706"
         }
       ],
       "familles": [
@@ -10650,7 +10775,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83"
         },
         {
@@ -10664,6 +10789,10 @@
         {
           "nom": "Maouloud",
           "id": "I236"
+        },
+        {
+          "nom": "Issa",
+          "id": "I706"
         }
       ],
       "familles": [
@@ -10722,7 +10851,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83"
         },
         {
@@ -10736,6 +10865,10 @@
         {
           "nom": "Maouloud",
           "id": "I236"
+        },
+        {
+          "nom": "Issa",
+          "id": "I706"
         }
       ],
       "familles": [
@@ -10779,7 +10912,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Adama (Koumbel)",
+          "nom": "Adama (Koumbel Ameri)",
           "id": "I83"
         },
         {
@@ -10793,6 +10926,10 @@
         {
           "nom": "Yaya",
           "id": "I235"
+        },
+        {
+          "nom": "Issa",
+          "id": "I706"
         }
       ],
       "familles": [
@@ -11517,6 +11654,14 @@
             {
               "nom": "Hadjata",
               "id": "I419"
+            },
+            {
+              "nom": "Oumahani",
+              "id": "I707"
+            },
+            {
+              "nom": "Nassourou",
+              "id": "I710"
             }
           ]
         }
@@ -11571,6 +11716,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": [
@@ -11794,6 +11947,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": []
@@ -11919,6 +12080,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": [
@@ -11983,6 +12152,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": []
@@ -12036,6 +12213,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": []
@@ -12089,6 +12274,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": [
@@ -12837,6 +13030,14 @@
             {
               "nom": "Bolo (Cheido)",
               "id": "I400"
+            },
+            {
+              "nom": "Hamidou",
+              "id": "I708"
+            },
+            {
+              "nom": "Hawa",
+              "id": "I709"
             }
           ]
         }
@@ -12865,6 +13066,10 @@
             {
               "nom": "Mariam",
               "id": "I411"
+            },
+            {
+              "nom": "Idrissa",
+              "id": "I703"
             }
           ]
         }
@@ -13626,7 +13831,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hama Mana",
+          "nom": "Hamma Mana",
           "id": "I302",
           "relation": "pere"
         }
@@ -13647,7 +13852,7 @@
     },
     "I302": {
       "gramps_id": "I302",
-      "nom": "Hama Mana",
+      "nom": "Hamma Mana",
       "genre": "male",
       "naissance": "",
       "deces": "",
@@ -13703,7 +13908,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Hama Mana",
+              "nom": "Hamma Mana",
               "id": "I302"
             }
           ]
@@ -13721,7 +13926,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Belal Breima",
+          "nom": "Hamar Bella  Breima",
           "id": "I305",
           "relation": "pere"
         }
@@ -13771,9 +13976,9 @@
     },
     "I305": {
       "gramps_id": "I305",
-      "nom": "Belal Breima",
+      "nom": "Hamar Bella  Breima",
       "genre": "male",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
       "ville": "Hayré (Mali)",
       "commentaires": "Ancêtre commun des branches Dicko Ardo Hayré. Père de Djam Allah, Gallo, Mana, Hamadi, Amadou et Naouara. Fils d'Ibrahim (Breima).",
@@ -13796,7 +14001,7 @@
               "id": "I304"
             },
             {
-              "nom": "Gallo",
+              "nom": "Gallo Baba",
               "id": "I537"
             },
             {
@@ -13804,7 +14009,7 @@
               "id": "I538"
             },
             {
-              "nom": "Hamadi",
+              "nom": "Hammadi",
               "id": "I539"
             },
             {
@@ -15389,7 +15594,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Hamane",
+          "id": "I735",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
@@ -15397,7 +15608,7 @@
           "conjoint_id": "I149",
           "enfants": [
             {
-              "nom": "Dico Oussou",
+              "nom": "Dico Oussou - Aissata",
               "id": "I208"
             }
           ]
@@ -15446,7 +15657,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -15474,8 +15685,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": [
@@ -16984,6 +17203,14 @@
         {
           "nom": "Bolo (Cheido)",
           "id": "I400"
+        },
+        {
+          "nom": "Hamidou",
+          "id": "I708"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I709"
         }
       ],
       "familles": []
@@ -17025,6 +17252,14 @@
         {
           "nom": "Bolo (Cheido)",
           "id": "I400"
+        },
+        {
+          "nom": "Hamidou",
+          "id": "I708"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I709"
         }
       ],
       "familles": [
@@ -17077,6 +17312,14 @@
         {
           "nom": "Bolo (Cheido)",
           "id": "I400"
+        },
+        {
+          "nom": "Hamidou",
+          "id": "I708"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I709"
         }
       ],
       "familles": [
@@ -17133,6 +17376,14 @@
         {
           "nom": "Bolo (Cheido)",
           "id": "I400"
+        },
+        {
+          "nom": "Hamidou",
+          "id": "I708"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I709"
         }
       ],
       "familles": [
@@ -17185,6 +17436,14 @@
         {
           "nom": "Kowi",
           "id": "I399"
+        },
+        {
+          "nom": "Hamidou",
+          "id": "I708"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I709"
         }
       ],
       "familles": [
@@ -17392,6 +17651,10 @@
         {
           "nom": "Mariam",
           "id": "I411"
+        },
+        {
+          "nom": "Idrissa",
+          "id": "I703"
         }
       ],
       "familles": [
@@ -17440,6 +17703,10 @@
         {
           "nom": "Ramata",
           "id": "I410"
+        },
+        {
+          "nom": "Idrissa",
+          "id": "I703"
         }
       ],
       "familles": []
@@ -17676,6 +17943,14 @@
         {
           "nom": "Hadjata",
           "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": [
@@ -17744,6 +18019,14 @@
         {
           "nom": "Moussa",
           "id": "I418"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
         }
       ],
       "familles": [
@@ -18699,7 +18982,7 @@
       ],
       "fratrie": [
         {
-          "nom": "Hamadoun",
+          "nom": "Hammadoun",
           "id": "I147"
         },
         {
@@ -18727,8 +19010,16 @@
           "id": "I151"
         },
         {
-          "nom": "Demal (Hamsatou)",
+          "nom": "Demmal (Hamsatou)",
           "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
         }
       ],
       "familles": []
@@ -21249,7 +21540,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Belal Breima",
+              "nom": "Hamar Bella  Breima",
               "id": "I305"
             }
           ]
@@ -21282,7 +21573,7 @@
     },
     "I537": {
       "gramps_id": "I537",
-      "nom": "Gallo",
+      "nom": "Gallo Baba",
       "genre": "male",
       "naissance": "vers 1670",
       "deces": "vers 1752",
@@ -21291,7 +21582,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Belal Breima",
+          "nom": "Hamar Bella  Breima",
           "id": "I305",
           "relation": "pere"
         }
@@ -21346,7 +21637,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Belal Breima",
+          "nom": "Hamar Bella  Breima",
           "id": "I305",
           "relation": "pere"
         }
@@ -21392,16 +21683,16 @@
     },
     "I539": {
       "gramps_id": "I539",
-      "nom": "Hamadi",
+      "nom": "Hammadi",
       "genre": "male",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
-          "nom": "Belal Breima",
+          "nom": "Hamar Bella  Breima",
           "id": "I305",
           "relation": "pere"
         }
@@ -21441,7 +21732,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Belal Breima",
+          "nom": "Hamar Bella  Breima",
           "id": "I305",
           "relation": "pere"
         }
@@ -21473,15 +21764,15 @@
     "I541": {
       "gramps_id": "I541",
       "nom": "Naouara",
-      "genre": "female",
-      "naissance": null,
+      "genre": "male",
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
-          "nom": "Belal Breima",
+          "nom": "Hamar Bella  Breima",
           "id": "I305",
           "relation": "pere"
         }
@@ -21521,7 +21812,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Gallo",
+          "nom": "Gallo Baba",
           "id": "I537",
           "relation": "pere"
         }
@@ -21826,7 +22117,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Gallo",
+          "nom": "Gallo Baba",
           "id": "I537",
           "relation": "pere"
         }
@@ -21898,7 +22189,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Ba",
+              "nom": "Bah",
               "id": "I552"
             }
           ]
@@ -21907,12 +22198,12 @@
     },
     "I552": {
       "gramps_id": "I552",
-      "nom": "Ba",
+      "nom": "Bah",
       "genre": "male",
-      "naissance": null,
+      "naissance": "",
       "deces": "",
-      "ville": null,
-      "commentaires": null,
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
@@ -21946,7 +22237,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Ba",
+          "nom": "Bah",
           "id": "I552",
           "relation": "pere"
         }
@@ -22422,6 +22713,10 @@
             {
               "nom": "Gouro Issa",
               "id": "I579"
+            },
+            {
+              "nom": "Hadiata",
+              "id": "I711"
             }
           ]
         }
@@ -22455,6 +22750,10 @@
         {
           "nom": "Gouro Issa",
           "id": "I579"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I711"
         }
       ],
       "familles": [
@@ -22493,6 +22792,10 @@
         {
           "nom": "Gouro Issa",
           "id": "I579"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I711"
         }
       ],
       "familles": [
@@ -22531,6 +22834,10 @@
         {
           "nom": "Gouro Issa",
           "id": "I579"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I711"
         }
       ],
       "familles": [
@@ -22745,6 +23052,10 @@
         {
           "nom": "Issa",
           "id": "I572"
+        },
+        {
+          "nom": "Hadiata",
+          "id": "I711"
         }
       ],
       "familles": [
@@ -23113,10 +23424,6 @@
               "id": "I592"
             },
             {
-              "nom": "Yero",
-              "id": "I593"
-            },
-            {
               "nom": "Mamoudou (Segou)",
               "id": "I594"
             },
@@ -23148,7 +23455,24 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Sirè",
+          "id": "I592"
+        },
+        {
+          "nom": "Mamoudou (Segou)",
+          "id": "I594"
+        },
+        {
+          "nom": "Hadiata Sirè",
+          "id": "I595"
+        },
+        {
+          "nom": "Saoudatou",
+          "id": "I596"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23173,7 +23497,24 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Abdourahmane",
+          "id": "I591"
+        },
+        {
+          "nom": "Mamoudou (Segou)",
+          "id": "I594"
+        },
+        {
+          "nom": "Hadiata Sirè",
+          "id": "I595"
+        },
+        {
+          "nom": "Saoudatou",
+          "id": "I596"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23193,8 +23534,8 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Sirè",
-          "id": "I590",
+          "nom": "Ardo Ngadourou (Hammadou Foulani)",
+          "id": "I752",
           "relation": "pere"
         }
       ],
@@ -23203,7 +23544,12 @@
         {
           "conjoint": null,
           "conjoint_id": null,
-          "enfants": []
+          "enfants": [
+            {
+              "nom": "Atoumani",
+              "id": "I751"
+            }
+          ]
         }
       ]
     },
@@ -23223,7 +23569,24 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Abdourahmane",
+          "id": "I591"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I592"
+        },
+        {
+          "nom": "Hadiata Sirè",
+          "id": "I595"
+        },
+        {
+          "nom": "Saoudatou",
+          "id": "I596"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23248,7 +23611,24 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Abdourahmane",
+          "id": "I591"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I592"
+        },
+        {
+          "nom": "Mamoudou (Segou)",
+          "id": "I594"
+        },
+        {
+          "nom": "Saoudatou",
+          "id": "I596"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23273,7 +23653,24 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Abdourahmane",
+          "id": "I591"
+        },
+        {
+          "nom": "Sirè",
+          "id": "I592"
+        },
+        {
+          "nom": "Mamoudou (Segou)",
+          "id": "I594"
+        },
+        {
+          "nom": "Hadiata Sirè",
+          "id": "I595"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23332,6 +23729,10 @@
             {
               "nom": "Mamoudou",
               "id": "I599"
+            },
+            {
+              "nom": "Ada",
+              "id": "I714"
             }
           ]
         }
@@ -23353,7 +23754,16 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I599"
+        },
+        {
+          "nom": "Ada",
+          "id": "I714"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -23378,7 +23788,16 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Gouro",
+          "id": "I598"
+        },
+        {
+          "nom": "Ada",
+          "id": "I714"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25768,6 +26187,22 @@
             {
               "nom": "Alou",
               "id": "I670"
+            },
+            {
+              "nom": "Boureima",
+              "id": "I721"
+            },
+            {
+              "nom": "Farmata (Pendel - epouse de Nassourou)",
+              "id": "I722"
+            },
+            {
+              "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+              "id": "I723"
+            },
+            {
+              "nom": "Djeneba",
+              "id": "I724"
             }
           ]
         }
@@ -25789,7 +26224,32 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Sidi",
+          "id": "I669"
+        },
+        {
+          "nom": "Alou",
+          "id": "I670"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I721"
+        },
+        {
+          "nom": "Farmata (Pendel - epouse de Nassourou)",
+          "id": "I722"
+        },
+        {
+          "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+          "id": "I723"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I724"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25814,7 +26274,32 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I668"
+        },
+        {
+          "nom": "Alou",
+          "id": "I670"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I721"
+        },
+        {
+          "nom": "Farmata (Pendel - epouse de Nassourou)",
+          "id": "I722"
+        },
+        {
+          "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+          "id": "I723"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I724"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -25839,7 +26324,32 @@
           "relation": "pere"
         }
       ],
-      "fratrie": [],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I668"
+        },
+        {
+          "nom": "Sidi",
+          "id": "I669"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I721"
+        },
+        {
+          "nom": "Farmata (Pendel - epouse de Nassourou)",
+          "id": "I722"
+        },
+        {
+          "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+          "id": "I723"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I724"
+        }
+      ],
       "familles": [
         {
           "conjoint": null,
@@ -27537,7 +28047,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Parent inconnu (fratrie I697)",
+          "id": "I734",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [
         {
           "nom": "Woodou Alou",
@@ -27582,7 +28098,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Parent inconnu (fratrie I697)",
+          "id": "I734",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [
         {
           "nom": "Djeneba",
@@ -27609,7 +28131,12 @@
         {
           "conjoint": null,
           "conjoint_id": null,
-          "enfants": []
+          "enfants": [
+            {
+              "nom": "Allaye",
+              "id": "I725"
+            }
+          ]
         }
       ]
     },
@@ -27622,7 +28149,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Parent inconnu (fratrie I697)",
+          "id": "I734",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [
         {
           "nom": "Djeneba",
@@ -27649,7 +28182,12 @@
         {
           "conjoint": null,
           "conjoint_id": null,
-          "enfants": []
+          "enfants": [
+            {
+              "nom": "Atikou Soutoura",
+              "id": "I729"
+            }
+          ]
         }
       ]
     },
@@ -27662,7 +28200,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Parent inconnu (fratrie I697)",
+          "id": "I734",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [
         {
           "nom": "Djeneba",
@@ -27702,7 +28246,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Parent inconnu (fratrie I697)",
+          "id": "I734",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [
         {
           "nom": "Djeneba",
@@ -27742,7 +28292,13 @@
       "ville": null,
       "commentaires": null,
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Parent inconnu (fratrie I697)",
+          "id": "I734",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [
         {
           "nom": "Djeneba",
@@ -27772,7 +28328,2263 @@
           "enfants": []
         }
       ]
+    },
+    "I703": {
+      "gramps_id": "I703",
+      "nom": "Idrissa",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Djougal",
+          "id": "I281",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Ramata",
+          "id": "I410"
+        },
+        {
+          "nom": "Mariam",
+          "id": "I411"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I704": {
+      "gramps_id": "I704",
+      "nom": "Hawa",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fata",
+          "id": "I9",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hammadoun",
+          "id": "I147"
+        },
+        {
+          "nom": "Gouro (Boca) (Ameri)",
+          "id": "I145"
+        },
+        {
+          "nom": "Oumar Babo (Ameri)",
+          "id": "I150"
+        },
+        {
+          "nom": "Allaye",
+          "id": "I452"
+        },
+        {
+          "nom": "Dico Ameri (N'Gouma)",
+          "id": "I149"
+        },
+        {
+          "nom": "Kadji",
+          "id": "I353"
+        },
+        {
+          "nom": "Ina Ouro (Oumou)",
+          "id": "I148"
+        },
+        {
+          "nom": "Olo (Aissata Ameri)",
+          "id": "I151"
+        },
+        {
+          "nom": "Demmal (Hamsatou)",
+          "id": "I146"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I705"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I705": {
+      "gramps_id": "I705",
+      "nom": "Mamoudou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Fata",
+          "id": "I9",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hammadoun",
+          "id": "I147"
+        },
+        {
+          "nom": "Gouro (Boca) (Ameri)",
+          "id": "I145"
+        },
+        {
+          "nom": "Oumar Babo (Ameri)",
+          "id": "I150"
+        },
+        {
+          "nom": "Allaye",
+          "id": "I452"
+        },
+        {
+          "nom": "Dico Ameri (N'Gouma)",
+          "id": "I149"
+        },
+        {
+          "nom": "Kadji",
+          "id": "I353"
+        },
+        {
+          "nom": "Ina Ouro (Oumou)",
+          "id": "I148"
+        },
+        {
+          "nom": "Olo (Aissata Ameri)",
+          "id": "I151"
+        },
+        {
+          "nom": "Demmal (Hamsatou)",
+          "id": "I146"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I704"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I706": {
+      "gramps_id": "I706",
+      "nom": "Issa",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Dico Boti (Cheidga)",
+          "id": "I232",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Adama (Koumbel Ameri)",
+          "id": "I83"
+        },
+        {
+          "nom": "Aye",
+          "id": "I233"
+        },
+        {
+          "nom": "Hamassala",
+          "id": "I234"
+        },
+        {
+          "nom": "Yaya",
+          "id": "I235"
+        },
+        {
+          "nom": "Maouloud",
+          "id": "I236"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I707": {
+      "gramps_id": "I707",
+      "nom": "Oumahani",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Hawa Abi",
+          "id": "I252",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Oussmane",
+          "id": "I253"
+        },
+        {
+          "nom": "Bouri (Ibrahim)",
+          "id": "I258"
+        },
+        {
+          "nom": "Sadou",
+          "id": "I260"
+        },
+        {
+          "nom": "Bore",
+          "id": "I261"
+        },
+        {
+          "nom": "Tairou",
+          "id": "I262"
+        },
+        {
+          "nom": "Lobouro",
+          "id": "I263"
+        },
+        {
+          "nom": "Moussa",
+          "id": "I418"
+        },
+        {
+          "nom": "Hadjata",
+          "id": "I419"
+        },
+        {
+          "nom": "Nassourou",
+          "id": "I710"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I708": {
+      "gramps_id": "I708",
+      "nom": "Hamidou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Oumou",
+          "id": "I280",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I396"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I397"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I398"
+        },
+        {
+          "nom": "Kowi",
+          "id": "I399"
+        },
+        {
+          "nom": "Bolo (Cheido)",
+          "id": "I400"
+        },
+        {
+          "nom": "Hawa",
+          "id": "I709"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I709": {
+      "gramps_id": "I709",
+      "nom": "Hawa",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Oumou",
+          "id": "I280",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Amadou",
+          "id": "I396"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I397"
+        },
+        {
+          "nom": "Halimatou",
+          "id": "I398"
+        },
+        {
+          "nom": "Kowi",
+          "id": "I399"
+        },
+        {
+          "nom": "Bolo (Cheido)",
+          "id": "I400"
+        },
+        {
+          "nom": "Hamidou",
+          "id": "I708"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I710": {
+      "gramps_id": "I710",
+      "nom": "Nassourou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou Almami (Ameri) Diona",
+          "id": "I144",
+          "relation": "pere"
+        },
+        {
+          "nom": "Hawa Abi",
+          "id": "I252",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Oussmane",
+          "id": "I253"
+        },
+        {
+          "nom": "Bouri (Ibrahim)",
+          "id": "I258"
+        },
+        {
+          "nom": "Sadou",
+          "id": "I260"
+        },
+        {
+          "nom": "Bore",
+          "id": "I261"
+        },
+        {
+          "nom": "Tairou",
+          "id": "I262"
+        },
+        {
+          "nom": "Lobouro",
+          "id": "I263"
+        },
+        {
+          "nom": "Moussa",
+          "id": "I418"
+        },
+        {
+          "nom": "Hadjata",
+          "id": "I419"
+        },
+        {
+          "nom": "Oumahani",
+          "id": "I707"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I711": {
+      "gramps_id": "I711",
+      "nom": "Hadiata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Aissata",
+          "id": "I569",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Gouro",
+          "id": "I570"
+        },
+        {
+          "nom": "Hamadoun",
+          "id": "I571"
+        },
+        {
+          "nom": "Issa",
+          "id": "I572"
+        },
+        {
+          "nom": "Gouro Issa",
+          "id": "I579"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Samba Hammadoun",
+              "id": "I712"
+            },
+            {
+              "nom": "Boureima",
+              "id": "I713"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I712": {
+      "gramps_id": "I712",
+      "nom": "Samba Hammadoun",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hadiata",
+          "id": "I711",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Boureima",
+          "id": "I713"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I713": {
+      "gramps_id": "I713",
+      "nom": "Boureima",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hadiata",
+          "id": "I711",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Samba Hammadoun",
+          "id": "I712"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I714": {
+      "gramps_id": "I714",
+      "nom": "Ada",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Mamoudou",
+          "id": "I597",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Gouro",
+          "id": "I598"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "I599"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+              "id": "I715"
+            },
+            {
+              "nom": "Oussoumarou",
+              "id": "I716"
+            },
+            {
+              "nom": "Oumarou",
+              "id": "I717"
+            },
+            {
+              "nom": "Fatoumata",
+              "id": "I718"
+            },
+            {
+              "nom": "Coumbal",
+              "id": "I719"
+            },
+            {
+              "nom": "Taco",
+              "id": "I720"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I715": {
+      "gramps_id": "I715",
+      "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ada",
+          "id": "I714",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Oussoumarou",
+          "id": "I716"
+        },
+        {
+          "nom": "Oumarou",
+          "id": "I717"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I718"
+        },
+        {
+          "nom": "Coumbal",
+          "id": "I719"
+        },
+        {
+          "nom": "Taco",
+          "id": "I720"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I716": {
+      "gramps_id": "I716",
+      "nom": "Oussoumarou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ada",
+          "id": "I714",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+          "id": "I715"
+        },
+        {
+          "nom": "Oumarou",
+          "id": "I717"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I718"
+        },
+        {
+          "nom": "Coumbal",
+          "id": "I719"
+        },
+        {
+          "nom": "Taco",
+          "id": "I720"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I717": {
+      "gramps_id": "I717",
+      "nom": "Oumarou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ada",
+          "id": "I714",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+          "id": "I715"
+        },
+        {
+          "nom": "Oussoumarou",
+          "id": "I716"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I718"
+        },
+        {
+          "nom": "Coumbal",
+          "id": "I719"
+        },
+        {
+          "nom": "Taco",
+          "id": "I720"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I718": {
+      "gramps_id": "I718",
+      "nom": "Fatoumata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ada",
+          "id": "I714",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+          "id": "I715"
+        },
+        {
+          "nom": "Oussoumarou",
+          "id": "I716"
+        },
+        {
+          "nom": "Oumarou",
+          "id": "I717"
+        },
+        {
+          "nom": "Coumbal",
+          "id": "I719"
+        },
+        {
+          "nom": "Taco",
+          "id": "I720"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I719": {
+      "gramps_id": "I719",
+      "nom": "Coumbal",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ada",
+          "id": "I714",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+          "id": "I715"
+        },
+        {
+          "nom": "Oussoumarou",
+          "id": "I716"
+        },
+        {
+          "nom": "Oumarou",
+          "id": "I717"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I718"
+        },
+        {
+          "nom": "Taco",
+          "id": "I720"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I720": {
+      "gramps_id": "I720",
+      "nom": "Taco",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ada",
+          "id": "I714",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadoun Seyoma (Alpha Hamma Debere)",
+          "id": "I715"
+        },
+        {
+          "nom": "Oussoumarou",
+          "id": "I716"
+        },
+        {
+          "nom": "Oumarou",
+          "id": "I717"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I718"
+        },
+        {
+          "nom": "Coumbal",
+          "id": "I719"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I721": {
+      "gramps_id": "I721",
+      "nom": "Boureima",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Dadie",
+          "id": "I667",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I668"
+        },
+        {
+          "nom": "Sidi",
+          "id": "I669"
+        },
+        {
+          "nom": "Alou",
+          "id": "I670"
+        },
+        {
+          "nom": "Farmata (Pendel - epouse de Nassourou)",
+          "id": "I722"
+        },
+        {
+          "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+          "id": "I723"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I724"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I722": {
+      "gramps_id": "I722",
+      "nom": "Farmata (Pendel - epouse de Nassourou)",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Dadie",
+          "id": "I667",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I668"
+        },
+        {
+          "nom": "Sidi",
+          "id": "I669"
+        },
+        {
+          "nom": "Alou",
+          "id": "I670"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I721"
+        },
+        {
+          "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+          "id": "I723"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I724"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I723": {
+      "gramps_id": "I723",
+      "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Dadie",
+          "id": "I667",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I668"
+        },
+        {
+          "nom": "Sidi",
+          "id": "I669"
+        },
+        {
+          "nom": "Alou",
+          "id": "I670"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I721"
+        },
+        {
+          "nom": "Farmata (Pendel - epouse de Nassourou)",
+          "id": "I722"
+        },
+        {
+          "nom": "Djeneba",
+          "id": "I724"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I724": {
+      "gramps_id": "I724",
+      "nom": "Djeneba",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Dadie",
+          "id": "I667",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamoudou",
+          "id": "I668"
+        },
+        {
+          "nom": "Sidi",
+          "id": "I669"
+        },
+        {
+          "nom": "Alou",
+          "id": "I670"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I721"
+        },
+        {
+          "nom": "Farmata (Pendel - epouse de Nassourou)",
+          "id": "I722"
+        },
+        {
+          "nom": "Nafore (co-epouse de Coumbel Ameri? )",
+          "id": "I723"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I725": {
+      "gramps_id": "I725",
+      "nom": "Allaye",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Woodou Alou",
+          "id": "I698",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Leila",
+              "id": "I726"
+            },
+            {
+              "nom": "Farmata",
+              "id": "I727"
+            },
+            {
+              "nom": "Boureima",
+              "id": "I728"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I726": {
+      "gramps_id": "I726",
+      "nom": "Leila",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Allaye",
+          "id": "I725",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Farmata",
+          "id": "I727"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I728"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I727": {
+      "gramps_id": "I727",
+      "nom": "Farmata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Allaye",
+          "id": "I725",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Leila",
+          "id": "I726"
+        },
+        {
+          "nom": "Boureima",
+          "id": "I728"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I728": {
+      "gramps_id": "I728",
+      "nom": "Boureima",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Allaye",
+          "id": "I725",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Leila",
+          "id": "I726"
+        },
+        {
+          "nom": "Farmata",
+          "id": "I727"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I729": {
+      "gramps_id": "I729",
+      "nom": "Atikou Soutoura",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Coumbewel",
+          "id": "I699",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Tico Atikou",
+              "id": "I730"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I730": {
+      "gramps_id": "I730",
+      "nom": "Tico Atikou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Atikou Soutoura",
+          "id": "I729",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Mamoudou Dadie",
+              "id": "I731"
+            },
+            {
+              "nom": "Daray",
+              "id": "I732"
+            },
+            {
+              "nom": "Sidiki",
+              "id": "I733"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I731": {
+      "gramps_id": "I731",
+      "nom": "Mamoudou Dadie",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Tico Atikou",
+          "id": "I730",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Daray",
+          "id": "I732"
+        },
+        {
+          "nom": "Sidiki",
+          "id": "I733"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I732": {
+      "gramps_id": "I732",
+      "nom": "Daray",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Tico Atikou",
+          "id": "I730",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamoudou Dadie",
+          "id": "I731"
+        },
+        {
+          "nom": "Sidiki",
+          "id": "I733"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I733": {
+      "gramps_id": "I733",
+      "nom": "Sidiki",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Tico Atikou",
+          "id": "I730",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamoudou Dadie",
+          "id": "I731"
+        },
+        {
+          "nom": "Daray",
+          "id": "I732"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I734": {
+      "gramps_id": "I734",
+      "nom": "Parent inconnu (fratrie I697)",
+      "genre": "unknown",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Nœud technique pour afficher la fratrie en arbre",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Djeneba",
+              "id": "I697"
+            },
+            {
+              "nom": "Woodou Alou",
+              "id": "I698"
+            },
+            {
+              "nom": "Coumbewel",
+              "id": "I699"
+            },
+            {
+              "nom": "Sambourou",
+              "id": "I700"
+            },
+            {
+              "nom": "Tahirou",
+              "id": "I701"
+            },
+            {
+              "nom": "Tahibou",
+              "id": "I702"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I735": {
+      "gramps_id": "I735",
+      "nom": "Hamane",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Maliki",
+          "id": "I761",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Yero Haman Dicko (Malik)",
+              "id": "I352"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I736": {
+      "gramps_id": "I736",
+      "nom": "Oumarou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Amadou",
+          "id": "I737",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Allaye Dicko",
+              "id": "I209"
+            },
+            {
+              "nom": "Amadou (Hafi)",
+              "id": "I744"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I737": {
+      "gramps_id": "I737",
+      "nom": "Amadou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Allaye",
+          "id": "I738",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Oumarou",
+              "id": "I736"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I738": {
+      "gramps_id": "I738",
+      "nom": "Allaye",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ti",
+          "id": "I739",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Amadou",
+              "id": "I737"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I739": {
+      "gramps_id": "I739",
+      "nom": "Ti",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamadi Baali",
+          "id": "I740",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Allaye",
+              "id": "I738"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I740": {
+      "gramps_id": "I740",
+      "nom": "Hamadi Baali",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Pate",
+          "id": "I746",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Malik",
+          "id": "I742"
+        },
+        {
+          "nom": "Ti",
+          "id": "I743"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ti",
+              "id": "I739"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I742": {
+      "gramps_id": "I742",
+      "nom": "Malik",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Pate",
+          "id": "I746",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadi Baali",
+          "id": "I740"
+        },
+        {
+          "nom": "Ti",
+          "id": "I743"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I743": {
+      "gramps_id": "I743",
+      "nom": "Ti",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Pate",
+          "id": "I746",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Hamadi Baali",
+          "id": "I740"
+        },
+        {
+          "nom": "Malik",
+          "id": "I742"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I744": {
+      "gramps_id": "I744",
+      "nom": "Amadou (Hafi)",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Oumarou",
+          "id": "I736",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Allaye Dicko",
+          "id": "I209"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I745": {
+      "gramps_id": "I745",
+      "nom": "Paala",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Samagoli",
+          "id": "I747",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Pate",
+              "id": "I746"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I746": {
+      "gramps_id": "I746",
+      "nom": "Pate",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Paala",
+          "id": "I745",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hamadi Baali",
+              "id": "I740"
+            },
+            {
+              "nom": "Malik",
+              "id": "I742"
+            },
+            {
+              "nom": "Ti",
+              "id": "I743"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I747": {
+      "gramps_id": "I747",
+      "nom": "Samagoli",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Boubou",
+          "id": "I748",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Demba",
+          "id": "I749"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Paala",
+              "id": "I745"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I748": {
+      "gramps_id": "I748",
+      "nom": "Boubou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "N'Doulo",
+          "id": "I750",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Samagoli",
+              "id": "I747"
+            },
+            {
+              "nom": "Demba",
+              "id": "I749"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I749": {
+      "gramps_id": "I749",
+      "nom": "Demba",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Boubou",
+          "id": "I748",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Samagoli",
+          "id": "I747"
+        }
+      ],
+      "familles": [],
+      "html_file": null
+    },
+    "I750": {
+      "gramps_id": "I750",
+      "nom": "N'Doulo",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Atoumani",
+          "id": "I751",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Boubou",
+              "id": "I748"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I751": {
+      "gramps_id": "I751",
+      "nom": "Atoumani",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Yero",
+          "id": "I593",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "N'Doulo",
+              "id": "I750"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I752": {
+      "gramps_id": "I752",
+      "nom": "Ardo Ngadourou (Hammadou Foulani)",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Sawadi",
+          "id": "I753",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Yero",
+              "id": "I593"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I753": {
+      "gramps_id": "I753",
+      "nom": "Ardo Sawadi",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Djadjie",
+          "id": "I754",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ardo Ngadourou (Hammadou Foulani)",
+              "id": "I752"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I754": {
+      "gramps_id": "I754",
+      "nom": "Djadjie",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Kanta",
+          "id": "I755",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ardo Sawadi",
+              "id": "I753"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I755": {
+      "gramps_id": "I755",
+      "nom": "Ardo Kanta",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Boureima",
+          "id": "I756",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Djadjie",
+              "id": "I754"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I756": {
+      "gramps_id": "I756",
+      "nom": "Ardo Boureima",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Makan Dicko",
+          "id": "I757",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ardo Kanta",
+              "id": "I755"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I757": {
+      "gramps_id": "I757",
+      "nom": "Ardo Makan Dicko",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Saadiga",
+          "id": "I759",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Ardo Djadje",
+          "id": "I758"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ardo Boureima",
+              "id": "I756"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I759": {
+      "gramps_id": "I759",
+      "nom": "Ardo Saadiga",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ardo Makan Dicko",
+              "id": "I757"
+            },
+            {
+              "nom": "Ardo Djadje",
+              "id": "I758"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I758": {
+      "gramps_id": "I758",
+      "nom": "Ardo Djadje",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Saadiga",
+          "id": "I759",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Ardo Makan Dicko",
+          "id": "I757"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Ardo Dembaka",
+              "id": "I760"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I760": {
+      "gramps_id": "I760",
+      "nom": "Ardo Dembaka",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Ancetre des Yirlabe",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Ardo Djadje",
+          "id": "I758",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [],
+      "html_file": null
+    },
+    "I761": {
+      "gramps_id": "I761",
+      "nom": "Maliki",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamma",
+          "id": "I762",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hamane",
+              "id": "I735"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I762": {
+      "gramps_id": "I762",
+      "nom": "Hamma",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hama Saala",
+          "id": "I763",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Maliki",
+              "id": "I761"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I763": {
+      "gramps_id": "I763",
+      "nom": "Hama Saala",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Bokar",
+          "id": "I764",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hamma",
+              "id": "I762"
+            }
+          ]
+        }
+      ],
+      "html_file": null
+    },
+    "I764": {
+      "gramps_id": "I764",
+      "nom": "Bokar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hama Saala",
+              "id": "I763"
+            }
+          ]
+        }
+      ],
+      "html_file": null
     }
   },
-  "total": 692
+  "total": 753
 }
