@@ -1,11 +1,11 @@
 +++
-title = "Fatoumata"
-gramps_id = "I295"
+title = "Souley"
+gramps_id = "LOC-I105-SOULEY"
 genre = "male"
 naissance = ""
 deces = ""
 ville = ""
-commentaires = ""
+commentaires = "Profil local sans ID Gramps."
 photo = ""
 draft = false
 
@@ -18,8 +18,8 @@ draft = false
   id = "I294"
 
 [[fratrie]]
-  nom = "Souley"
-  id = "LOC-I105-SOULEY"
+  nom = "Fatoumata"
+  id = "I295"
 
 [[parents]]
   nom = "Aissata dite Tiini"
@@ -27,4 +27,4 @@ draft = false
   relation = "mere"
 +++
 
-## Fatoumata
+## Souley

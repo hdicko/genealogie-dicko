@@ -4620,6 +4620,10 @@
             {
               "nom": "Fatoumata",
               "id": "I295"
+            },
+            {
+              "nom": "Souley",
+              "id": "LOC-I105-SOULEY"
             }
           ]
         }
@@ -13646,6 +13650,10 @@
         {
           "nom": "Fatoumata",
           "id": "I295"
+        },
+        {
+          "nom": "Souley",
+          "id": "LOC-I105-SOULEY"
         }
       ],
       "familles": []
@@ -13674,6 +13682,10 @@
         {
           "nom": "Fatoumata",
           "id": "I295"
+        },
+        {
+          "nom": "Souley",
+          "id": "LOC-I105-SOULEY"
         }
       ],
       "familles": []
@@ -13702,6 +13714,10 @@
         {
           "nom": "Fada",
           "id": "I294"
+        },
+        {
+          "nom": "Souley",
+          "id": "LOC-I105-SOULEY"
         }
       ],
       "familles": []
@@ -30647,7 +30663,39 @@
         }
       ],
       "familles": []
+    },
+    "LOC-I105-SOULEY": {
+      "gramps_id": "LOC-I105-SOULEY",
+      "nom": "Souley",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Aissata dite Tiini",
+          "id": "I105",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mousstafa",
+          "id": "I293"
+        },
+        {
+          "nom": "Fada",
+          "id": "I294"
+        },
+        {
+          "nom": "Fatoumata",
+          "id": "I295"
+        }
+      ],
+      "familles": []
     }
   },
-  "total": 755
+  "total": 756
 }
