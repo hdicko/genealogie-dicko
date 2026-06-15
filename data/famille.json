@@ -9812,7 +9812,7 @@
           "conjoint_id": "I368",
           "enfants": [
             {
-              "nom": "Mima (Maimouna)",
+              "nom": "Mai (Maimouna)",
               "id": "I212"
             }
           ]
@@ -9821,7 +9821,7 @@
     },
     "I212": {
       "gramps_id": "I212",
-      "nom": "Mima (Maimouna)",
+      "nom": "Mai (Maimouna)",
       "genre": "female",
       "naissance": null,
       "deces": null,
@@ -13474,7 +13474,22 @@
           "id": "I291"
         }
       ],
-      "familles": []
+      "familles": [
+        {
+          "conjoint": "",
+          "conjoint_id": "",
+          "enfants": [
+            {
+              "nom": "Aicha",
+              "id": "LOC-I289-AICHA"
+            },
+            {
+              "nom": "Anta",
+              "id": "LOC-I289-ANTA"
+            }
+          ]
+        }
+      ]
     },
     "I290": {
       "gramps_id": "I290",
@@ -16268,7 +16283,7 @@
           "conjoint_id": "I211",
           "enfants": [
             {
-              "nom": "Mima (Maimouna)",
+              "nom": "Mai (Maimouna)",
               "id": "I212"
             }
           ]
@@ -30584,7 +30599,55 @@
         }
       ],
       "html_file": null
+    },
+    "LOC-I289-AICHA": {
+      "gramps_id": "LOC-I289-AICHA",
+      "nom": "Aicha",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Maï (Maïmouna)",
+          "id": "I289",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Anta",
+          "id": "LOC-I289-ANTA"
+        }
+      ],
+      "familles": []
+    },
+    "LOC-I289-ANTA": {
+      "gramps_id": "LOC-I289-ANTA",
+      "nom": "Anta",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Maï (Maïmouna)",
+          "id": "I289",
+          "relation": "mere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Aicha",
+          "id": "LOC-I289-AICHA"
+        }
+      ],
+      "familles": []
     }
   },
-  "total": 753
+  "total": 755
 }
