@@ -60,7 +60,7 @@
               "id": "I8"
             },
             {
-              "nom": "Mariam",
+              "nom": "Mariama Breima",
               "id": "I10"
             },
             {
@@ -148,7 +148,7 @@
               "id": "I8"
             },
             {
-              "nom": "Mariam",
+              "nom": "Mariama Breima",
               "id": "I10"
             },
             {
@@ -911,12 +911,12 @@
     },
     "I10": {
       "gramps_id": "I10",
-      "nom": "Mariam",
+      "nom": "Mariama Breima",
       "genre": "female",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": "/images/personnes/isOuley Anta Mariam.jpg",
       "parents": [
         {
@@ -4309,7 +4309,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Mariam",
+          "nom": "Mariama Breima",
           "id": "I10",
           "relation": "mere"
         }
@@ -4380,7 +4380,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Mariam",
+          "nom": "Mariama Breima",
           "id": "I10",
           "relation": "mere"
         }
@@ -30672,7 +30672,7 @@
       "deces": "",
       "ville": "",
       "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
+      "photo": "/images/personnes/LOC-I105-SOULEY.jpeg",
       "parents": [
         {
           "nom": "Aissata dite Tiini",

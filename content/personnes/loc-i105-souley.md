@@ -6,7 +6,7 @@ naissance = ""
 deces = ""
 ville = ""
 commentaires = "Profil local sans ID Gramps."
-photo = ""
+photo = "/images/personnes/LOC-I105-SOULEY.jpeg"
 draft = false
 
 [[fratrie]]
