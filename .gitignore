@@ -27,3 +27,6 @@ Thumbs.db
 
 # API audit logs
 logs/
+/public/
+/.backups/
+data/*.bak
