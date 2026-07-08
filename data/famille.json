@@ -31584,7 +31584,13 @@
       "ville": "",
       "commentaires": "Profil local sans ID Gramps. Représente le parent commun non identifié de Moctar et de ses frères, ajouté pour les regrouper dans l'arbre.",
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Yero",
+          "id": "I593",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
