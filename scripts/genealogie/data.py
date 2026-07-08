@@ -3,6 +3,8 @@ import json
 # POSIX-thread-based concurrency. A single Lock is sufficient here because
 # the HTTP server runs one handler thread per request.
 import threading
+import os
+import tempfile
 from .config import DATA_FILE
 
 # Note 2: A module-level lock (not instance-level) ensures mutual exclusion
@@ -22,11 +24,21 @@ def load_data():
 
 
 def save_data(data):
-    """Overwrite famille.json with the given dict (pretty-printed, UTF-8)."""
-    # Note 4: ensure_ascii=False preserves accented characters (e.g. "Mame Rokhaya")
-    # as literal UTF-8 rather than \uXXXX escape sequences, keeping the file readable.
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    """Atomically overwrite famille.json with the given dict (pretty-printed, UTF-8).
+
+    Writes to a temporary file in the same directory and then replaces the
+    canonical file with os.replace() to ensure the update is atomic.
+    """
+    dirpath = os.path.dirname(str(DATA_FILE))
+    # Use tempfile in the same directory to ensure atomic rename works across
+    # filesystems when possible.
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=dirpath, delete=False) as tf:
+        json.dump(data, tf, ensure_ascii=False, indent=2)
+        tf.flush()
+        os.fsync(tf.fileno())
+        tmpname = tf.name
+    # Use os.replace for atomic rename (overwrites target if present)
+    os.replace(tmpname, str(DATA_FILE))
 
 
 class DataTransaction:

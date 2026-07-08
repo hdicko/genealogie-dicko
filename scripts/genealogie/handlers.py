@@ -28,11 +28,20 @@ from .markup import regen_markdown, update_references
 # The symlink guard below prevents a pre-existing symlink from redirecting
 # writes to an attacker-controlled file outside the project directory.
 _LOG_DIR = HUGO_DIR / "logs"
-_LOG_DIR.mkdir(exist_ok=True)
+# Create logs dir with restricted permissions to prevent other local users
+# from reading log contents.
+_LOG_DIR.mkdir(mode=0o700, exist_ok=True)
 _LOG_FILE = _LOG_DIR / "api.log"
 # Guard against symlink attack: refuse to log if the path is a symlink.
 if _LOG_FILE.is_symlink():
     _LOG_FILE.unlink()
+# Ensure the log file exists with strict permissions before opening it.
+_LOG_FILE.touch(exist_ok=True)
+try:
+    _LOG_FILE.chmod(0o600)
+except Exception:
+    # If chmod fails on non-POSIX systems, continue without raising.
+    pass
 logging.basicConfig(
     filename=str(_LOG_FILE),
     level=logging.INFO,
