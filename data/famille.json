@@ -31587,7 +31587,7 @@
       "parents": [
         {
           "nom": "Yero",
-          "id": "I768",
+          "id": "I769",
           "relation": "pere"
         }
       ],
@@ -31683,6 +31683,19 @@
       "deces": null,
       "ville": "",
       "commentaires": "Créé automatiquement — Yero distinct de I593.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": []
+    },
+    "I769": {
+      "gramps_id": "I769",
+      "nom": "Yero",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement — Yero distinct (nouvel ID).",
       "photo": null,
       "parents": [],
       "fratrie": [],
