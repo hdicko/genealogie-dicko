@@ -23566,7 +23566,7 @@
       "parents": [
         {
           "nom": "Siley",
-          "id": "I765",
+          "id": "I766",
           "relation": "pere"
         }
       ],
@@ -31584,7 +31584,13 @@
       "ville": "",
       "commentaires": "Profil local sans ID Gramps. Représente le parent commun non identifié de Moctar et de ses frères, ajouté pour les regrouper dans l'arbre.",
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Yero",
+          "id": "I593",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
@@ -31642,6 +31648,25 @@
           ]
         }
       ]
+    },
+    "I766": {
+      "gramps_id": "I766",
+      "nom": "Siley",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement pour lier la lignée paternelle.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Pathe",
+          "id": "I765",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
     }
   },
   "total": 782
