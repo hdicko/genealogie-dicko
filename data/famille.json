@@ -31170,7 +31170,7 @@
       "parents": [
         {
           "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
+          "id": "PAPA-DE-MOCTAR",
           "relation": "pere"
         }
       ],
@@ -31328,8 +31328,255 @@
       "fratrie": [],
       "familles": []
     },
-    "LOC-MOCTAR-BA-PARENT": {
-      "gramps_id": "LOC-MOCTAR-BA-PARENT",
+    "LOC-MOCTAR-BA-ELIMANE": {
+      "gramps_id": "LOC-MOCTAR-BA-ELIMANE",
+      "nom": "Elimane",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-AMADOU": {
+      "gramps_id": "LOC-MOCTAR-BA-AMADOU",
+      "nom": "Amadou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-BOUBACAR": {
+      "gramps_id": "LOC-MOCTAR-BA-BOUBACAR",
+      "nom": "Boubacar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-MAMOUDOU": {
+      "gramps_id": "LOC-MOCTAR-BA-MAMOUDOU",
+      "nom": "Mamoudou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-HAWA": {
+      "gramps_id": "LOC-MOCTAR-BA-HAWA",
+      "nom": "Hawa",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-HABI": {
+      "gramps_id": "LOC-MOCTAR-BA-HABI",
+      "nom": "Habi",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-MADINA": {
+      "gramps_id": "LOC-MOCTAR-BA-MADINA",
+      "nom": "Madina",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-PENDA-HABI": {
+      "gramps_id": "LOC-MOCTAR-BA-PENDA-HABI",
+      "nom": "Penda Habi",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-OUMOU": {
+      "gramps_id": "LOC-MOCTAR-BA-OUMOU",
+      "nom": "Oumou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-RAMATA": {
+      "gramps_id": "LOC-MOCTAR-BA-RAMATA",
+      "nom": "Ramata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-ROUKIATOU": {
+      "gramps_id": "LOC-MOCTAR-BA-ROUKIATOU",
+      "nom": "Roukiatou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady",
+          "id": "PAPA-DE-MOCTAR",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "I765": {
+      "gramps_id": "I765",
+      "nom": "Pathe",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Créé automatiquement pour relier la lignée paternelle.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Galo",
+          "id": "I679",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-PARENT": {
+      "gramps_id": "LOC-MOCTAR-PARENT",
+      "nom": "Moctar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Créé automatiquement pour liaison parentale.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady Bella",
+          "id": "I684",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "PAPA-DE-MOCTAR": {
+      "gramps_id": "PAPA-DE-MOCTAR",
       "nom": "Hamady",
       "genre": "male",
       "naissance": "",
@@ -31395,253 +31642,6 @@
           ]
         }
       ]
-    },
-    "LOC-MOCTAR-BA-ELIMANE": {
-      "gramps_id": "LOC-MOCTAR-BA-ELIMANE",
-      "nom": "Elimane",
-      "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-AMADOU": {
-      "gramps_id": "LOC-MOCTAR-BA-AMADOU",
-      "nom": "Amadou",
-      "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-BOUBACAR": {
-      "gramps_id": "LOC-MOCTAR-BA-BOUBACAR",
-      "nom": "Boubacar",
-      "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-MAMOUDOU": {
-      "gramps_id": "LOC-MOCTAR-BA-MAMOUDOU",
-      "nom": "Mamoudou",
-      "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-HAWA": {
-      "gramps_id": "LOC-MOCTAR-BA-HAWA",
-      "nom": "Hawa",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-HABI": {
-      "gramps_id": "LOC-MOCTAR-BA-HABI",
-      "nom": "Habi",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-MADINA": {
-      "gramps_id": "LOC-MOCTAR-BA-MADINA",
-      "nom": "Madina",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-PENDA-HABI": {
-      "gramps_id": "LOC-MOCTAR-BA-PENDA-HABI",
-      "nom": "Penda Habi",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-OUMOU": {
-      "gramps_id": "LOC-MOCTAR-BA-OUMOU",
-      "nom": "Oumou",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-RAMATA": {
-      "gramps_id": "LOC-MOCTAR-BA-RAMATA",
-      "nom": "Ramata",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-BA-ROUKIATOU": {
-      "gramps_id": "LOC-MOCTAR-BA-ROUKIATOU",
-      "nom": "Roukiatou",
-      "genre": "female",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Profil local sans ID Gramps.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady",
-          "id": "LOC-MOCTAR-BA-PARENT",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "I765": {
-      "gramps_id": "I765",
-      "nom": "Pathe",
-      "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Créé automatiquement pour relier la lignée paternelle.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Galo",
-          "id": "I679",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
-    },
-    "LOC-MOCTAR-PARENT": {
-      "gramps_id": "LOC-MOCTAR-PARENT",
-      "nom": "Moctar",
-      "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "Créé automatiquement pour liaison parentale.",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Hamady Bella",
-          "id": "I684",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": []
     }
   },
   "total": 782
