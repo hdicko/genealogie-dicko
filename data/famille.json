@@ -31697,7 +31697,13 @@
       "ville": "",
       "commentaires": "Créé automatiquement — Yero distinct (nouvel ID).",
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Siley",
+          "id": "I770",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
@@ -31707,6 +31713,30 @@
             {
               "nom": "Hamady",
               "id": "PAPA-DE-MOCTAR"
+            }
+          ]
+        }
+      ]
+    },
+    "I770": {
+      "gramps_id": "I770",
+      "nom": "Siley",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement — Siley, père de Yero.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Yero",
+              "id": "I769"
             }
           ]
         }
