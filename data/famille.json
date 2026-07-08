@@ -31587,7 +31587,7 @@
       "parents": [
         {
           "nom": "Yero",
-          "id": "I593",
+          "id": "I768",
           "relation": "pere"
         }
       ],
@@ -31648,6 +31648,45 @@
           ]
         }
       ]
+    },
+    "I766": {
+      "gramps_id": "I766",
+      "nom": "Yero",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement — Yero distinct de I593.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": []
+    },
+    "I767": {
+      "gramps_id": "I767",
+      "nom": "Yero",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement — Yero distinct de I593.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": []
+    },
+    "I768": {
+      "gramps_id": "I768",
+      "nom": "Yero",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement — Yero distinct de I593.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": []
     }
   },
   "total": 782
