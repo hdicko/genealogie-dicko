@@ -26792,12 +26792,7 @@
         {
           "conjoint": null,
           "conjoint_id": null,
-          "enfants": [
-            {
-              "nom": "Pathe",
-              "id": "I765"
-            }
-          ]
+          "enfants": []
         }
       ]
     },
@@ -31559,7 +31554,7 @@
       "parents": [
         {
           "nom": "Galo",
-          "id": "I679",
+          "id": "I771",
           "relation": "pere"
         }
       ],
@@ -31764,6 +31759,30 @@
             {
               "nom": "Yero",
               "id": "I769"
+            }
+          ]
+        }
+      ]
+    },
+    "I771": {
+      "gramps_id": "I771",
+      "nom": "Galo",
+      "genre": "male",
+      "naissance": "",
+      "deces": null,
+      "ville": "",
+      "commentaires": "Créé automatiquement — Galo distinct pour être père de Pathe (I765).",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Pathe",
+              "id": "I765"
             }
           ]
         }
