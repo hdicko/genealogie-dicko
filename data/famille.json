@@ -31699,7 +31699,18 @@
       "photo": null,
       "parents": [],
       "fratrie": [],
-      "familles": []
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Hamady",
+              "id": "PAPA-DE-MOCTAR"
+            }
+          ]
+        }
+      ]
     }
   },
   "total": 782
