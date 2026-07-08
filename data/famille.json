@@ -23565,8 +23565,8 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Ardo Ngadourou (Hammadou Foulani)",
-          "id": "I752",
+          "nom": "Siley",
+          "id": "I765",
           "relation": "pere"
         }
       ],
@@ -26907,8 +26907,8 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hamar Kouly",
-          "id": "I542",
+          "nom": "Yero",
+          "id": "I593",
           "relation": "pere"
         }
       ],
@@ -31599,6 +31599,25 @@
         {
           "nom": "? Parent de Moctar",
           "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "I765": {
+      "gramps_id": "I765",
+      "nom": "Pathe",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Créé automatiquement pour relier la lignée paternelle.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Galo",
+          "id": "I679",
           "relation": "pere"
         }
       ],
