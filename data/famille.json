@@ -31169,11 +31169,6 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Hamady Bella",
-          "id": "I684",
-          "relation": "pere"
-        },
-        {
           "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
