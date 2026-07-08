@@ -4322,8 +4322,8 @@
       ],
       "familles": [
         {
-          "conjoint": null,
-          "conjoint_id": null,
+          "conjoint": "Souleymane Moctar Ba",
+          "conjoint_id": "LOC-SOULEYMANE-MOCTAR-BA",
           "enfants": [
             {
               "nom": "Hawa",
@@ -30695,7 +30695,916 @@
         }
       ],
       "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA",
+      "nom": "Souleymane Moctar Ba",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Mamadou",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-MAMADOU"
+        },
+        {
+          "nom": "Oumar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-OMAR"
+        },
+        {
+          "nom": "Ibrahim",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-IBRAHIM"
+        },
+        {
+          "nom": "Bocar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-BOCAR"
+        },
+        {
+          "nom": "Seydou",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-SEYDOU"
+        },
+        {
+          "nom": "Abdoullaye",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-ABDOULLAYE"
+        },
+        {
+          "nom": "Ouleymatou",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-OULEYMATOU"
+        },
+        {
+          "nom": "Hawa",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-HAWA"
+        },
+        {
+          "nom": "Mariam (Generale)",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-MARIAM-GENERALE"
+        },
+        {
+          "nom": "Djarietou",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-DJARIETOU"
+        },
+        {
+          "nom": "Aissata (Apoullo)",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-AISSATA-APOULLO"
+        },
+        {
+          "nom": "Madina",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-MADINA"
+        },
+        {
+          "nom": "Kadiatou",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-KADIATOU"
+        },
+        {
+          "nom": "Aminata (Youmaissa)",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-AMINATA-YOUMAISSA"
+        },
+        {
+          "nom": "Mali",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-MALI"
+        },
+        {
+          "nom": "Habi",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-HABI"
+        },
+        {
+          "nom": "Rouki",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-ROUKI-RAMATA"
+        },
+        {
+          "nom": "Ramata",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-RAMATA"
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": "Aminata Ba",
+          "conjoint_id": "I101",
+          "enfants": [
+            {
+              "nom": "Hawa",
+              "id": "I285"
+            },
+            {
+              "nom": "Aissata dite Tiini",
+              "id": "I105"
+            },
+            {
+              "nom": "Mariam dite Poupee",
+              "id": "I104"
+            },
+            {
+              "nom": "Seydou",
+              "id": "I286"
+            },
+            {
+              "nom": "Kadjiatou",
+              "id": "I287"
+            },
+            {
+              "nom": "Jolie (Fatoumata)",
+              "id": "I288"
+            },
+            {
+              "nom": "Maï (Maïmouna)",
+              "id": "I289"
+            },
+            {
+              "nom": "Ouleymatou Ba",
+              "id": "I103"
+            },
+            {
+              "nom": "Dougou (Amadou)",
+              "id": "I290"
+            },
+            {
+              "nom": "Mama",
+              "id": "I291"
+            }
+          ]
+        }
+      ]
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-MAMADOU": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-MAMADOU",
+      "nom": "Mamadou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-OMAR": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-OMAR",
+      "nom": "Oumar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-IBRAHIM": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-IBRAHIM",
+      "nom": "Ibrahim",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-BOCAR": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-BOCAR",
+      "nom": "Bocar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-SEYDOU": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-SEYDOU",
+      "nom": "Seydou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-ABDOULLAYE": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-ABDOULLAYE",
+      "nom": "Abdoullaye",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-OULEYMATOU": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-OULEYMATOU",
+      "nom": "Ouleymatou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-HAWA": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-HAWA",
+      "nom": "Hawa",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-MARIAM-GENERALE": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-MARIAM-GENERALE",
+      "nom": "Mariam (Generale)",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-DJARIETOU": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-DJARIETOU",
+      "nom": "Djarietou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-AISSATA-APOULLO": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-AISSATA-APOULLO",
+      "nom": "Aissata (Apoullo)",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-MADINA": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-MADINA",
+      "nom": "Madina",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-KADIATOU": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-KADIATOU",
+      "nom": "Kadiatou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-AMINATA-YOUMAISSA": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-AMINATA-YOUMAISSA",
+      "nom": "Aminata (Youmaissa)",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-MALI": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-MALI",
+      "nom": "Mali",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-HABI": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-HABI",
+      "nom": "Habi",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-ROUKI-RAMATA": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-ROUKI-RAMATA",
+      "nom": "Rouki",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-PARENT": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+      "nom": "Moctar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady Bella",
+          "id": "I684",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [
+        {
+          "nom": "Elimane",
+          "id": "LOC-MOCTAR-BA-ELIMANE"
+        },
+        {
+          "nom": "Amadou",
+          "id": "LOC-MOCTAR-BA-AMADOU"
+        },
+        {
+          "nom": "Boubacar",
+          "id": "LOC-MOCTAR-BA-BOUBACAR"
+        },
+        {
+          "nom": "Mamoudou",
+          "id": "LOC-MOCTAR-BA-MAMOUDOU"
+        },
+        {
+          "nom": "Hawa",
+          "id": "LOC-MOCTAR-BA-HAWA"
+        },
+        {
+          "nom": "Habi",
+          "id": "LOC-MOCTAR-BA-HABI"
+        },
+        {
+          "nom": "Madina",
+          "id": "LOC-MOCTAR-BA-MADINA"
+        },
+        {
+          "nom": "Penda Habi",
+          "id": "LOC-MOCTAR-BA-PENDA-HABI"
+        },
+        {
+          "nom": "Oumou",
+          "id": "LOC-MOCTAR-BA-OUMOU"
+        },
+        {
+          "nom": "Ramata",
+          "id": "LOC-MOCTAR-BA-RAMATA"
+        },
+        {
+          "nom": "Roukiatou",
+          "id": "LOC-MOCTAR-BA-ROUKIATOU"
+        },
+        {
+          "nom": "?",
+          "id": null
+        }
+      ],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Souleymane Moctar Ba",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA"
+            },
+            {
+              "nom": "Mamadou",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-MAMADOU"
+            },
+            {
+              "nom": "Oumar",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-OMAR"
+            },
+            {
+              "nom": "Ibrahim",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-IBRAHIM"
+            },
+            {
+              "nom": "Bocar",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-BOCAR"
+            },
+            {
+              "nom": "Seydou",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-SEYDOU"
+            },
+            {
+              "nom": "Abdoullaye",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-ABDOULLAYE"
+            },
+            {
+              "nom": "Ouleymatou",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-OULEYMATOU"
+            },
+            {
+              "nom": "Hawa",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-HAWA"
+            },
+            {
+              "nom": "Mariam (Generale)",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-MARIAM-GENERALE"
+            },
+            {
+              "nom": "Djarietou",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-DJARIETOU"
+            },
+            {
+              "nom": "Aissata (Apoullo)",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-AISSATA-APOULLO"
+            },
+            {
+              "nom": "Madina",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-MADINA"
+            },
+            {
+              "nom": "Kadiatou",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-KADIATOU"
+            },
+            {
+              "nom": "Aminata (Youmaissa)",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-AMINATA-YOUMAISSA"
+            },
+            {
+              "nom": "Mali",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-MALI"
+            },
+            {
+              "nom": "Habi",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-HABI"
+            },
+            {
+              "nom": "Rouki",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-ROUKI-RAMATA"
+            },
+            {
+              "nom": "Ramata",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-RAMATA"
+            }
+          ]
+        }
+      ]
+    },
+    "LOC-SOULEYMANE-MOCTAR-BA-RAMATA": {
+      "gramps_id": "LOC-SOULEYMANE-MOCTAR-BA-RAMATA",
+      "nom": "Ramata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Moctar",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-PARENT": {
+      "gramps_id": "LOC-MOCTAR-BA-PARENT",
+      "nom": "? Parent de Moctar",
+      "genre": "unknown",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps. Représente le parent commun non identifié de Moctar et de ses frères, ajouté pour les regrouper dans l'arbre.",
+      "photo": null,
+      "parents": [],
+      "fratrie": [],
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Moctar",
+              "id": "LOC-SOULEYMANE-MOCTAR-BA-PARENT"
+            },
+            {
+              "nom": "Elimane",
+              "id": "LOC-MOCTAR-BA-ELIMANE"
+            },
+            {
+              "nom": "Amadou",
+              "id": "LOC-MOCTAR-BA-AMADOU"
+            },
+            {
+              "nom": "Boubacar",
+              "id": "LOC-MOCTAR-BA-BOUBACAR"
+            },
+            {
+              "nom": "Mamoudou",
+              "id": "LOC-MOCTAR-BA-MAMOUDOU"
+            },
+            {
+              "nom": "Hawa",
+              "id": "LOC-MOCTAR-BA-HAWA"
+            },
+            {
+              "nom": "Habi",
+              "id": "LOC-MOCTAR-BA-HABI"
+            },
+            {
+              "nom": "Madina",
+              "id": "LOC-MOCTAR-BA-MADINA"
+            },
+            {
+              "nom": "Penda Habi",
+              "id": "LOC-MOCTAR-BA-PENDA-HABI"
+            },
+            {
+              "nom": "Oumou",
+              "id": "LOC-MOCTAR-BA-OUMOU"
+            },
+            {
+              "nom": "Ramata",
+              "id": "LOC-MOCTAR-BA-RAMATA"
+            },
+            {
+              "nom": "Roukiatou",
+              "id": "LOC-MOCTAR-BA-ROUKIATOU"
+            }
+          ]
+        }
+      ]
+    },
+    "LOC-MOCTAR-BA-ELIMANE": {
+      "gramps_id": "LOC-MOCTAR-BA-ELIMANE",
+      "nom": "Elimane",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-AMADOU": {
+      "gramps_id": "LOC-MOCTAR-BA-AMADOU",
+      "nom": "Amadou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-BOUBACAR": {
+      "gramps_id": "LOC-MOCTAR-BA-BOUBACAR",
+      "nom": "Boubacar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-MAMOUDOU": {
+      "gramps_id": "LOC-MOCTAR-BA-MAMOUDOU",
+      "nom": "Mamoudou",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-HAWA": {
+      "gramps_id": "LOC-MOCTAR-BA-HAWA",
+      "nom": "Hawa",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-HABI": {
+      "gramps_id": "LOC-MOCTAR-BA-HABI",
+      "nom": "Habi",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-MADINA": {
+      "gramps_id": "LOC-MOCTAR-BA-MADINA",
+      "nom": "Madina",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-PENDA-HABI": {
+      "gramps_id": "LOC-MOCTAR-BA-PENDA-HABI",
+      "nom": "Penda Habi",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-OUMOU": {
+      "gramps_id": "LOC-MOCTAR-BA-OUMOU",
+      "nom": "Oumou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-RAMATA": {
+      "gramps_id": "LOC-MOCTAR-BA-RAMATA",
+      "nom": "Ramata",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
+    },
+    "LOC-MOCTAR-BA-ROUKIATOU": {
+      "gramps_id": "LOC-MOCTAR-BA-ROUKIATOU",
+      "nom": "Roukiatou",
+      "genre": "female",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Profil local sans ID Gramps.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "? Parent de Moctar",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
     }
   },
-  "total": 756
+  "total": 782
 }
