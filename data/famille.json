@@ -31623,6 +31623,25 @@
       ],
       "fratrie": [],
       "familles": []
+    },
+    "LOC-MOCTAR-PARENT": {
+      "gramps_id": "LOC-MOCTAR-PARENT",
+      "nom": "Moctar",
+      "genre": "male",
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "Créé automatiquement pour liaison parentale.",
+      "photo": null,
+      "parents": [
+        {
+          "nom": "Hamady Bella",
+          "id": "I684",
+          "relation": "pere"
+        }
+      ],
+      "fratrie": [],
+      "familles": []
     }
   },
   "total": 782
