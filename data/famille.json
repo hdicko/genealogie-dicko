@@ -31554,7 +31554,18 @@
         }
       ],
       "fratrie": [],
-      "familles": []
+      "familles": [
+        {
+          "conjoint": null,
+          "conjoint_id": null,
+          "enfants": [
+            {
+              "nom": "Siley",
+              "id": "I770"
+            }
+          ]
+        }
+      ]
     },
     "LOC-MOCTAR-PARENT": {
       "gramps_id": "LOC-MOCTAR-PARENT",
@@ -31727,7 +31738,13 @@
       "ville": "",
       "commentaires": "Créé automatiquement — Siley, père de Yero.",
       "photo": null,
-      "parents": [],
+      "parents": [
+        {
+          "nom": "Pathe",
+          "id": "I765",
+          "relation": "pere"
+        }
+      ],
       "fratrie": [],
       "familles": [
         {
