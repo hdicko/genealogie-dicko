@@ -31172,6 +31172,11 @@
           "nom": "Hamady Bella",
           "id": "I684",
           "relation": "pere"
+        },
+        {
+          "nom": "Hamady",
+          "id": "LOC-MOCTAR-BA-PARENT",
+          "relation": "pere"
         }
       ],
       "fratrie": [
@@ -31330,8 +31335,8 @@
     },
     "LOC-MOCTAR-BA-PARENT": {
       "gramps_id": "LOC-MOCTAR-BA-PARENT",
-      "nom": "? Parent de Moctar",
-      "genre": "unknown",
+      "nom": "Hamady",
+      "genre": "male",
       "naissance": "",
       "deces": "",
       "ville": "",
@@ -31407,7 +31412,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31426,7 +31431,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31445,7 +31450,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31464,7 +31469,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31483,7 +31488,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31502,7 +31507,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31521,7 +31526,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31540,7 +31545,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31559,7 +31564,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31578,7 +31583,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
@@ -31597,7 +31602,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "? Parent de Moctar",
+          "nom": "Hamady",
           "id": "LOC-MOCTAR-BA-PARENT",
           "relation": "pere"
         }
