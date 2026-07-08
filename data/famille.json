@@ -4426,6 +4426,11 @@
           "nom": "Aminata Ba",
           "id": "I101",
           "relation": "mere"
+        },
+        {
+          "nom": "Souleymane Moctar Ba",
+          "id": "LOC-SOULEYMANE-MOCTAR-BA",
+          "relation": "pere"
         }
       ],
       "fratrie": [
@@ -13844,7 +13849,7 @@
               "id": "I316"
             },
             {
-              "nom": "? frères et soeurs de Breima (Ameri)",
+              "nom": "Autres frères et soeurs de Breima (Ameri)",
               "id": "I317"
             }
           ]
@@ -14387,12 +14392,12 @@
     },
     "I317": {
       "gramps_id": "I317",
-      "nom": "? frères et soeurs de Breima (Ameri)",
+      "nom": "Autres frères et soeurs de Breima (Ameri)",
       "genre": "unknown",
-      "naissance": null,
-      "deces": null,
-      "ville": null,
-      "commentaires": null,
+      "naissance": "",
+      "deces": "",
+      "ville": "",
+      "commentaires": "",
       "photo": null,
       "parents": [
         {
