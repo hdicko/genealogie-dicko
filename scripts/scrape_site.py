@@ -49,6 +49,26 @@ def extract_gramps_id(url):
         return match.group(1).upper()
     return None
 
+def find_person_photo(gramps_id):
+    """Find photo file for person by Gramps ID.
+    
+    Checks in order:
+    1. Exact ID match: I1.jpg, 0497.jpg
+    2. Lowercase ID: i1.jpg
+    
+    Returns path like /images/personnes/I1.jpg or None
+    """
+    photo_dir = HUGO_DIR / "static" / "images" / "personnes"
+    
+    # Try exact ID
+    for ext in ['.jpg', '.jpeg', '.png', '.gif', '.webp']:
+        for name in [gramps_id, gramps_id.lower()]:
+            photo_file = photo_dir / f"{name}{ext}"
+            if photo_file.exists():
+                return f"/images/personnes/{photo_file.name}"
+    
+    return None
+
 def parse_person_page(url):
     """Parse a single person page and extract data."""
     gramps_id = extract_gramps_id(url)
@@ -165,12 +185,10 @@ def parse_person_page(url):
                         
                         person_data["familles"].append(famille)
     
-    # Extract photo if present
-    photo_img = soup.find('img', class_='person-photo-img')
-    if photo_img:
-        src = photo_img.get('src', '')
-        if src:
-            person_data["photo"] = src
+    # Extract photo if present (check local files first)
+    photo_path = find_person_photo(gramps_id)
+    if photo_path:
+        person_data["photo"] = photo_path
     
     print(" ✓")
     return person_data
