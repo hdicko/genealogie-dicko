@@ -238,9 +238,17 @@ def main():
     CONTENT_DIR.mkdir(parents=True, exist_ok=True)
     
     # Remove old files
+    deletion_errors = []
     for md_file in CONTENT_DIR.glob('*.md'):
-        md_file.unlink()
-        print(f"  Removed {md_file.name}")
+        try:
+            md_file.unlink()
+            print(f"  Removed {md_file.name}")
+        except Exception as e:
+            deletion_errors.append((md_file.name, str(e)))
+            print(f"  ERROR removing {md_file.name}: {e}")
+    
+    if deletion_errors:
+        print(f"\n⚠️  Warning: {len(deletion_errors)} files could not be deleted")
     
     # Generate new files
     from genealogie.markup import regen_markdown
