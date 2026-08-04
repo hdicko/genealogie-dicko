@@ -2,6 +2,12 @@
 """
 Scrape genealogie-dicko-ardo.netlify.app and regenerate data/famille.json
 and all person markdown files.
+
+Optimizations:
+- Photo detection par Gramps ID
+- Error handling gracieux
+- Progress indicators
+- Idempotent (safe to re-run)
 """
 
 import os
@@ -246,8 +252,17 @@ def main():
         except Exception as e:
             print(f"  ERROR generating {gid}: {e}")
     
-    print(f"\n✓ Generated {len(personnes)} markdown files.\n")
-    print("=== Done! ===\n")
+    print(f"\n✅ Generated {len(personnes)} markdown files.")
+    
+    # Summary stats
+    photos_with = sum(1 for p in personnes.values() if p.get("photo"))
+    print(f"✅ Photos mapped: {photos_with}/{len(personnes)} ({100*photos_with/len(personnes):.1f}%)")
+    
+    # Validate data integrity
+    orphans = sum(1 for p in personnes.values() if not p.get("parents"))
+    print(f"✅ Data validation: {orphans} orphans (no parents)")
+    
+    print("\n=== Done! ===\n")
 
 if __name__ == '__main__':
     main()
