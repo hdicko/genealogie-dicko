@@ -360,15 +360,18 @@ function buildHier(id, depth) {
         const famKids = [];
         for (const e of (fam.enfants||[]))
           if (e.id) { const c=walk(e.id,d-1); if(c) famKids.push(c); }
-        if (!famKids.length) continue;
 
         // Note 15: Inserting the wife as an intermediate node (instead of
         // attaching children directly to the father) groups each father+wife pair
         // visually in the tree layout. The 'conjoint' type is used in render()
         // to apply a distinct dashed-ring style to these nodes.
-        // Insert the wife as an intermediate node if she exists in DATA
+        // Insert the wife as an intermediate node if she exists in DATA.
+        // Show childless conjoints as leaf nodes so they are never hidden.
         const cjId = fam.conjoint_id;
-        if (cjId && DATA[cjId] && !vis.has(cjId)) {
+        const hasCj = cjId && DATA[cjId] && !vis.has(cjId);
+        if (!famKids.length && !hasCj) continue; // nothing to show for this family
+
+        if (hasCj) {
           vis.add(cjId);
           const wp = DATA[cjId];
           kids.push({
@@ -376,7 +379,7 @@ function buildHier(id, depth) {
             genre: wp.genre||'female', type: 'conjoint',
             photo: wp.photo||null, naissance: wp.naissance||'',
             deces: wp.deces||'', parents: wp.parents||[],
-            children: famKids,
+            children: famKids.length ? famKids : null,
           });
         } else {
           // No wife data — add children directly under father
