@@ -14,12 +14,14 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Passer au contenu</a>
   <header class="site-header">
     <div class="container">
       <a href="/" class="site-title">🌳 {{ .Site.Title }}</a>
+      <button class="nav-toggle" aria-controls="site-navigation" aria-expanded="false" aria-label="Ouvrir la navigation">☰</button>
       {{/* Note 4: nav links are hardcoded here, not auto-generated from sections,
            because the site has exactly three top-level destinations. */}}
-      <nav>
+      <nav id="site-navigation" class="site-nav" role="navigation">
         <a href="/">Accueil</a>
         <a href="/arbre/">Arbre</a>
         <a href="/personnes/">Personnes</a>
@@ -27,7 +29,7 @@
     </div>
   </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     {{/* Note 5: block defines a named slot. Child templates fill it with
          {{ define "main" }}...{{ end }}. The empty fallback here means pages
          that forget to define "main" render a blank body -- not an error. */}}
@@ -41,5 +43,24 @@
       <p>Arbre Genealogique Dicko Ardo Hayre — Diona · Boundoucoli · Dalla et Boni · {{ len hugo.Data.famille.personnes }} personnes</p>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('site-navigation');
+      if (!btn || !nav) return;
+      function setState(expanded){
+        btn.setAttribute('aria-expanded', String(expanded));
+        nav.style.display = expanded ? 'flex' : 'none';
+      }
+      btn.addEventListener('click', function(){ setState(btn.getAttribute('aria-expanded') !== 'true'); });
+      window.addEventListener('resize', function(){
+        if (window.innerWidth > 600) { nav.style.display = ''; btn.setAttribute('aria-expanded','false'); }
+        else if (btn.getAttribute('aria-expanded') === 'true') { nav.style.display = 'flex'; }
+        else { nav.style.display = 'none'; }
+      });
+      if (window.innerWidth <= 600) nav.style.display = 'none';
+    })();
+  </script>
 </body>
 </html>
