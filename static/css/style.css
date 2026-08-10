@@ -561,7 +561,38 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
    without an extra wrapper element. */
 .persons-index h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 4px; }
 .persons-index p { color: var(--text-muted); margin-bottom: 16px; }
-#filter-input { max-width: 360px; margin-bottom: 16px; }
+
+/* Filter bar: input + clear + gender buttons + result count in one responsive row */
+.persons-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.filter-input-wrap { position: relative; display: flex; align-items: center; }
+#filter-input { max-width: 280px; margin: 0; padding-right: 36px; }
+.filter-clear-btn {
+  position: absolute; right: 8px;
+  background: none; border: none; cursor: pointer;
+  color: var(--text-muted); font-size: 14px; padding: 2px 4px;
+  border-radius: 4px;
+}
+.filter-clear-btn:hover { color: var(--text); background: var(--bg); }
+
+/* Gender filter button group */
+.gender-filter { display: flex; gap: 6px; flex-wrap: wrap; }
+.gender-btn {
+  padding: 6px 12px; font-size: 0.85rem; font-weight: 600;
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-card); color: var(--text-muted);
+  cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.gender-btn:hover { border-color: var(--primary); color: var(--primary); }
+.gender-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
+
+.result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+
 .persons-table {
   width: 100%;
   border-collapse: collapse;
@@ -610,6 +641,27 @@ img.thumb {
   color: var(--text-muted);
 }
 
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.breadcrumb a { color: var(--primary); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span[aria-hidden] { margin: 0 4px; }
+
+/* ---- Person notes ---- */
+.person-notes {
+  color: var(--text);
+  font-style: italic;
+  background: var(--bg);
+  border-left: 3px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 0;
+}
+
 /* ---- Footer ---- */
 /* Note 14: The footer uses --primary-dark (a darker shade of the header blue)
    to create visual depth while keeping a consistent brand palette. The text
@@ -634,4 +686,6 @@ img.thumb {
   .person-photo img, .person-photo--placeholder { width: 80px; height: 80px; }
   .persons-table th:nth-child(1),
   .persons-table td:nth-child(1) { display: none; }
+  .persons-filter-bar { flex-direction: column; align-items: flex-start; }
+  #filter-input { max-width: 100%; }
 }

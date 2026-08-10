@@ -163,19 +163,20 @@
 <body>
 
 <div id="controls">
+  <a href="/" class="ctrl-btn" id="btn-site" title="Retour au site" style="text-decoration:none;">🏠 Site</a>
   <div class="search-wrap">
-    <input id="search-input" type="text" placeholder="Chercher une personne…" autocomplete="off"/>
-    <ul id="suggestions"></ul>
+    <input id="search-input" type="text" placeholder="Chercher une personne…" autocomplete="off" aria-label="Rechercher dans l'arbre" />
+    <ul id="suggestions" role="listbox" aria-label="Suggestions"></ul>
   </div>
-  <button class="ctrl-btn" id="btn-root">🏠 Racine</button>
-  <button class="ctrl-btn" id="btn-back" disabled>← Retour</button>
-  <button class="ctrl-btn" id="btn-fit">⤢ Tout afficher</button>
+  <button class="ctrl-btn" id="btn-root" title="Retourner à la racine">🌳 Racine</button>
+  <button class="ctrl-btn" id="btn-back" disabled title="Étape précédente">← Retour</button>
+  <button class="ctrl-btn" id="btn-fit" title="Tout afficher">⤢ Tout</button>
   <button class="ctrl-btn" id="btn-mode">👴 Ancêtres</button>
-  <button class="ctrl-btn" id="btn-zi">＋</button>
-  <button class="ctrl-btn" id="btn-zo">－</button>
+  <button class="ctrl-btn" id="btn-zi" title="Zoom avant (ou +)">＋</button>
+  <button class="ctrl-btn" id="btn-zo" title="Zoom arrière (ou -)">－</button>
   <button class="ctrl-btn" id="btn-pdf" title="Imprimer / Exporter en PDF">🖨️ PDF</button>
   <div id="depth-wrap">Niveaux :
-    <input id="depth-input" type="number" value="2" min="1" max="20"/>
+    <input id="depth-input" type="number" value="2" min="1" max="20" aria-label="Nombre de niveaux" />
   </div>
 </div>
 
@@ -185,7 +186,7 @@
   <span style="margin-left:6px"><i class="dot" style="background:#888"></i>Inconnu</span>
   <span style="margin-left:6px"><i class="dot" style="border:2px dashed #c9527a;background:#fff3f8;box-sizing:border-box;"></i>Épouse/mère</span>
 </div>
-<div id="hint">Clic : infos · Double-clic : recentrer · ✏️ pour modifier</div>
+<div id="hint">Clic : infos · Double-clic : recentrer · ✏️ modifier · ⌨️ ← → ↑ ↓ zoom</div>
 <div id="node-count"></div>
 
 <!-- info panel -->
@@ -851,11 +852,30 @@ document.getElementById('btn-save').onclick = async () => {
   }
 };
 
-/* Keyboard: Escape ferme modal */
+/* Keyboard: Escape ferme modal et panneau info; flèches et +/- pour zoom/pan */
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeModal();
     document.getElementById('info').style.display = 'none';
+    return;
+  }
+  // Ignore keyboard shortcuts when typing in an input/textarea
+  if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+  const step = 80;
+  const zoomStep = 1.25;
+  switch(e.key) {
+    case '+': case '=': svg.transition().duration(200).call(zoomer.scaleBy, zoomStep); e.preventDefault(); break;
+    case '-': case '_': svg.transition().duration(200).call(zoomer.scaleBy, 1/zoomStep); e.preventDefault(); break;
+    case 'ArrowRight': svg.transition().duration(150).call(zoomer.translateBy, -step, 0); e.preventDefault(); break;
+    case 'ArrowLeft':  svg.transition().duration(150).call(zoomer.translateBy,  step, 0); e.preventDefault(); break;
+    case 'ArrowDown':  svg.transition().duration(150).call(zoomer.translateBy, 0, -step); e.preventDefault(); break;
+    case 'ArrowUp':    svg.transition().duration(150).call(zoomer.translateBy, 0,  step); e.preventDefault(); break;
+    case 'f': case 'F': fitAll(); e.preventDefault(); break;
+    case 'r': case 'R':
+      history = []; document.getElementById('btn-back').disabled = true;
+      rootId = 'I1'; focusId = null;
+      render(rootId, +document.getElementById('depth-input').value);
+      e.preventDefault(); break;
   }
 });
 

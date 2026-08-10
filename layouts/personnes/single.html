@@ -10,23 +10,32 @@
 {{ $persons := hugo.Data.famille.personnes }}
 {{ $person := index $persons $gid }}
 
+{{/* Breadcrumb navigation */}}
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <a href="/">Accueil</a>
+  <span aria-hidden="true"> › </span>
+  <a href="/personnes/">Personnes</a>
+  <span aria-hidden="true"> › </span>
+  <span aria-current="page">{{ .Title }}</span>
+</nav>
+
 <article class="person-card">
   <div class="person-header">
     {{ if .Params.photo }}
     <div class="person-photo">
-      <img src="{{ .Params.photo }}" alt="{{ .Title }}" />
+      <img src="{{ .Params.photo }}" alt="Photo de {{ .Title }}" />
     </div>
     {{ else }}
-  {{/* Note 5: person-photo--placeholder is a CSS class that renders a circular
-       frame with an emoji fallback. Gender-specific emojis give a quick visual cue. */}}
-    <div class="person-photo person-photo--placeholder">
+    {{/* Note 5: person-photo--placeholder is a CSS class that renders a circular
+         frame with an emoji fallback. Gender-specific emojis give a quick visual cue. */}}
+    <div class="person-photo person-photo--placeholder" aria-hidden="true">
       {{ if eq .Params.genre "male" }}👴{{ else if eq .Params.genre "female" }}👵{{ else }}👤{{ end }}
     </div>
     {{ end }}
 
     <div class="person-info">
       <h1 id="person-title">{{ .Title }}</h1>
-      <button class="btn btn-edit" id="btn-open-edit" onclick="openEditModal()">✏️ Modifier</button>
+      <button class="btn btn-edit" id="btn-open-edit" onclick="openEditModal()" aria-haspopup="dialog">✏️ Modifier</button>
       <dl class="person-details">
         <dt>ID Gramps</dt><dd>{{ $gid }}</dd>
         {{ if .Params.genre }}<dt>Genre</dt><dd>{{ if eq .Params.genre "male" }}Homme{{ else if eq .Params.genre "female" }}Femme{{ else }}Inconnu{{ end }}</dd>{{ end }}
@@ -34,25 +43,15 @@
         {{ if .Params.deces }}<dt>Décès</dt><dd>{{ .Params.deces }}</dd>{{ end }}
         {{ if .Params.ville }}<dt>Ville / Village</dt><dd>{{ .Params.ville }}</dd>{{ end }}
         {{/* ── Époux / Épouses ── */}}
-      {{/* Note 6: The $conjoints slice is built by ranging over familles and
-           appending only entries that have a conjoint name, then used below.
-           Hugo's slice | append pattern mimics array push in other languages. */}}
-      {{ $conjoints := slice }}
-      {{ range .Params.familles }}{{ if .conjoint }}{{ $conjoints = $conjoints | append . }}{{ end }}{{ end }}
-      {{ if $conjoints }}
-        {{/* Note 7: Gender-aware label: a female subject lists her husband(s),
-             a male subject lists his wife/wives. Hugo's gt (greater than) function
-             checks the count to decide plural vs singular label. */}}
-            <dt>Époux</dt>
-            {{ range $conjoints }}
-            <dd>{{ if .conjoint_id }}<a href="/personnes/{{ lower .conjoint_id }}/">{{ .conjoint }}</a>{{ else }}{{ .conjoint }}{{ end }}</dd>
-            {{ end }}
-          {{ else }}
-            <dt>{{ if gt (len $conjoints) 1 }}Épouses ({{ len $conjoints }}){{ else }}Épouse{{ end }}</dt>
-            {{ range $conjoints }}
-            <dd>{{ if .conjoint_id }}<a href="/personnes/{{ lower .conjoint_id }}/">{{ .conjoint }}</a>{{ else }}{{ .conjoint }}{{ end }}</dd>
-            {{ end }}
+        {{/* Note 6: build the conjoint list once, then use it for both label and rows */}}
+        {{ $conjoints := slice }}
+        {{ range .Params.familles }}{{ if .conjoint }}{{ $conjoints = $conjoints | append . }}{{ end }}{{ end }}
+        {{ if $conjoints }}
+          <dt>{{ if gt (len $conjoints) 1 }}Époux·ses ({{ len $conjoints }}){{ else }}Époux·se{{ end }}</dt>
+          {{ range $conjoints }}
+          <dd>{{ if .conjoint_id }}<a href="/personnes/{{ lower .conjoint_id }}/">{{ .conjoint }}</a>{{ else }}{{ .conjoint }}{{ end }}</dd>
           {{ end }}
+        {{ end }}
       </dl>
     </div>
   </div>
@@ -133,88 +132,88 @@
   </section>
   {{ end }}
 
+  {{ if .Params.commentaires }}
+  <section class="person-section">
+    <h2>Notes</h2>
+    <p class="person-notes">{{ .Params.commentaires }}</p>
+  </section>
+  {{ end }}
+
   <div class="person-actions">
     {{/* Note 11: The ?focus= query parameter tells the D3 tree page to highlight
          and centre-on this person. The $gid variable is injected at build time. */}}
-    <a href="/arbre/?focus={{ $gid }}" class="btn btn-primary">Voir dans l'arbre</a>
+    <a href="/arbre/?focus={{ $gid }}" class="btn btn-primary">🌳 Voir dans l'arbre</a>
     <a href="/personnes/" class="btn btn-secondary">← Toutes les personnes</a>
   </div>
 </article>
 
-<!-- Edit modal -->
-<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:10px;padding:24px 28px;min-width:320px;max-width:440px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.3);">
-    <h2 style="margin:0 0 16px;font-size:1.1rem;">✏️ Modifier la personne</h2>
+<!-- Modale d'édition — uses CSS classes from style.css (.person-edit-*) -->
+<div id="modal-overlay" class="person-edit-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="person-edit-dialog">
+    <h2 id="modal-title" class="person-edit-title">✏️ Modifier la personne</h2>
 
     <!-- Photo upload -->
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:12px;background:#f8f8f8;border-radius:8px;">
-      <div id="sp-photo-wrap" style="position:relative;width:64px;height:64px;border-radius:50%;border:2px solid #ddd;background:#eee;flex-shrink:0;overflow:visible;display:flex;align-items:center;justify-content:center;font-size:28px;color:#aaa;">
-        {{ if .Params.photo }}<img id="sp-photo-img" src="{{ .Params.photo }}" style="width:64px;height:64px;object-fit:cover;border-radius:50%;"/>
-        {{ else }}<span id="sp-photo-ph">{{ if eq .Params.genre "male" }}👴{{ else if eq .Params.genre "female" }}👵{{ else }}👤{{ end }}</span>
+    <div class="person-edit-photo-row">
+      <div class="person-edit-photo-wrap" id="sp-photo-wrap">
+        {{ if .Params.photo }}
+        <img id="sp-photo-img" class="person-edit-photo-image" src="{{ .Params.photo }}" alt="Photo actuelle" />
+        {{ else }}
+        <span id="sp-photo-ph" aria-hidden="true">{{ if eq .Params.genre "male" }}👴{{ else if eq .Params.genre "female" }}👵{{ else }}👤{{ end }}</span>
         {{ end }}
-        <button id="sp-photo-del" onclick="deletePhoto(event)"
-          style="display:{{ if .Params.photo }}flex{{ else }}none{{ end }};position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;border:none;background:#e53935;color:#fff;font-size:12px;cursor:pointer;align-items:center;justify-content:center;padding:0;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.3);"
-          title="Supprimer la photo">✕</button>
+        <button id="sp-photo-del" class="person-edit-photo-delete"
+          onclick="deletePhoto(event)"
+          {{ if not .Params.photo }}hidden{{ end }}
+          aria-label="Supprimer la photo">✕</button>
       </div>
-      <div style="flex:1;">
-        <label for="sp-photo-input" id="sp-upload-label" style="display:block;padding:7px 10px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;border:1.5px dashed #bbb;border-radius:6px;text-align:center;color:#555;">
+      <div class="person-edit-photo-actions">
+        <label for="sp-photo-input" id="sp-upload-label" class="person-edit-upload-label">
           📷 {{ if .Params.photo }}Changer la photo…{{ else }}Ajouter une photo…{{ end }}
         </label>
-        <input type="file" id="sp-photo-input" accept="image/*" style="display:none;"/>
-        <div id="sp-photo-name" style="font-size:11px;color:#888;margin-top:3px;text-align:center;"></div>
+        <input type="file" id="sp-photo-input" class="person-edit-file-input" accept="image/*" aria-label="Choisir une photo" />
+        <div id="sp-photo-name" class="person-edit-photo-name"></div>
       </div>
     </div>
 
-    <div style="margin-bottom:12px;">
-      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Nom</label>
-      <input type="text" id="edit-nom" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-nom">Nom</label>
+      <input type="text" id="edit-nom" class="person-edit-input" />
     </div>
-    <div style="margin-bottom:12px;">
-      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Genre</label>
-      <select id="edit-genre" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;">
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-genre">Genre</label>
+      <select id="edit-genre" class="person-edit-select">
         <option value="male">Homme</option>
         <option value="female">Femme</option>
         <option value="unknown">Inconnu</option>
       </select>
     </div>
-    <div style="margin-bottom:12px;">
-      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Naissance</label>
-      <input type="text" id="edit-naissance" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-naissance">Naissance</label>
+      <input type="text" id="edit-naissance" class="person-edit-input" />
     </div>
-    <div style="margin-bottom:12px;">
-      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Décès</label>
-      <input type="text" id="edit-deces" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-deces">Décès</label>
+      <input type="text" id="edit-deces" class="person-edit-input" />
     </div>
-    <div style="margin-bottom:12px;">
-      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Ville / Village</label>
-      <input type="text" id="edit-ville" placeholder="ex: Bamako, Mopti…" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;" />
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-ville">Ville / Village</label>
+      <input type="text" id="edit-ville" class="person-edit-input" placeholder="ex: Bamako, Mopti…" />
     </div>
-    <div style="margin-bottom:12px;">
-      <label style="display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:4px;text-transform:uppercase;">Commentaires</label>
-      <textarea id="edit-commentaires" rows="3" style="width:100%;padding:7px 10px;border:1px solid #ccc;border-radius:5px;font-size:14px;outline:none;resize:vertical;"></textarea>
+    <div class="person-edit-field">
+      <label class="person-edit-label" for="edit-commentaires">Commentaires</label>
+      <textarea id="edit-commentaires" class="person-edit-textarea" rows="3"></textarea>
     </div>
-    <div style="display:flex;gap:10px;margin-top:18px;">
-      <button onclick="closeEditModal()" style="flex:1;padding:9px;font-size:14px;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:#eee;color:#333;">Annuler</button>
-      <button id="btn-save" onclick="saveEdit()" style="flex:1;padding:9px;font-size:14px;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:#2e7d32;color:#fff;">💾 Enregistrer</button>
+    <div class="person-edit-actions">
+      <button onclick="closeEditModal()" class="person-edit-button person-edit-button--cancel">Annuler</button>
+      <button id="btn-save" onclick="saveEdit()" class="person-edit-button person-edit-button--save">💾 Enregistrer</button>
     </div>
-    <div id="save-status" style="font-size:12px;color:#666;text-align:center;margin-top:8px;min-height:18px;"></div>
+    <div id="save-status" class="person-edit-status" role="status" aria-live="polite"></div>
   </div>
 </div>
 
 <script>
-// ── Constants ────────────────────────────────────────────────────────────────
-// PERSON_ID is injected by Hugo at build time from the page's Gramps front-matter ID.
-// Note 13: PERSON_ID is baked into the page at Hugo build time using jsonify | safeJS.
-// jsonify serialises the Go value to valid JSON; safeJS tells Hugo's HTML escaper
-// not to encode the surrounding quotes, producing valid JavaScript.
 const PERSON_ID = {{ .Params.gramps_id | jsonify | safeJS }};
-// Note 14: API points at the local Python editing server. It is never deployed;
-// it only works when running 'python3 scripts/api_server.py' locally.
-const API = 'http://localhost:1315'; // local editing API — must be running separately
+const API = 'http://localhost:1315';
 
-// ── Edit Modal ───────────────────────────────────────────────────────────────
-// Note 15: Front-matter values are baked in at build time.
-// The || fallback ensures the field is never undefined (null JSON -> JS null -> falsy -> '').
 function openEditModal() {
   document.getElementById('edit-nom').value          = document.getElementById('person-title').textContent.trim();
   document.getElementById('edit-genre').value        = {{ .Params.genre | jsonify | safeJS }} || 'unknown';
@@ -229,21 +228,17 @@ function openEditModal() {
   ov.style.display = 'flex';
   document.getElementById('edit-nom').focus();
 }
-// Close the edit modal.
+
 function closeEditModal() {
   document.getElementById('modal-overlay').style.display = 'none';
+  document.getElementById('btn-open-edit').focus();
 }
-// Close on backdrop click or Escape key.
+
 document.getElementById('modal-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeEditModal();
 });
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeEditModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEditModal(); });
 
-// Note 16: FileReader.readAsDataURL() converts the local file to a base64 data:
-// URL for an instant preview without a network request. The result is assigned to
-// img.src which triggers the browser to render the circular portrait immediately.
-// ── Photo preview ────────────────────────────────────────────────────────────
-// When the user picks a file, show a circular preview inside the modal.
 document.getElementById('sp-photo-input').addEventListener('change', function() {
   const file = this.files[0];
   if (!file) return;
@@ -256,22 +251,18 @@ document.getElementById('sp-photo-input').addEventListener('change', function() 
     if (!img) {
       img = document.createElement('img');
       img.id = 'sp-photo-img';
-      img.style.cssText = 'width:64px;height:64px;object-fit:cover;border-radius:50%;';
+      img.className = 'person-edit-photo-image';
+      img.alt = 'Aperçu photo';
       wrap.insertBefore(img, wrap.firstChild);
     }
     if (ph) ph.style.display = 'none';
-    img.src = ev.target.result; img.style.display = 'block';
-    document.getElementById('sp-photo-del').style.display = 'flex';
+    img.src = ev.target.result;
+    document.getElementById('sp-photo-del').removeAttribute('hidden');
     document.getElementById('sp-upload-label').textContent = '📷 Changer la photo…';
   };
   reader.readAsDataURL(file);
 });
 
-// Note 17: async/await wraps the Fetch API Promise in sequential syntax.
-// The try/catch handles both network failures (fetch rejects) and HTTP errors
-// (res.ok is false when status >= 400, so we throw manually).
-// ── Photo deletion ───────────────────────────────────────────────────────────
-// Call DELETE /api/photo/{id}, then clear all photo elements on this page.
 async function deletePhoto(e) {
   e.preventDefault(); e.stopPropagation();
   if (!confirm('Supprimer la photo de cette personne ?')) return;
@@ -281,24 +272,19 @@ async function deletePhoto(e) {
     const img = document.getElementById('sp-photo-img');
     const ph  = document.getElementById('sp-photo-ph');
     if (img) { img.src = ''; img.style.display = 'none'; }
-    if (ph) ph.style.display = 'block';
-    document.getElementById('sp-photo-del').style.display = 'none';
+    if (ph) ph.style.display = '';
+    document.getElementById('sp-photo-del').setAttribute('hidden', '');
     document.getElementById('sp-upload-label').textContent = '📷 Ajouter une photo…';
     document.getElementById('sp-photo-input').value = '';
     document.getElementById('sp-photo-name').textContent = '';
-    // Also update the page header photo
     const headerPhoto = document.querySelector('.person-photo img');
     if (headerPhoto) headerPhoto.closest('.person-photo').outerHTML =
-      '<div class="person-photo person-photo--placeholder">👤</div>';
+      '<div class="person-photo person-photo--placeholder" aria-hidden="true">👤</div>';
   } catch(err) {
     alert('Erreur : ' + err.message);
   }
 }
 
-// Note 18: saveEdit performs two sequential API calls in order:
-// 1. POST the photo binary (multipart) FIRST so the server has the file path
-//    before the PATCH stores the URL in famille.json.
-// 2. PATCH the text fields; on success the page reloads to pick up new front matter.
 async function saveEdit() {
   const nom          = document.getElementById('edit-nom').value.trim();
   const genre        = document.getElementById('edit-genre').value;
@@ -315,7 +301,6 @@ async function saveEdit() {
   status.style.color = '#666';
 
   try {
-    // 1. Upload photo if selected
     if (photoFile) {
       status.textContent = '📷 Upload de la photo…';
       const fd = new FormData();
@@ -323,8 +308,6 @@ async function saveEdit() {
       const pr = await fetch(`${API}/api/photo/${PERSON_ID}`, { method: 'POST', body: fd });
       if (!pr.ok) throw new Error(`Photo upload HTTP ${pr.status}`);
     }
-
-    // 2. PATCH person data
     status.textContent = '⏳ Enregistrement…';
     const res = await fetch(`${API}/api/person/${PERSON_ID}`, {
       method: 'PATCH',
@@ -332,7 +315,6 @@ async function saveEdit() {
       body: JSON.stringify({ nom, genre, naissance, deces, ville, commentaires }),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
     status.textContent = '✅ Enregistré ! La page va se recharger…';
     status.style.color = '#2e7d32';
     setTimeout(() => location.reload(), 1200);
