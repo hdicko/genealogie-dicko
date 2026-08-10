@@ -224,6 +224,8 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
 /* Note 8: The focus ring (box-shadow with low-opacity primary colour) is used
    instead of the browser default outline so it matches the brand colour while
    remaining visible for keyboard and screen-reader users (accessibility). */
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+
 .home-search {
   max-width: 480px;
   margin: 32px auto 0;
@@ -263,7 +265,8 @@ main.container { padding-top: 32px; padding-bottom: 48px; }
   text-decoration: none;
   color: var(--text);
 }
-#search-results li a:hover { background: #f0f4ff; }
+#search-results li a:hover,
+#search-results li a:focus { background: #f0f4ff; outline: none; box-shadow: 0 0 0 3px rgba(59,89,152,0.08); }
 .no-result { padding: 8px 14px; color: var(--text-muted); font-style: italic; }
 
 /* ---- Person card ---- */

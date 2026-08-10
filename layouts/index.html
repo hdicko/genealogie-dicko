@@ -39,11 +39,12 @@
 
 <section class="home-search">
   <h2>Rechercher une personne</h2>
-  <input type="text" id="search-input" placeholder="Nom, prénom…" autocomplete="off" />
+  <label for="search-input" class="visually-hidden">Rechercher une personne par nom</label>
+  <input type="text" id="search-input" placeholder="Nom, prénom…" autocomplete="off" aria-controls="search-results" aria-label="Rechercher une personne" />
   {{/* Note 3: The <ul> starts empty. JavaScript populates it dynamically on keystroke.
        autocomplete="off" suppresses the browser's built-in suggestion dropdown so
        only our custom results list is shown. */}}
-  <ul id="search-results"></ul>
+  <ul id="search-results" role="listbox" aria-live="polite" aria-label="Résultats de la recherche"></ul>
 </section>
 
 {{/* Note 4: Partials are reusable template fragments stored in layouts/partials/.
@@ -58,6 +59,29 @@ const persons = {{ $publicPersons | jsonify | safeJS }};
 const input = document.getElementById('search-input');
 const results = document.getElementById('search-results');
 
+// Small helper: create an accessible result item
+function makeResultItem(id, p) {
+  const li = document.createElement('li');
+  li.setAttribute('role','option');
+  const a = document.createElement('a');
+  a.href = '/personnes/' + id.toLowerCase() + '/';
+  a.textContent = p.nom + (p.naissance ? ' (' + p.naissance + ')' : '');
+  a.setAttribute('tabindex','-1');
+  li.appendChild(a);
+  return li;
+}
+
+input.addEventListener('keydown', function(e){
+  if (e.key === 'Enter') {
+    // On Enter, if there is an exact match, go to that page; otherwise send to personnes list
+    const q = this.value.trim().toLowerCase();
+    if (!q) return; // nothing to do
+    const exact = Object.entries(persons).find(([id,p]) => p.nom && p.nom.toLowerCase() === q);
+    if (exact) { window.location = '/personnes/' + exact[0].toLowerCase() + '/'; }
+    else { window.location = '/personnes/?q=' + encodeURIComponent(this.value.trim()); }
+  }
+});
+
 // Note 6: 'input' fires on every keystroke (including paste), unlike 'change'
 // which only fires on blur. The 2-character minimum avoids flooding the DOM
 // with results on single-keypress searches.
@@ -70,16 +94,7 @@ input.addEventListener('input', function() {
   const matches = Object.entries(persons)
     .filter(([id, p]) => p.nom && p.nom.toLowerCase().includes(q))
     .slice(0, 10);
-  matches.forEach(([id, p]) => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    // Note 8: Gramps IDs like 'I1' are lowercased in Hugo's URL slugs (/personnes/i1/).
-    // toLowerCase() here ensures the link matches the generated URL.
-    a.href = '/personnes/' + id.toLowerCase() + '/';
-    a.textContent = p.nom + (p.naissance ? ' (' + p.naissance + ')' : '');
-    li.appendChild(a);
-    results.appendChild(li);
-  });
+  matches.forEach(([id, p]) => { results.appendChild(makeResultItem(id,p)); });
   if (matches.length === 0) {
     const li = document.createElement('li');
     li.className = 'no-result';
