@@ -3714,7 +3714,7 @@
               "id": "I503"
             },
             {
-              "nom": "Madio",
+              "nom": "Madio Oumar Dicko",
               "id": "I504"
             }
           ]
@@ -3886,7 +3886,7 @@
           "conjoint_id": "I505",
           "enfants": [
             {
-              "nom": "Hamma Hamma Pathe Ameri Diona",
+              "nom": "Hamma Hammassala",
               "id": "I506"
             }
           ]
@@ -4481,7 +4481,7 @@
               "id": "I503"
             },
             {
-              "nom": "Madio",
+              "nom": "Madio Oumar Dicko",
               "id": "I504"
             }
           ]
@@ -21485,7 +21485,7 @@
     },
     "I504": {
       "gramps_id": "I504",
-      "nom": "Madio",
+      "nom": "Madio Oumar Dicko",
       "genre": "male",
       "naissance": "4 octobre 2012",
       "deces": "",
@@ -21523,7 +21523,7 @@
           "conjoint_id": "I89",
           "enfants": [
             {
-              "nom": "Hamma Hamma Pathe Ameri Diona",
+              "nom": "Hamma Hammassala",
               "id": "I506"
             }
           ]
@@ -21532,7 +21532,7 @@
     },
     "I506": {
       "gramps_id": "I506",
-      "nom": "Hamma Hamma Pathe Ameri Diona",
+      "nom": "Hamma Hammassala",
       "genre": "male",
       "naissance": "",
       "deces": "",
