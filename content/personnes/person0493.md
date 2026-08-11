@@ -10,11 +10,11 @@ photo = ""
 draft = false
 
 [[familles]]
-  conjoint = "Tahirou"
+  conjoint = "Tairou"
   conjoint_id = "I8"
 
   [[familles.enfants]]
-    nom = "Hama Tahirou"
+    nom = "Hama Tairou"
     id = "I100"
 +++
 

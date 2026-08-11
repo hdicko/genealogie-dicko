@@ -1,12 +1,12 @@
 +++
-title = "Inna Bollo"
+title = "Ina Bolo"
 gramps_id = "person0494"
 genre = "female"
 naissance = ""
 deces = ""
 ville = ""
 commentaires = ""
-photo = "/images/personnes/person0494.jpg"
+photo = ""
 draft = false
 
 [[familles]]
@@ -14,4 +14,4 @@ draft = false
   conjoint_id = "I63"
 +++
 
-## Inna Bollo
+## Ina Bolo
