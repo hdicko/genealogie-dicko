@@ -9,10 +9,6 @@ commentaires = ""
 photo = ""
 draft = false
 
-[[fratrie]]
-  nom = "Pathé"
-  id = "I0491"
-
 [[parents]]
   nom = "Ali Nassourou"
   id = "I0489"

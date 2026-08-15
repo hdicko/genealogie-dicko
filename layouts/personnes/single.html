@@ -133,10 +133,11 @@
   {{ end }}
 
   {{ if .Params.commentaires }}
-  <section class="person-section">
-    <h2>Notes</h2>
-    <p class="person-notes">{{ .Params.commentaires }}</p>
-  </section>
+  <div style="margin-bottom: 1rem;">
+    <button class="btn btn-secondary" id="btn-open-notes" onclick="openNotesModal()" aria-haspopup="dialog">
+      📝 Notes
+    </button>
+  </div>
   {{ end }}
 
   <div class="person-actions">
@@ -285,6 +286,39 @@ async function deletePhoto(e) {
   }
 }
 
+// Notes modal management
+function openNotesModal() {
+  const notesOverlay = document.getElementById('modal-notes-overlay');
+  if (notesOverlay) {
+    notesOverlay.style.display = 'flex';
+  }
+}
+
+function closeNotesModal() {
+  const notesOverlay = document.getElementById('modal-notes-overlay');
+  if (notesOverlay) {
+    notesOverlay.style.display = 'none';
+  }
+  const btn = document.getElementById('btn-open-notes');
+  if (btn) btn.focus();
+}
+
+const notesOverlay = document.getElementById('modal-notes-overlay');
+if (notesOverlay) {
+  notesOverlay.addEventListener('click', function(e) {
+    if (e.target === this) closeNotesModal();
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const notesOverlay = document.getElementById('modal-notes-overlay');
+    if (notesOverlay && notesOverlay.style.display === 'flex') {
+      closeNotesModal();
+    }
+  }
+});
+
 async function saveEdit() {
   const nom          = document.getElementById('edit-nom').value.trim();
   const genre        = document.getElementById('edit-genre').value;
@@ -328,4 +362,18 @@ async function saveEdit() {
   }
 }
 </script>
+
+<!-- Modale des notes (commentaires) -->
+<div id="modal-notes-overlay" class="person-edit-overlay" role="dialog" aria-modal="true" aria-labelledby="notes-modal-title" style="display: none;">
+  <div class="person-edit-dialog">
+    <h2 id="notes-modal-title" class="person-edit-title">📝 Notes</h2>
+    <div class="notes-content">
+      {{ .Params.commentaires }}
+    </div>
+    <div class="person-edit-actions" style="margin-top: 1rem;">
+      <button onclick="closeNotesModal()" class="person-edit-button person-edit-button--cancel">Fermer</button>
+    </div>
+  </div>
+</div>
+
 {{ end }}

@@ -662,6 +662,19 @@ img.thumb {
   margin: 0;
 }
 
+.notes-content {
+  background: var(--bg);
+  padding: 1rem;
+  border-radius: 4px;
+  max-height: 400px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
 /* ---- Footer ---- */
 /* Note 14: The footer uses --primary-dark (a darker shade of the header blue)
    to create visual depth while keeping a consistent brand palette. The text
