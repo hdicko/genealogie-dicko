@@ -13932,7 +13932,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Djam Allah",
+          "nom": "Jam Allah",
           "id": "I304",
           "relation": "pere"
         }
@@ -13959,12 +13959,12 @@
     },
     "I304": {
       "gramps_id": "I304",
-      "nom": "Djam Allah",
+      "nom": "Jam Allah",
       "genre": "male",
-      "naissance": "",
+      "naissance": null,
       "deces": "",
-      "ville": "",
-      "commentaires": "Fils de Hammar Bella; premier commandeur connu, pivot du lignage; aurait régné de 1700 à 1720.",
+      "ville": null,
+      "commentaires": null,
       "photo": null,
       "parents": [
         {
@@ -13984,16 +13984,8 @@
               "id": "I303"
             },
             {
-              "nom": "Barke Djam Allah",
+              "nom": "Barke Djam Ala",
               "id": "I306"
-            },
-            {
-              "nom": "Sire Djam Allah",
-              "id": "I9999"
-            },
-            {
-              "nom": "Aly Djam Allah",
-              "id": "I10000"
             }
           ]
         }
@@ -14017,7 +14009,7 @@
           "conjoint_id": null,
           "enfants": [
             {
-              "nom": "Djam Allah",
+              "nom": "Jam Allah",
               "id": "I304"
             }
           ]
@@ -14027,16 +14019,16 @@
     },
     "I306": {
       "gramps_id": "I306",
-      "nom": "Barke Djam Allah",
+      "nom": "Barke Djam Ala",
       "genre": "male",
-      "naissance": "",
-      "deces": "",
-      "ville": "",
-      "commentaires": "",
+      "naissance": null,
+      "deces": null,
+      "ville": null,
+      "commentaires": null,
       "photo": null,
       "parents": [
         {
-          "nom": "Djam Allah",
+          "nom": "Jam Allah",
           "id": "I304",
           "relation": "pere"
         }
@@ -14061,46 +14053,6 @@
       ],
       "html_file": "ppl/a/d/ad758a324b42d2bedc0.html"
     },
-    "I9999": {
-      "gramps_id": "I9999",
-      "nom": "Sire Djam Allah",
-      "genre": "male",
-      "naissance": "1720",
-      "deces": "1740",
-      "ville": "",
-      "commentaires": "Règne 1720–1740 (après Djam Allah)",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Djam Allah",
-          "id": "I304",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": [],
-      "html_file": ""
-    },
-    "I10000": {
-      "gramps_id": "I10000",
-      "nom": "Aly Djam Allah",
-      "genre": "male",
-      "naissance": "1740",
-      "deces": "1760",
-      "ville": "",
-      "commentaires": "Règne 1740–1760",
-      "photo": null,
-      "parents": [
-        {
-          "nom": "Djam Allah",
-          "id": "I304",
-          "relation": "pere"
-        }
-      ],
-      "fratrie": [],
-      "familles": [],
-      "html_file": ""
-    },
     "I307": {
       "gramps_id": "I307",
       "nom": "Gogo Hamadi",
@@ -14114,7 +14066,7 @@
       "fratrie": [],
       "familles": [
         {
-          "conjoint": "Barke Djam Allah",
+          "conjoint": "Barke Djam Ala",
           "conjoint_id": "I306",
           "enfants": [
             {
@@ -14137,7 +14089,7 @@
       "photo": null,
       "parents": [
         {
-          "nom": "Barke Djam Allah",
+          "nom": "Barke Djam Ala",
           "id": "I306",
           "relation": "pere"
         },
@@ -21834,5 +21786,5 @@
       "html_file": ""
     }
   },
-  "total": 519
+  "total": 517
 }
