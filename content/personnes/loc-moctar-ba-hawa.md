@@ -1,23 +1,18 @@
 +++
 title = "Hawa"
-gramps_id = "I831"
+gramps_id = "LOC-MOCTAR-BA-HAWA"
 genre = "female"
 naissance = ""
 deces = ""
 ville = ""
-commentaires = ""
+commentaires = "Profil local sans ID Gramps."
 photo = ""
 draft = false
 
 [[parents]]
-  nom = "Amadou (Ameri)"
-  id = "I144"
+  nom = "Hamady"
+  id = "PAPA-DE-MOCTAR"
   relation = "pere"
-
-[[parents]]
-  nom = "Fata"
-  id = "I9"
-  relation = "mere"
 +++
 
 ## Hawa

@@ -6,7 +6,7 @@ naissance = ""
 deces = ""
 ville = ""
 commentaires = ""
-photo = ""
+photo = "/images/personnes/person0494.jpg"
 draft = false
 
 [[familles]]

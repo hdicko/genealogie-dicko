@@ -1,23 +1,18 @@
 +++
 title = "Mamoudou"
-gramps_id = "I830"
+gramps_id = "LOC-MOCTAR-BA-MAMOUDOU"
 genre = "male"
 naissance = ""
 deces = ""
 ville = ""
-commentaires = ""
+commentaires = "Profil local sans ID Gramps."
 photo = ""
 draft = false
 
 [[parents]]
-  nom = "Amadou (Ameri)"
-  id = "I144"
+  nom = "Hamady"
+  id = "PAPA-DE-MOCTAR"
   relation = "pere"
-
-[[parents]]
-  nom = "Fata"
-  id = "I9"
-  relation = "mere"
 +++
 
 ## Mamoudou
